@@ -7,7 +7,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 const Header = () => {
   return (
    <div className='home-banner'>
-      
+
     <div className="outer-wraper">
       <div className="inner-wraper">
         <div className="container">

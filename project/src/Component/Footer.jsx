@@ -16,15 +16,13 @@ const Footer = () => {
                   <li><a href="#">Rolls</a></li>
                   <li><a href="#">Reels</a></li>
                   <li><a href="#">Cardboards</a></li>
-                  <li><a href="#">Shipping Boxes</a></li>
-                  <li><a href="#">Eco Shipping Boxes</a></li>
+                  
                 </ul>
               </div>
               <div className="col-lg-4">
                 <h5>Company</h5>
                 <ul>
                   <li><a href="#">About Us</a></li>
-                  <li><a href="#">Accessibility</a></li>
                   <li><a href="#">Privacy Policy</a></li>
                   <li><a href="#">Terms & Conditions</a></li>
                 </ul>
@@ -35,7 +33,6 @@ const Footer = () => {
                   <li><a href="#">FAQs</a></li>
                   <li><a href="#">Contact Us</a></li>
                   <li><a href="#">Request a Quote</a></li>
-                  <li><a href="#">Customer Support</a></li>
                 </ul>
               </div>
             </div>
