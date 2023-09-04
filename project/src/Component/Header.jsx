@@ -1,4 +1,3 @@
-// import '../Css/Components.css' 
 import headerImg from '../../public/img/header_image.png'
 import brands from '../../public/img/trusted_by 1.svg'
 import Button from 'react-bootstrap/Button';

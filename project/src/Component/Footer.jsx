@@ -1,5 +1,4 @@
 import footerImg from '../../public/img/footer-logo.svg'
-import '../Css/Components.css' 
 const Footer = () => {
   return (
     <footer className="footer">
