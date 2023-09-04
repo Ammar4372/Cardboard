@@ -151,6 +151,7 @@ header .search-box{
 }
 header .search-area .btn{
   border:none;
+
 }
 
 header .search-area .close-btn{
@@ -597,6 +598,11 @@ color: #F7744F;
     min-height: 320px;
 }
 
+.btn:first-child:active,
+.btn:first-child:hover{
+    background-color: transparent;
+
+}
 .products-type  .hover-contant {
     opacity: 0;
     visibility: hidden;
