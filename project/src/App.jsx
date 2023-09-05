@@ -15,6 +15,7 @@ const appRouter = createBrowserRouter(
     <Route path="/" element={<Root />}>
       <Route index element={<IndexPage />} />
       <Route path="/CardBoard" element={<CardBoardPage/>}/>
+       {/* <Route index element={<CardBoardPage />} /> */}
     </Route>
   )
 );
