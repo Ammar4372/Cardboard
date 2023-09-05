@@ -1,14 +1,14 @@
-.box-inspirations{
-    padding: 3rem 0;
+.box-inspirations {
+  padding: 3rem 0;
 }
 
-.box-inspirations .lg-img img{
-    height: 500px;
-    object-fit: cover;
-    margin-top: 20px;
+.box-inspirations .lg-img img {
+  height: 500px;
+  object-fit: cover;
+  margin-top: 20px;
 }
-.box-inspirations .sm-img img{
-    height: 240px;
-    object-fit: cover;
-    margin-top: 20px;
+.box-inspirations .sm-img img {
+  height: 240px;
+  object-fit: cover;
+  margin-top: 20px;
 }
