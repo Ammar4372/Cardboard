@@ -1,25 +1,25 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './Component/Header';
-import './App.css'
-import PaymentBanner from './Component/PaymentBanner';
-import Footer from './Component/Footer';
-import OurProducts from './Component/Our-Products/OurProducts';
-import OurPeople from './Component/Our-People/OurPeople'
-import BoxInspiration from './Component/BoxInspirations/BoxInspirations'
-import Nav from './Component/Navbar/Nav';
-function App() {
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+  Route,
+} from "react-router-dom";
 
-  return (
-    <>
-    <Nav/>
-    <Header/>
-    <OurProducts/>
-    <OurPeople/>
-    <BoxInspiration/>
-    <PaymentBanner/>
-    <Footer/>
-    </>
+import IndexPage from "./Pages/IndexPage";
+import Root from "./Component/Root";
+import CardBoardPage from "./Pages/CardBoardPage";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+const appRouter = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Root />}>
+      <Route index element={<IndexPage />} />
+      <Route path="/CardBoard" element={<CardBoardPage/>}/>
+    </Route>
   )
+);
+function App() {
+  return <RouterProvider router={appRouter} />;
 }
 
-export default App
+export default App;
