@@ -32,6 +32,8 @@ function Nav() {
                       { url: "/CardBoard", title: "CardBoard" },
                       { url: "/Reel", title: "Reels" },
                       { url: "/Roll", title: "Rolls" },
+                      { url: "/ProductDisplay", title: "ProductDisplay" },
+                      { url: "/RequestQute", title: "Request-Qute" },
                     ]}
                   />
                 </li>

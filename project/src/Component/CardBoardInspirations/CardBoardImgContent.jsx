@@ -1,11 +1,3 @@
-const images = [
-  { src: "img/cardboard_inspiration_small_1.png" },
-  { src: "img/cardboard_inspiration_small_2.png" },
-  { src: "img/cardboard_inspiration_big_1.png" },
-  { src: "img/cardboard_inspiration_big_2.png" },
-  { src: "img/cardboard_inspiration_small_3.png" },
-  { src: "img/cardboard_inspiration_small_4.png" },
-];
 function CardBoardImgContent() {
   return (
     <>

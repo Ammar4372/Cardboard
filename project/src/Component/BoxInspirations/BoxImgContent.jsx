@@ -1,4 +1,4 @@
-const BoxImgContent = ({images}) => {
+const BoxImgContent = () => {
   return (
     <>
       <div className="row">

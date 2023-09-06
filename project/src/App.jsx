@@ -13,6 +13,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import ReelsPage from "./Pages/ReelsPage";
 import RollsPage from "./Pages/RollsPage";
+import ProductDisplay from "./Pages/ProductDisplay";
+import RequestQute from "./Pages/RequestQute"
 const appRouter = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
@@ -21,6 +23,8 @@ const appRouter = createBrowserRouter(
       <Route path="/Cart" element={<ShoppingCart />} />
       <Route path="/Reel" element={<ReelsPage />} />
       <Route path="/Roll" element={<RollsPage/>} />
+      <Route path="/ProductDisplay" element={<ProductDisplay/>}></Route>
+      <Route path="/RequestQute" element={<RequestQute/>}></Route>
     </Route>
   )
 );
