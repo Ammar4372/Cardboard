@@ -1,19 +1,29 @@
-import Dropdown from "react-bootstrap/Dropdown";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
-function List({ header }) {
+function List({ header, items }) {
+  const [show, setShow] = useState(false);
   return (
-    <Dropdown>
-      <Dropdown.Toggle className="nav-link" id="dropdown-basic">
+    <>
+      <button
+        className="nav-link dropdown-toggle"
+        aria-expanded={show ? "true" : "false"}
+        onClick={() => setShow((prev) => !prev)}
+      >
         {header}
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu>
-        <Dropdown.Item href="/CardBoard">Action</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-        <Dropdown.Divider />
-        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+      </button>
+      <ul className="dropdown-menu">
+        {items.map((item, index) => {
+          return (
+            <li key={index}>
+              <Link className="dropdown-item" to={item.url}>
+                {item.title}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
 }
 

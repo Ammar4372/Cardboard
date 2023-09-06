@@ -53,20 +53,20 @@ const Cards = [
       "Local Kraft Roll, 30 lbs (Pack of 6) - Quality Paper for Packing, Moving, Shipping, Crafts - 100% Recyclable Natural Kraft Wrapping Paper",
     name: "Fluting Roll",
     minOrder: 300,
-    img: "img/cardboard_product_8.png",
+    img: "img/cardboard_product_6.png",
   },
 ];
-function Card() {
+function Card({title}) {
   return (
     <>
       <section className="products-type">
         <div className="container">
-          <h1 className="heading">Types of Cardboards</h1>
+          <h1 className="heading">{title}</h1>
           <div className="row">
-            {Cards.map((card) => {
+            {Cards.map((card,index) => {
               return (
                 <>
-                  <div className="col-lg-3 col-container">
+                  <div key={`Card-${index}`} className="col-lg-3 col-container">
                     <div className="card">
                       <span className="bage">CUSTOMISABLE</span>
                       <div className="card-body">
