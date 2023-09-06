@@ -8,13 +8,12 @@ import Nav from "../Component/Navbar/Nav";
 const Home = () => {
   return (
     <>
-      <Nav />
+     
       <Header />
       <OurProducts />
       <OurPeople />
       <BoxInspiration />
-      <PaymentBanner />
-      <Footer />
+      
     </>
   );
 };
