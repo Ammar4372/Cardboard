@@ -51,15 +51,9 @@ const Cards = [
   {
     hoverContent:
       "Local Kraft Roll, 30 lbs (Pack of 6) - Quality Paper for Packing, Moving, Shipping, Crafts - 100% Recyclable Natural Kraft Wrapping Paper",
-<<<<<<< HEAD
-    name: "Fluting Roll",
-    minOrder: 300,
-    img: "img/cardboard_product_6.png",
-=======
     name: "Tray Box",
     minOrder: 1000,
     img: "img/cardboard_product_1.png",
->>>>>>> origin/main
   },
 ];
 function Card({title}) {
