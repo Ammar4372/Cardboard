@@ -1,12 +1,12 @@
 function Reel() {
   return (
     <>
-      <section class="box-inspirations">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-10 mx-auto">
-              <h1 class="heading"> Reels Usage</h1>
-              <p class="section-disc">
+      <section className="box-inspirations">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-10 mx-auto">
+              <h1 className="heading"> Reels Usage</h1>
+              <p className="section-disc">
                 At the heart of our packaging solutions lies the versatile and
                 dynamic roll. Our expertise in roll-based packaging allows us to
                 provide practical solutions for all kinds of businesses. Whether
@@ -18,50 +18,50 @@ function Reel() {
               </p>
             </div>
           </div>
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="row">
-                <div class="col-6">
-                  <div class="img-wraper sm-img">
+          <div className="row">
+            <div className="col-lg-6">
+              <div className="row">
+                <div className="col-6">
+                  <div className="img-wraper sm-img">
                     <img
-                      class="img-fluid w-100 "
+                      className="img-fluid w-100 "
                       src="/img/reels_usage_small_1.png"
                     />
                   </div>
                 </div>
-                <div class="col-6">
-                  <div class="img-wraper sm-img">
+                <div className="col-6">
+                  <div className="img-wraper sm-img">
                     <img
-                      class="img-fluid w-100 "
+                      className="img-fluid w-100 "
                       src="/img/reels_usage_small_2.png"
                     />
                   </div>
                 </div>
               </div>
-              <div class="img-wraper lg-img">
+              <div className="img-wraper lg-img">
                 <img
-                  class="img-fluid w-100 "
+                  className="img-fluid w-100 "
                   src="/img/reels_usage_big_1.png"
                 />
               </div>
             </div>
-            <div class="col-lg-6">
-              <div class="img-wraper lg-img">
-                <img class="img-fluid w-100" src="/img/reels_usage_big_2.png" />
+            <div className="col-lg-6">
+              <div className="img-wraper lg-img">
+                <img className="img-fluid w-100" src="/img/reels_usage_big_2.png" />
               </div>
-              <div class="row">
-                <div class="col-6">
-                  <div class="img-wraper sm-img">
+              <div className="row">
+                <div className="col-6">
+                  <div className="img-wraper sm-img">
                     <img
-                      class="img-fluid w-100 "
+                      className="img-fluid w-100 "
                       src="/img/reels_usage_small_3.png"
                     />
                   </div>
                 </div>
-                <div class="col-6">
-                  <div class="img-wraper sm-img">
+                <div className="col-6">
+                  <div className="img-wraper sm-img">
                     <img
-                      class="img-fluid w-100 "
+                      className="img-fluid w-100 "
                       src="/img/reels_usage_small_4.png"
                     />
                   </div>

@@ -1,11 +1,19 @@
-import Card from "../Component/Card/Card.jsx";
-import CardBoardInspiration from "../Component/CardBoardInspirations/CardBoardInspiration.jsx";
+import Merge from '../Component/Cardboard/Merge'
+import Footer from "../Component/Footer";
+import PaymentBanner from "../Component/PaymentBanner";
+import Nav from "../Component/Navbar/Nav";
+import Card from '../Component/Card/Card'
+import CardBoardInspirations from '../Component/CardBoardInspirations/CardBoardInspiration'
 function CardBoardPage() {
-  return (
-    <>
-      <Card title="Types of Cardboards"/>
-      <CardBoardInspiration />
-    </>
-  );
+    return (
+        <>
+        <Nav/>
+        <Merge/>
+        <Card/>
+        <CardBoardInspirations/>
+        <PaymentBanner/>
+        <Footer/>
+        </>
+    )
 }
 export default CardBoardPage;
