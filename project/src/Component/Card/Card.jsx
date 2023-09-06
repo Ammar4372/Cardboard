@@ -56,17 +56,17 @@ const Cards = [
     img: "img/cardboard_product_1.png",
   },
 ];
-function Card() {
+function Card({title}) {
   return (
     <>
       <section className="products-type">
         <div className="container">
-          <h1 className="heading">Types of Cardboards</h1>
+          <h1 className="heading">{title}</h1>
           <div className="row">
-            {Cards.map((card) => {
+            {Cards.map((card,index) => {
               return (
                 <>
-                  <div className="col-lg-3 col-container">
+                  <div key={`Card-${index}`} className="col-lg-3 col-container">
                     <div className="card">
                       <span className="bage">CUSTOMISABLE</span>
                       <div className="card-body">

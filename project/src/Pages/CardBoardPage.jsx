@@ -7,12 +7,11 @@ import CardBoardInspirations from '../Component/CardBoardInspirations/CardBoardI
 function CardBoardPage() {
     return (
         <>
-        <Nav/>
+       
         <Merge/>
         <Card/>
         <CardBoardInspirations/>
-        <PaymentBanner/>
-        <Footer/>
+        
         </>
     )
 }

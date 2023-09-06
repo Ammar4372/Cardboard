@@ -1,15 +1,14 @@
-// import Logo from "img/logo.svg";
-// import Cart from "img/cart.svg";
 import List from "./Dropdown";
+import { Link } from "react-router-dom";
 function Nav() {
   return (
     <>
       <header>
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">
+            <Link className="navbar-brand" to='/'>
               <img src="img/logo.svg" />
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -27,7 +26,14 @@ function Nav() {
             >
               <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li className="nav-item dropdown">
-                  <List header="Products" />
+                  <List
+                    header="Products"
+                    items={[
+                      { url: "/CardBoard", title: "CardBoard" },
+                      { url: "/Reel", title: "Reels" },
+                      { url: "/Roll", title: "Rolls" },
+                    ]}
+                  />
                 </li>
 
                 <li className="nav-item">
@@ -39,7 +45,13 @@ function Nav() {
                   </a>
                 </li>
                 <li className="nav-item dropdown">
-                  <List header="Company" />
+                  <List
+                    header="Company"
+                    items={[
+                      { url: "", title: "CardBoard" },
+                      { url: "", title: "CardBoard" },
+                    ]}
+                  />
                 </li>
               </ul>
               <form className="user-area">
@@ -60,8 +72,10 @@ function Nav() {
                   </div>
                 </div>
                 <div className="cart-btn">
-                  <img src="img/cart.svg" />
-                  <span>1</span>
+                  <Link to='/Cart'>
+                    <img src="img/cart.svg" />
+                    <span>1</span>
+                  </Link>
                 </div>
                 <div className="sign-in">
                   <a href="#">Sign In</a>
