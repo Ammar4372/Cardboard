@@ -7,7 +7,7 @@ const MainDisplay = () => {
       <section className="shipping-cart">
         <div className="container">
           <div className="innter-header">
-            <h1 className="heading">Shopping Cart</h1>
+            <h1 className="heading">Shipping Cart</h1>
           </div>
           <div className="row">
             <div className="col-lg-8 mt-4">

@@ -110,34 +110,8 @@ const StandardSize = () => {
             </div>
           </div>
         </div>
-
-        <div className="row design-option">
-          <div className="col-lg-6">
-            <h6>
-              Already using our <a href="#">designing tool?</a>
-            </h6>
-            <button className="btn-brnad w-100" style={{marginLeft: '50%'}}> Add to Card</button>
-          </div>
-          <div className="col-lg-6">
-            <h6>Ready to design your box online?</h6>
-            {/* <button className="btn-brnad w-100">DESIGN NOW</button> */}
-          </div>
-        </div>
-
-        <div className="form-footer">
-          <p>
-            Can’t find what you’re looking for?{" "}
-            <a href="#">Get a Custom Quote</a>
-          </p>
-        </div>
       </div>
 
-      <div
-        className="tab-pane fade"
-        id="pills-profile"
-        role="tabpanel"
-        aria-labelledby="pills-profile-tab"
-      ></div>
     </>
   );
 };

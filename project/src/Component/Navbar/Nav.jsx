@@ -35,6 +35,7 @@ function Nav() {
                       { url: "/ProductDisplay", title: "ProductDisplay" },
                       { url: "/RequestQute", title: "Request-Qute" },
                       {url : '/ShippingCart', title: 'ShippingCart'},
+                      {url : '/Checkout', title: 'Checkout'},
                      
                     ]}
                   />
