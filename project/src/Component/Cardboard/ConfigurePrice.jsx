@@ -30,13 +30,14 @@ const ConfigurePrice = () => {
                     className="form-select"
                     aria-label="Default select example"
                     onChange={(e) => setMaterial(e.target.value)}
+                    value={material}
                   >
                     <option value="Dream Coat">Dream Coat</option>
                     <option value="White Coat">White Coat</option>
                     <option value="Kraft Coat">Kraft Coat</option>
                     
 
-                    {console.log(material)}
+                    
                   </select>
                 </div>
               </div>
@@ -56,13 +57,14 @@ const ConfigurePrice = () => {
                   className="form-select"
                   aria-label="Default select example"
                   onChange={(e) => setThickness(e.target.value)}
+                  value={thickness}
                 >
-                  <option value= '3'selected>3 ply</option>
+                  <option value= '3'>3 ply</option>
                   <option value="5">5 ply</option>
                   <option value="7">7 ply</option>
                   
                 </select>
-                {console.log(thickness)}
+               
               
 
                 </div>

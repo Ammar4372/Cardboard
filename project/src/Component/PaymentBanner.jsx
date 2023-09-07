@@ -1,4 +1,4 @@
-import paymentImgs from "../../public/img/payment_methods.png";
+import paymentImgs from "/img/payment_methods.png";
 const PaymentBanner = () => {
   return (
     <div className="payment-method">

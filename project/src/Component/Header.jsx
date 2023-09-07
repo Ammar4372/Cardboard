@@ -1,5 +1,5 @@
-import headerImg from "../../public/img/header_image.png";
-import brands from "../../public/img/trusted_by 1.svg";
+import headerImg from "/img/header_image.png";
+import brands from "/img/trusted_by 1.svg";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";

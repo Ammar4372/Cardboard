@@ -9,7 +9,6 @@ const CustomeSize = () => {
   const [printedSides, setPrintedSides] = useState();
 
   const check = () => {
-    
     // if(length <= 0 && width <= 0 && depth <=0 ) {
     //     Swal.fire({
     //         title: " L W D Fields are Improper?",
@@ -19,7 +18,6 @@ const CustomeSize = () => {
     //         confirmButtonColor: "#3085d6",
     //         cancelButtonColor: "#d33",
     //       });
-    //       console.log("Checked")
     // }
   };
   return (
@@ -30,22 +28,23 @@ const CustomeSize = () => {
           <h6>Length:</h6>
         </div>
         <div className="col-lg-8">
-        
-        <div className="form-group" style={{border:'none'}}>
-        <input
-            className="form-control"
+          <div className="form-group" style={{ border: "none" }}>
+            <input
+              className="form-control"
               type="text"
               id="integerInput"
               placeholder="0"
               value={length}
               onChange={(e) => setLength(e.target.value)}
-              style={{ width: "100%" , border: 'none', borderBottom:"1px solid black"}}
+              style={{
+                width: "100%",
+                border: "none",
+                borderBottom: "1px solid black",
+              }}
               required
             />
+          </div>
         </div>
-           
-            {console.log(length)}
-                </div>
       </div>
 
       {/* Width */}
@@ -54,23 +53,24 @@ const CustomeSize = () => {
           <h6>Width:</h6>
         </div>
         <div className="col-lg-8">
-        
-        <div className="form-group" style={{border:'none'}}>
-        <input
-        className="form-control"
+          <div className="form-group" style={{ border: "none" }}>
+            <input
+              className="form-control"
               type="text"
               id="integerInput"
               placeholder="0"
               value={width}
               onChange={(e) => setWidth(e.target.value)}
-              style={{ width: "100%" , border: 'none', borderBottom:"1px solid black"}}
+              style={{
+                width: "100%",
+                border: "none",
+                borderBottom: "1px solid black",
+              }}
             />
-
-        </div>
-                        {console.log(width)}
           </div>
+         
         </div>
-      
+      </div>
 
       {/* Depth */}
       <div className="row">
@@ -78,23 +78,25 @@ const CustomeSize = () => {
           <h6>Depth:</h6>
         </div>
         <div className="col-lg-8">
-         
-         <div  className="form-group" style={{border:'none'}}>
-         <input
-             className="form-control"
+          <div className="form-group" style={{ border: "none" }}>
+            <input
+              className="form-control"
               type="text"
               id="integerInput"
               placeholder="0"
               value={depth}
               onChange={(e) => setDepth(e.target.value)}
-              style={{ width: "98%" , border: 'none', borderBottom:"1px solid black"}}
+              style={{
+                width: "98%",
+                border: "none",
+                borderBottom: "1px solid black",
+              }}
             />
-         </div>
-
-            {console.log(depth)}
           </div>
+
+          
         </div>
-      
+      </div>
 
       <div className="row">
         <div className="col-lg-4">
@@ -116,7 +118,7 @@ const CustomeSize = () => {
               <option value="1">Bottom (1 Sides)</option>
               <option value="2">Top/Bottom Both (2 Sides)</option>
             </select>
-            {console.log(printedSides)}
+           
           </div>
         </div>
       </div>
@@ -138,7 +140,7 @@ const CustomeSize = () => {
               <option value="2">Two</option>
               <option value="3">Three</option>
             </select>
-            {console.log(quantity)}
+            
           </div>
         </div>
       </div>
