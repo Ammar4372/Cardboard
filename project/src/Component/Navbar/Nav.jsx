@@ -34,6 +34,8 @@ function Nav() {
                       { url: "/Roll", title: "Rolls" },
                       { url: "/ProductDisplay", title: "ProductDisplay" },
                       { url: "/RequestQute", title: "Request-Qute" },
+                      {url : '/ShippingCart', title: 'ShippingCart'},
+                     
                     ]}
                   />
                 </li>
@@ -74,7 +76,7 @@ function Nav() {
                   </div>
                 </div>
                 <div className="cart-btn">
-                  <Link to='/Cart'>
+                  <Link to='/Product-Details'>
                     <img src="img/cart.svg" />
                     <span>1</span>
                   </Link>

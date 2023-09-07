@@ -1,9 +1,9 @@
 import Cart from "../Component/Cart/Cart";
-function ShoppingCart() {
+function ProductDetails() {
   return (
     <>
       <Cart />
     </>
   );
 }
-export default ShoppingCart;
+export default ProductDetails;
