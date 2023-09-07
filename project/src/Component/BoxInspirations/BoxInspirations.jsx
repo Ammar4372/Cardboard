@@ -1,19 +1,25 @@
-import DetailViewer from "../detailViewers/DetailViewer";
-import BoxImgContent from "./BoxImgContent";
+import ImgGrid from "../ImgGrid/ImgGrid";
 
-import "./boxInspirations.css";
 
-const BoxInspirations = () => {
-  const p =
-    "Our mission is to provide packaging solutions that cater to businesses of all types. Whether you require custom retail packaging with your logo or corrugated cardboard mailers for your ecommerce business, we offer plenty of inspiration to help you create unique and personalized product packaging that fits your needs.";
+const BoxInspirations = ({title,disc,images}) => {
+ 
   return (
     <>
       <section className="box-inspirations">
-        <DetailViewer
-          heading={"Box Inspirations"}
-          secDisc={p}
-          content={<BoxImgContent />}
-        />
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-10 mx-auto">
+              <h1 className="heading">{title}</h1>
+              <p className="section-disc">
+                {disc}
+              </p>
+            </div>
+          </div>
+          <div className="grid">
+            <ImgGrid images={images.slice(0, 3)} start={1} />
+            <ImgGrid images={images.slice(3, 6).reverse()} start={4} />
+          </div>
+        </div>
       </section>
     </>
   );

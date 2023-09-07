@@ -1,7 +1,6 @@
 import DetailViewer from "../detailViewers/DetailViewer";
 import ImgContent from "./ImgContent";
 
-import "./ourPeople.css";
 
 const OurPeople = () => {
   const p =

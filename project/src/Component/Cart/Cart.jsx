@@ -44,14 +44,14 @@ function Cart() {
               </div>
               <div className="flex-info">
                 <h5>Quantity</h5>
-                <input type="text" className="form-control" value="16" name="" />
+                <input type="text" className="form-control" name="" />
               </div>
               <div>
                 <a className="action-btn" href="#">
-                  <FontAwesomeIcon icon={faTrashCan}/> Remove
+                  <FontAwesomeIcon icon={faTrashCan} /> Remove
                 </a>
                 <a className="action-btn" href="#">
-                  <FontAwesomeIcon icon={faPencil}/> Edit Design
+                  <FontAwesomeIcon icon={faPencil} /> Edit Design
                 </a>
               </div>
             </div>

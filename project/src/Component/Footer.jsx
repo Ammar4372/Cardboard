@@ -1,4 +1,4 @@
-import footerImg from "../../public/img/footer-logo.svg";
+import footerImg from "/img/footer-logo.svg";
 const Footer = () => {
   return (
     <footer className="footer">
