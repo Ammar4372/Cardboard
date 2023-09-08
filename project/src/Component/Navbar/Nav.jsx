@@ -6,7 +6,7 @@ function Nav() {
       <header>
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
-            <Link className="navbar-brand" to='/'>
+            <Link className="navbar-brand" to="/">
               <img src="img/logo.svg" />
             </Link>
             <button
@@ -29,14 +29,13 @@ function Nav() {
                   <List
                     header="Products"
                     items={[
-                      { url: "/CardBoard", title: "CardBoard" },
+                      { url: "/Cardboards", title: "CardBoard" },
                       { url: "/Reel", title: "Reels" },
                       { url: "/Roll", title: "Rolls" },
                       { url: "/ProductDisplay", title: "ProductDisplay" },
                       { url: "/RequestQute", title: "Request-Qute" },
-                      {url : '/ShippingCart', title: 'ShippingCart'},
-                      {url : '/Checkout', title: 'Checkout'},
-                     
+                      { url: "/ShippingCart", title: "ShippingCart" },
+                      { url: "/Checkout", title: "Checkout" },
                     ]}
                   />
                 </li>
@@ -77,7 +76,7 @@ function Nav() {
                   </div>
                 </div>
                 <div className="cart-btn">
-                  <Link to='/Product-Details'>
+                  <Link to="/Product-Details">
                     <img src="img/cart.svg" />
                     <span>1</span>
                   </Link>

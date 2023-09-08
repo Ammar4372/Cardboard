@@ -1,25 +1,30 @@
 // import Swal from "sweetalert2";
 
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectConfig,
+  setDepth,
+  setLength,
+  setPrintedSides,
+  setQuantity,
+  setWidth,
+} from "../../Pages/CardBoardPage/CardBoardSlice";
 const CustomeSize = () => {
-  const [length, setLength] = useState();
-  const [width, setWidth] = useState();
-  const [depth, setDepth] = useState();
-  const [quantity, setQuantity] = useState();
-  const [printedSides, setPrintedSides] = useState();
-
-  const check = () => {
-    // if(length <= 0 && width <= 0 && depth <=0 ) {
-    //     Swal.fire({
-    //         title: " L W D Fields are Improper?",
-    //         text: "Provide proper Data!",
-    //         icon: "warning",
-    //         showCancelButton: true,
-    //         confirmButtonColor: "#3085d6",
-    //         cancelButtonColor: "#d33",
-    //       });
-    // }
-  };
+  const config = useSelector(selectConfig);
+  const dispatch = useDispatch();
+  // const check = () => {
+  // if(length <= 0 && width <= 0 && depth <=0 ) {
+  //     Swal.fire({
+  //         title: " L W D Fields are Improper?",
+  //         text: "Provide proper Data!",
+  //         icon: "warning",
+  //         showCancelButton: true,
+  //         confirmButtonColor: "#3085d6",
+  //         cancelButtonColor: "#d33",
+  //       });
+  // }
+  // };
   return (
     <>
       {/* Length */}
@@ -34,8 +39,8 @@ const CustomeSize = () => {
               type="text"
               id="integerInput"
               placeholder="0"
-              value={length}
-              onChange={(e) => setLength(e.target.value)}
+              value={config.dimension.length}
+              onChange={(e) => dispatch(setLength(e.target.value))}
               style={{
                 width: "100%",
                 border: "none",
@@ -59,8 +64,8 @@ const CustomeSize = () => {
               type="text"
               id="integerInput"
               placeholder="0"
-              value={width}
-              onChange={(e) => setWidth(e.target.value)}
+              value={config.dimension.width}
+              onChange={(e) => dispatch(setWidth(e.target.value))}
               style={{
                 width: "100%",
                 border: "none",
@@ -68,7 +73,6 @@ const CustomeSize = () => {
               }}
             />
           </div>
-         
         </div>
       </div>
 
@@ -84,8 +88,8 @@ const CustomeSize = () => {
               type="text"
               id="integerInput"
               placeholder="0"
-              value={depth}
-              onChange={(e) => setDepth(e.target.value)}
+              value={config.dimension.depth}
+              onChange={(e) => dispatch(setDepth(e.target.value))}
               style={{
                 width: "98%",
                 border: "none",
@@ -93,8 +97,6 @@ const CustomeSize = () => {
               }}
             />
           </div>
-
-          
         </div>
       </div>
 
@@ -107,9 +109,10 @@ const CustomeSize = () => {
             <select
               className="form-select"
               aria-label="Default select example"
-              onChange={(e) => setPrintedSides(e.target.value)}
+              onChange={(e) => dispatch(setPrintedSides(e.target.value))}
+              value={config.printedSides}
             >
-              <option selected value="4">
+              <option value="4">
                 Outside (4 Sides)
               </option>
               <option value="4">Inside (4 Sides)</option>
@@ -118,7 +121,6 @@ const CustomeSize = () => {
               <option value="1">Bottom (1 Sides)</option>
               <option value="2">Top/Bottom Both (2 Sides)</option>
             </select>
-           
           </div>
         </div>
       </div>
@@ -133,14 +135,14 @@ const CustomeSize = () => {
             <select
               className="form-select"
               aria-label="Default select example"
-              onChange={(e) => setQuantity(e.target.value)}
+              onChange={(e) => dispatch(setQuantity(e.target.value))}
+              value={config.quantity}
             >
               <option selected value='500'>500</option>
               <option value="1000">1000</option>
               <option value="1500">1500</option>
               <option value="2000">2000</option>
             </select>
-            
           </div>
         </div>
       </div>

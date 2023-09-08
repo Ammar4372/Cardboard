@@ -1,8 +1,22 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function List({ header, items }) {
+  const ref = useRef();
   const [show, setShow] = useState(false);
+  useEffect(() => {
+    const handler = (e) => {
+      if (show && !ref.current.contains(e.target)) {
+        setShow(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
+    };
+  }, [show]);
   return (
     <>
       <button
@@ -12,10 +26,10 @@ function List({ header, items }) {
       >
         {header}
       </button>
-      <ul className="dropdown-menu">
+      <ul className="dropdown-menu" ref={ref}>
         {items.map((item, index) => {
           return (
-            <li key={index}>
+            <li key={index} onClick={() => setShow(false)}>
               <Link className="dropdown-item" to={item.url}>
                 {item.title}
               </Link>

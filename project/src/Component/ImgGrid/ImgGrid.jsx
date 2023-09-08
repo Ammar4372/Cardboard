@@ -1,7 +1,7 @@
 function ImgGrid({ images, start }) {
   return (
     <>
-      <div key={`img-${start}`} className="inner-grid">
+      <div  className="inner-grid">
         {images.map((image, index) => {
           return (
             <>
@@ -9,7 +9,7 @@ function ImgGrid({ images, start }) {
                 key={`img-${index + start}`}
                 className={`img-${index + start}`}
               >
-                {index == 2 || index == 3 ? (
+                {index == 2 ? (
                   <>
                     <div className="img-wraper lg-img">
                       <img className="img-fluid w-100 " src={image.src} />

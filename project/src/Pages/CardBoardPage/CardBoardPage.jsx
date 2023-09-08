@@ -1,7 +1,6 @@
-import Merge from "../Component/Cardboard/Merge";
-
-import Card from "../Component/Card/Card";
-import BoxInspirations from "../Component/BoxInspirations/BoxInspirations";
+import Merge from "../../Component/Cardboard/Merge";
+import Card from "../../Component/Card/Card";
+import BoxInspirations from "../../Component/BoxInspirations/BoxInspirations";
 const images = [
   { src: "img/cardboard_inspiration_small_1.png" },
   { src: "img/cardboard_inspiration_small_2.png" },
@@ -14,7 +13,7 @@ function CardBoardPage() {
   return (
     <>
       <Merge />
-      <Card />
+      <Card title="Types Of Cardboard"/>
       <BoxInspirations
         title="Cardboards Inspirations"
         disc="Cardboard packaging is the cornerstone of our packaging

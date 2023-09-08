@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const Cards = [
   {
     hoverContent:
@@ -57,7 +58,6 @@ const Cards = [
   },
 ];
 function Card({ title }) {
- 
   return (
     <>
       <section className="products-type">
@@ -75,9 +75,11 @@ function Card({ title }) {
                       </div>
                       <div className="hover-contant">
                         <p>{card.hoverContent}</p>
-                        <button className="btn-brnad w-100 py-3">
-                          VIEW PRODUCT
-                        </button>
+                        <Link to="/ProductDisplay" >
+                          <button className="btn-brnad w-100 py-3">
+                            VIEW PRODUCT
+                          </button>
+                        </Link>
                       </div>
                     </div>
                     <h5>{card.name}</h5>

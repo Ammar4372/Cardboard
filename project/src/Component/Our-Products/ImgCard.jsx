@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const ImgCard = () => {
   const cardsDetails = [
     {
@@ -12,7 +13,7 @@ const ImgCard = () => {
     },
     {
       id: 3,
-      heading: "Cardboars",
+      heading: "Cardboards",
       imgSrc: "img/image 11.svg",
     },
   ];
@@ -24,11 +25,13 @@ const ImgCard = () => {
           return (
             <div className="col-lg-4 col-container" key={e.id}>
               <h4>{e.heading}</h4>
-              <div className="card">
-                <div className="card-body">
-                  <img className=" img-fluid w-100" src={e.imgSrc} />
+              <Link to={`/${e.heading}`}>
+                <div className="card">
+                  <div className="card-body">
+                    <img className=" img-fluid w-100" src={e.imgSrc} />
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           );
         })}
