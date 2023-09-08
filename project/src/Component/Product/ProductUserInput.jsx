@@ -8,7 +8,10 @@ const ProductUserInput = ()=>
     const [thickness, setThickness] = useState(0);
     const [customSize, setCustomSize] = useState(false);
     return(<>
-     <div className="configure-price-card" style={{display:'flex' , flexDirection:"column " ,gap :'1rem'}}>
+
+<div className="inner-banner bg-brown" style={{backgroundColor:"transparent", margin:"0px", padding:"0px"}}>
+        <div className="container">
+        <div className="configure-price-card" style={{display:'flex' , flexDirection:"column " ,gap :'1rem'}}>
         <div className="card" >
          
           {/* Card Body */}
@@ -122,6 +125,10 @@ const ProductUserInput = ()=>
           </div>
         </div>
       </div>
+
+          </div>
+          </div>
+
 
     </>)
 }
