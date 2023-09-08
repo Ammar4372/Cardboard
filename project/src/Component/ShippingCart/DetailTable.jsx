@@ -1,37 +1,36 @@
 import { useState } from "react";
-import {FiX } from "react-icons/fi";
+import { FiX } from "react-icons/fi";
 import { AiFillHeart } from "react-icons/ai";
-const DetailTable = ()=>{
-    const [counter,setCounter]=useState(0)
+const DetailTable = () => {
+  const [counter, setCounter] = useState(0);
 
-    const handleIncrement = ()=>{
-        setCounter(counter+1);
-    }
+  const handleIncrement = () => {
+    setCounter(counter + 1);
+  };
 
-    const handleDecrement = ()=>{
-        if(counter>0)
-        {
-            setCounter(counter-1)
-        }
+  const handleDecrement = () => {
+    if (counter > 0) {
+      setCounter(counter - 1);
     }
-    const order = [
-        {
-            id: "1",
-            img: "/img/table-img (1).png",
-            color: "Brown",
-            price: 12,
-            quantity: 1,
-            product: "L2 Roll",    
-        },
-        {
-            id: "2",
-        img: "img/table-img (2).png",
-        color: "Grey",
-        price: 25,
-        quantity: 1,
-        product: "Pizza Box",
-        }
-    ]
+  };
+  const order = [
+    {
+      id: "1",
+      img: "/img/table-img (1).png",
+      color: "Brown",
+      price: 12,
+      quantity: 1,
+      product: "L2 Roll",
+    },
+    {
+      id: "2",
+      img: "img/table-img (2).png",
+      color: "Grey",
+      price: 25,
+      quantity: 1,
+      product: "Pizza Box",
+    },
+  ];
   return (
     <>
       <div className="table-responsive">
@@ -43,11 +42,10 @@ const DetailTable = ()=>{
                   <tr key={{ index }}>
                     <td>
                       <a className="">
-                        <FiX/>
+                        <FiX />
                       </a>
                       <a className="like">
-
-                        <AiFillHeart/>
+                        <AiFillHeart />
                       </a>
                     </td>
                     <td>
@@ -61,7 +59,10 @@ const DetailTable = ()=>{
                     </td>
                     <td>
                       <div className="quantity">
-                        <button className="quantity__minus" onClick={handleDecrement}>
+                        <button
+                          className="quantity__minus"
+                          onClick={handleDecrement}
+                        >
                           <span>-</span>
                         </button>
 

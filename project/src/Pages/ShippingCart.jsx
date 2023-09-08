@@ -1,10 +1,10 @@
-import MainDisplay from "../Component/ShippingCart/MainDisplay"
+import MainDisplay from "../Component/ShippingCart/MainDisplay";
 
-const ShippingCart = ()=>{
-return (
+const ShippingCart = () => {
+  return (
     <>
-    <MainDisplay/>
+      <MainDisplay />
     </>
-)
-}
+  );
+};
 export default ShippingCart;

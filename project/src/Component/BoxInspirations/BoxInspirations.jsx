@@ -16,8 +16,8 @@ const BoxInspirations = ({title,disc,images}) => {
             </div>
           </div>
           <div className="grid">
-            <ImgGrid images={images.slice(0, 3)} start={1} />
-            <ImgGrid images={images.slice(3, 6).reverse()} start={4} />
+            <ImgGrid images={images.slice(0, 3)} start={1} key='1'/>
+            <ImgGrid images={images.slice(3, 6).reverse()} start={4} key="4"/>
           </div>
         </div>
       </section>

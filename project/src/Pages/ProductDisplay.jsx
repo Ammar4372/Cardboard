@@ -1,13 +1,10 @@
+import UserDetail from "../Component/Product/UserDetail";
 
-import UserDetail from '../Component/Product/UserDetail';
-
-const ProductDisplay = ()=>{
-return (
+const ProductDisplay = () => {
+  return (
     <>
-    
-     <UserDetail/>
-    
+      <UserDetail />
     </>
-)
-}
+  );
+};
 export default ProductDisplay;

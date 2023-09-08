@@ -1,13 +1,10 @@
-import MainMerge from "../Component/RequestQute/MainMerge"
+import MainMerge from "../Component/RequestQute/MainMerge";
 
-const RequestQute = ()=>
-{
-    return (
-        <>
-        
-        <MainMerge/>
-        
-        </>
-    )
-}
-export default RequestQute
+const RequestQute = () => {
+  return (
+    <>
+      <MainMerge />
+    </>
+  );
+};
+export default RequestQute;

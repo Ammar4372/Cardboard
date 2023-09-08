@@ -47,7 +47,7 @@ const Header = () => {
                         icon={faCheck}
                         style={{ color: " #F7744F" }}
                       />
-                      <span>FSC</span> Certified
+                      {" "}<span>FSC</span> Certified
                     </h6>
                   </div>
                   <div className="col-lg-4 mt-4">
@@ -56,7 +56,7 @@ const Header = () => {
                         icon={faCheck}
                         style={{ color: " #F7744F" }}
                       />
-                      <span>Verified</span> Suppliers
+                      {" "}<span>Verified</span> Suppliers
                     </h6>
                   </div>
                   <div className="col-lg-4 mt-4">
@@ -65,7 +65,7 @@ const Header = () => {
                         icon={faCheck}
                         style={{ color: " #F7744F" }}
                       />
-                      Delivered in <span>4 Days</span>
+                      {" "}Delivered in <span>4 Days</span>
                     </h6>
                   </div>
                 </div>

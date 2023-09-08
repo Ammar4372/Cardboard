@@ -1,12 +1,13 @@
-import { useState } from "react";
 import StandardSize from "./StandardSize";
 import CustomeSize from "./CustomSize";
+import { selectConfig, setMaterial, setThickness } from "../../Pages/CardBoardPage/CardBoardSlice";
 
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 const ConfigurePrice = () => {
-  const [material, setMaterial] = useState("");
-  const [thickness, setThickness] = useState(0);
-
-  const [customSize, setCustomSize] = useState(false);
+  const dispatch = useDispatch()
+  const config = useSelector(selectConfig);
+  const [customSize,setCustomSize] = useState(false);
   return (
     <>
       <div className="configure-price-card">
@@ -29,15 +30,12 @@ const ConfigurePrice = () => {
                   <select
                     className="form-select"
                     aria-label="Default select example"
-                    onChange={(e) => setMaterial(e.target.value)}
-                    value={material}
+                    onChange={(e) => dispatch(setMaterial(e.target.value))}
+                    value={config.material}
                   >
                     <option value="Dream Coat">Dream Coat</option>
                     <option value="White Coat">White Coat</option>
                     <option value="Kraft Coat">Kraft Coat</option>
-                    
-
-                    
                   </select>
                 </div>
               </div>
@@ -49,30 +47,22 @@ const ConfigurePrice = () => {
               </div>
               <div className="col-lg-8">
                 <div className="form-group">
-
-
-   
-            
-                <select
-                  className="form-select"
-                  aria-label="Default select example"
-                  onChange={(e) => setThickness(e.target.value)}
-                  value={thickness}
-                >
-                  <option value= '3'>3 ply</option>
-                  <option value="5">5 ply</option>
-                  <option value="7">7 ply</option>
-                  
-                </select>
-               
-              
-
+                  <select
+                    className="form-select"
+                    aria-label="Default select example"
+                    onChange={(e) => dispatch(setThickness(e.target.value))}
+                    value={config.thickness}
+                  >
+                    <option value="3">3 ply</option>
+                    <option value="5">5 ply</option>
+                    <option value="7">7 ply</option>
+                  </select>
                 </div>
               </div>
 
-              {/* Size */}
+              {/* config */}
               <div className="col-lg-4">
-                <h6>Size (L x W x D):</h6>
+                <h6>config (L x W x D):</h6>
               </div>
 
               <div className="col-lg-8">
@@ -84,13 +74,8 @@ const ConfigurePrice = () => {
                   <li className="nav-item" role="presentation">
                     <button
                       className="nav-link active"
-                      id="pills-home-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-home"
-                      type="button"
-                      role="tab"
                       aria-controls="pills-home"
-                      aria-selected="true"
+                      aria-selected={!customSize ? "true" : "false"}
                       onClick={() => {
                         setCustomSize(false);
                       }}
@@ -98,18 +83,12 @@ const ConfigurePrice = () => {
                       STANDARD SIZES
                     </button>
                   </li>
-                  <li className="nav-item" role="presentation" >
+                  <li className="nav-item" role="presentation">
                     <button
                       className="nav-link"
-                      id="pills-profile-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-profile"
-                      type="button"
-                      role="tab"
                       aria-controls="pills-profile"
-                      aria-selected="false"
+                      aria-selected={customSize ? "true" : "false"}
                       onClick={() => setCustomSize(true)}
-                      
                     >
                       CUSTOM SIZES
                     </button>
@@ -117,8 +96,8 @@ const ConfigurePrice = () => {
                 </ul>
               </div>
             </div>
-{/* Conditional Rendering  */}
-            {customSize ? <CustomeSize/> : <StandardSize />}
+
+            {customSize ? <CustomeSize /> : <StandardSize />}
           </div>
         </div>
       </div>
