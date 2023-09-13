@@ -15,7 +15,7 @@ import RollsPage from "./Pages/RollsPage";
 import ProductDisplay from "./Pages/ProductDisplay";
 import RequestQute from "./Pages/RequestQute";
 import ProductDetails from "./Pages/ProductDetails";
-import ShippingCart from "./Pages/ShippingCart";
+import ShippingCart from "./Pages/ShoppingCart/ShippingCart";
 
 import CheckoutPage from "./Pages/Checkout";
 const appRouter = createBrowserRouter(
