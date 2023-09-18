@@ -17,7 +17,7 @@ import RequestQute from "./Pages/RequestQute";
 import ProductDetails from "./Pages/ProductDetails";
 import ShippingCart from "./Pages/ShoppingCart/ShippingCart";
 
-import CheckoutPage from "./Pages/Checkout";
+import CheckoutPage from "./Pages/Checkout/Checkout";
 const appRouter = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
@@ -29,7 +29,7 @@ const appRouter = createBrowserRouter(
       <Route path="/ProductDisplay" element={<ProductDisplay />} />
       <Route path="/RequestQute" element={<RequestQute />} />
       <Route path="/Checkout" element={<CheckoutPage />} />
-      <Route path="/ProductDisplay" element={<ProductDisplay />} />
+      <Route path="/ProductDisplay/:id" element={<ProductDisplay />} />
       <Route path="/RequestQute" element={<RequestQute />} />
       <Route path="/ShippingCart" element={<ShippingCart />} />
     </Route>

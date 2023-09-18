@@ -1,50 +1,93 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+
+export const getProducts = createAsyncThunk(
+  "CardBoard/getProducts",
+  async (thunkApi) => {
+    const res = await fetch("http://localhost:3001/").then((data) =>
+      data.json()
+    );
+
+    return res;
+  }
+);
+export const getProductById = createAsyncThunk(
+  "CardBoard/getProductById",
+  async (id, thunkApi) => {
+    const res = await fetch(
+      `http://localhost:3001/cardboard/getItem/${id}`
+    ).then((data) => data.json());
+
+    return res;
+  }
+);
 
 const CardBoard = createSlice({
   name: "CardBoard",
   initialState: {
-    config: {
-      material: "",
-      thickness: 0,
-      printedSides: 0,
-      quantity: 0,
+    Config: {
+      item: {},
+      material: " ",
+      thickness: " ",
+      printedSides: " ",
+      quantity: " ",
       dimension: {
-        length: 0,
-        depth: 0,
-        width: 0,
+        length: " ",
+        depth: " ",
+        width: " ",
       },
     },
+    Products: [],
+    Product: {},
   },
   reducers: {
     setMaterial(state, action) {
-      state.config.material = action.payload;
+      state.Config.material = action.payload;
     },
     setThickness(state, action) {
-      state.config.thickness = action.payload;
+      state.Config.thickness = action.payload;
     },
     setPrintedSides(state, action) {
-      state.config.printedSides = action.payload;
+      state.Config.printedSides = action.payload;
     },
     setDimension(state, action) {
-      state.config.dimension = action.payload;
+      state.Config.dimension = JSON.parse(action.payload);
     },
     setLength(state, action) {
-      state.config.dimension.length = action.payload;
+      state.Config.dimension.length = action.payload;
     },
     setDepth(state, action) {
-      state.config.dimension.depth = action.payload;
+      state.Config.dimension.depth = action.payload;
     },
     setWidth(state, action) {
-      state.config.dimension.width = action.payload;
+      state.Config.dimension.width = action.payload;
     },
     setQuantity(state, action) {
-      state.config.quantity = action.payload;
+      state.Config.quantity = Number.parseInt(action.payload);
     },
+    setProduct(state, action) {
+      state.Config.item = action.payload;
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getProducts.fulfilled, (state, action) => {
+      state.Products = action.payload;
+    });
+    builder.addCase(getProductById.fulfilled, (state, action) => {
+      state.Product = action.payload;
+    });
   },
 });
 export const selectConfig = (state) => {
-  return state.CardBoardSlice.config;
+  return state.CardBoardSlice.Config;
 };
+export const selectProducts = (state) => {
+  return state.CardBoardSlice.Products;
+};
+export const selectProduct = (state) => {
+  return state.CardBoardSlice.Product;
+};
+
 export const {
   setMaterial,
   setDepth,
@@ -53,6 +96,7 @@ export const {
   setDimension,
   setPrintedSides,
   setWidth,
-  setQuantity
+  setQuantity,
+  setProduct
 } = CardBoard.actions;
 export default CardBoard.reducer;

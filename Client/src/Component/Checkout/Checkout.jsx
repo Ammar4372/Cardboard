@@ -1,160 +1,209 @@
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectCheckout,
+  setClientCompany,
+  setClientEmail,
+  setClientName,
+  setPhone,
+  setShippingAddress,
+  setShippingCity,
+  setShippingState,
+  setZip,
+} from "../../Pages/Checkout/CheckoutSlice";
 function Checkout() {
+  const dispatch = useDispatch();
+  const checkout = useSelector(selectCheckout);
   return (
     <>
-      <section class="shipping-cart checkout-page">
-        <div class="container">
-          <div class="innter-header">
-            <h1 class="heading">Checkout</h1>
+      <section className="shipping-cart checkout-page">
+        <div className="container">
+          <div className="innter-header">
+            <h1 className="heading">Checkout</h1>
           </div>
-          <div class="row">
-            <div class="col-lg-6 mt-4 chose-payment">
+          <div className="row">
+            <div className="col-lg-6 mt-4 chose-payment">
               <h4>Customer Information</h4>
-              <div class="row">
-                <div class="col-lg-4">
-                  <label class="form-label">Emial</label>
+              <div className="row">
+                <div className="col-lg-4">
+                  <label className="form-label">Email</label>
                 </div>
-                <div class="col-lg-8">
+                <div className="col-lg-8">
                   <input
-                    type="emial"
-                    class="form-control"
-                    name=""
+                    type="email"
+                    className="form-control"
                     placeholder="anonymous@gmail.com"
+                    value={checkout.client.email}
+                    onChange={(e) => dispatch(setClientEmail(e.target.value))}
                   />
                 </div>
-                <div class="col-lg-4">
-                  <label class="form-label">Full Name:</label>
+                <div className="col-lg-4">
+                  <label className="form-label">Full Name:</label>
                 </div>
-                <div class="col-lg-8">
+                <div className="col-lg-8">
                   <input
                     type="text"
-                    class="form-control"
-                    name=""
+                    className="form-control"
                     placeholder="Anonymous John"
+                    value={checkout.client.name}
+                    onChange={(e) => dispatch(setClientName(e.target.value))}
                   />
                 </div>
-                <div class="col-lg-4">
-                  <label class="form-label">Company:</label>
+                <div className="col-lg-4">
+                  <label className="form-label">Company:</label>
                 </div>
-                <div class="col-lg-8">
+                <div className="col-lg-8">
                   <input
                     type="emial"
-                    class="form-control"
-                    name=""
+                    className="form-control"
                     placeholder="Laptop Shippers"
+                    value={checkout.client.company}
+                    onChange={(e) => dispatch(setClientCompany(e.target.value))}
                   />
                 </div>
                 <h4>Shipping Information</h4>
-                <div class="col-lg-4">
-                  <label class="form-label">Address:</label>
+                <div className="col-lg-4">
+                  <label className="form-label">Address:</label>
                 </div>
-                <div class="col-lg-8">
-                  <input type="emial" class="form-control" name="" />
+                <div className="col-lg-8">
+                  <input
+                    type="emial"
+                    className="form-control"
+                    value={checkout.shipping.address}
+                    onChange={(e) =>
+                      dispatch(setShippingAddress(e.target.value))
+                    }
+                  />
                 </div>
-                <div class="col-lg-4">
-                  <label class="form-label">City:</label>
+                <div className="col-lg-4">
+                  <label className="form-label">City:</label>
                 </div>
-                <div class="col-lg-8">
-                  <input type="text" class="form-control" name="" />
+                <div className="col-lg-8">
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={checkout.shipping.city}
+                    onChange={(e) => dispatch(setShippingCity(e.target.value))}
+                  />
                 </div>
-                <div class="col-lg-4">
-                  <label class="form-label">State:</label>
+                <div className="col-lg-4">
+                  <label className="form-label">State:</label>
                 </div>
-                <div class="col-lg-8">
-                  <input type="text" class="form-control" name="" />
+                <div className="col-lg-8">
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={checkout.shipping.state}
+                    onChange={(e) => dispatch(setShippingState(e.target.value))}
+                  />
                 </div>
-                <div class="col-lg-4">
-                  <label class="form-label">Zip Code:</label>
+                <div className="col-lg-4">
+                  <label className="form-label">Zip Code:</label>
                 </div>
-                <div class="col-lg-8">
-                  <input type="text" class="form-control" name="" />
+                <div className="col-lg-8">
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={checkout.shipping.zip}
+                    onChange={(e) => dispatch(setZip(e.target.value))}
+                  />
                 </div>
-                <div class="col-lg-4">
-                  <label class="form-label">Phone:</label>
+                <div className="col-lg-4">
+                  <label className="form-label">Phone:</label>
                 </div>
-                <div class="col-lg-8">
-                  <input type="text" class="form-control" name="" />
+                <div className="col-lg-8">
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={checkout.client.phone}
+                    onChange={(e) => dispatch(setPhone(e.target.value))}
+                  />
                 </div>
                 <h4>Payment</h4>
-                <div class="payment-box">
-                  <div class="box-head">
-                    <div class="form-check">
+                <div className="payment-box">
+                  <div className="box-head">
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
+                       
                         checked
                       />
-                      <label class="form-check-label" for="flexRadioDefault1">
+                      <label
+                        className="form-check-label"
+                        htmlFor="flexRadioDefault1"
+                      >
                         Credit card
                       </label>
                     </div>
                     <img src="/img/optionList.png" />
                   </div>
-                  <div class="cardit-card">
-                    <div class="row">
-                      <div class="col-lg-12">
-                        <div class="form-group">
+                  <div className="cardit-card">
+                    <div className="row">
+                      <div className="col-lg-12">
+                        <div className="form-group">
                           <input
                             type="text"
-                            class="form-control"
-                            name=""
+                            className="form-control"
                             placeholder="Card number"
                           />
-                          <i class="fa-solid fa-lock"></i>
+                          <i className="fa-solid fa-lock"></i>
                         </div>
                       </div>
-                      <div class="col-lg-12">
-                        <div class="form-group">
+                      <div className="col-lg-12">
+                        <div className="form-group">
                           <input
                             type="text"
-                            class="form-control"
-                            name=""
+                            className="form-control"
                             placeholder="Name on card"
                           />
                         </div>
                       </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
+                      <div className="col-lg-6">
+                        <div className="form-group">
                           <input
                             type="text"
-                            class="form-control"
-                            name=""
+                            className="form-control"
                             placeholder="Expiration date (MM / YY)"
                           />
                         </div>
                       </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <input type="text" class="form-control" name="" />
-                          <i class="fa-solid fa-circle-info"></i>
+                      <div className="col-lg-6">
+                        <div className="form-group">
+                          <input type="text" className="form-control" />
+                          <i className="fa-solid fa-circle-info"></i>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="card-box">
-                    <div class="other-method">
-                      <div class="form-check">
+                  <div className="card-box">
+                    <div className="other-method">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="radio"
                           name="flexRadioDefault"
                           id="flexRadioDefault2"
                         />
-                        <label class="form-check-label" for="flexRadioDefault2">
+                        <label
+                          className="form-check-label"
+                          htmlFor="flexRadioDefault2"
+                        >
                           <img src="/img/payment-methods.png" />
                         </label>
                       </div>
                     </div>
-                    <div class="other-method  border-0">
-                      <div class="form-check">
+                    <div className="other-method  border-0">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="radio"
                           name="flexRadioDefault"
                           id="flexRadioDefault3"
                         />
-                        <label class="form-check-label" for="flexRadioDefault3">
+                        <label
+                          className="form-check-label"
+                          htmlFor="flexRadioDefault3"
+                        >
                           <img src="/img/payment-methods2.png" />
                         </label>
                       </div>
@@ -162,109 +211,118 @@ function Checkout() {
                   </div>
                 </div>
                 <h4>Billing address</h4>
-                <div class="card-box">
-                  <div class="other-method">
-                    <div class="form-check">
+                <div className="card-box">
+                  <div className="other-method">
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         name="flexRadioDefault"
                         id="flexRadioDefault2"
                       />
-                      <label class="form-check-label" for="flexRadioDefault2">
+                      <label
+                        className="form-check-label"
+                        htmlFor="flexRadioDefault2"
+                      >
                         Same as shipping address
                       </label>
                     </div>
                   </div>
-                  <div class="other-method border-0">
-                    <div class="form-check">
+                  <div className="other-method border-0">
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         name="flexRadioDefault"
                         id="flexRadioDefault3"
                       />
-                      <label class="form-check-label" for="flexRadioDefault3">
+                      <label
+                        className="form-check-label"
+                        htmlFor="flexRadioDefault3"
+                      >
                         Use a different billing address
                       </label>
                     </div>
                   </div>
                 </div>
                 <h4>Remember me</h4>
-                <div class="card-box p-3">
-                  <div class="form-check">
+                <div className="card-box p-3">
+                  <div className="form-check">
                     <input
-                      class="form-check-input"
+                      className="form-check-input"
                       type="checkbox"
                       value=""
                       id="flexCheckDefault"
                     />
-                    <label class="form-check-label" for="flexCheckDefault">
+                    <label
+                      className="form-check-label"
+                      htmlFor="flexCheckDefault"
+                    >
                       Default checkbox
                     </label>
                   </div>
                 </div>
-                <div class="final-pay-btn">
-                  <a href="#" class="d-inline-block back-home my-4">
+                <div className="final-pay-btn">
+                  <a href="#" className="d-inline-block back-home my-4">
                     Return to shipping
                   </a>
-                  <button class="btn-brnad my-4">PAY NOW</button>
+                  <button className="btn-brnad my-4">PAY NOW</button>
                 </div>
               </div>
             </div>
 
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-header">
+            <div className="col-lg-6">
+              <div className="card">
+                <div className="card-header">
                   <h5>Order Details</h5>
                 </div>
-                <div class="card-body">
-                  <div class="flex-info">
+                <div className="card-body">
+                  <div className="flex-info">
                     <h6>Mailer Boxes - 9.5" x 7.75" x 4"</h6>
                   </div>
-                  <div class="flex-info">
+                  <div className="flex-info">
                     <h6>Color - Brown</h6>
                   </div>
-                  <div class="flex-info">
+                  <div className="flex-info">
                     <h6></h6>
-                    <img class="" src="/img/cardboard_product_6.png" />
+                    <img className="" src="/img/cardboard_product_6.png" />
                   </div>
 
-                  <div class="flex-info">
+                  <div className="flex-info">
                     <h6>Quantity</h6>
                     <h5>15</h5>
                   </div>
-                  <div class="flex-info">
+                  <div className="flex-info">
                     <h6>Unit Price</h6>
                     <h5>--- --</h5>
                   </div>
-                  <div class="flex-info">
+                  <div className="flex-info">
                     <h6>Shipping & Handling</h6>
                     <h5>15</h5>
                   </div>
-                  <div class="flex-info">
+                  <div className="flex-info">
                     <h6>Production Speed</h6>
                     <h5>15</h5>
                   </div>
-                  <div class="flex-info">
+                  <div className="flex-info">
                     <h6>Estimated Delivery Date</h6>
                     <h5>-- ---</h5>
                   </div>
                   <hr />
-                  <div class="flex-info">
+                  <div className="flex-info">
                     <h6>
                       <b>Subtotal</b>
                     </h6>
                     <h5>$125.95</h5>
                   </div>
-                  <div class="flex-info">
+                  <div className="flex-info">
                     <h6>
                       <b>Sales Tax</b>
                     </h6>
                     <h5>---</h5>
                   </div>
                   <hr />
-                  <div class="flex-info totle">
+                  <div className="flex-info totle">
                     <h6>Total</h6>
                     <h5>$125.95</h5>
                   </div>

@@ -8,10 +8,77 @@ const images = [
   { src: "img/reels_usage_small_3.png" },
   { src: "img/reels_usage_small_4.png" },
 ];
+const Cards = [
+  {
+    description:
+      "Local Kraft Roll, 30 lbs (Pack of 6) - Quality Paper for Packing, Moving, Shipping, Crafts - 100% Recyclable Natural Kraft Wrapping Paper",
+    name: "Piza Boxes",
+    minOrder: 1000,
+    img: "img/cardboard_product_1.png",
+  },
+  {
+    description:
+      "Local Kraft Roll, 30 lbs (Pack of 6) - Quality Paper for Packing, Moving, Shipping, Crafts - 100% Recyclable Natural Kraft Wrapping Paper",
+    name: "Sleeved Mailer Box",
+    minOrder: 1000,
+    img: "img/cardboard_product_2.png",
+  },
+  {
+    description:
+      "Local Kraft Roll, 30 lbs (Pack of 6) - Quality Paper for Packing, Moving, Shipping, Crafts - 100% Recyclable Natural Kraft Wrapping Paper",
+    name: "Bungbee Large",
+    minOrder: 1000,
+    img: "img/cardboard_product_3.png",
+  },
+  {
+    description:
+      "Local Kraft Roll, 30 lbs (Pack of 6) - Quality Paper for Packing, Moving, Shipping, Crafts - 100% Recyclable Natural Kraft Wrapping Paper",
+    name: "Relocation Box",
+    minOrder: 1000,
+    img: "img/cardboard_product_4.png",
+  },
+  {
+    description:
+      "Local Kraft Roll, 30 lbs (Pack of 6) - Quality Paper for Packing, Moving, Shipping, Crafts - 100% Recyclable Natural Kraft Wrapping Paper",
+    name: "Home Application Box",
+    minOrder: 1000,
+    img: "img/cardboard_product_5.png",
+  },
+  {
+    description:
+      "Local Kraft Roll, 30 lbs (Pack of 6) - Quality Paper for Packing, Moving, Shipping, Crafts - 100% Recyclable Natural Kraft Wrapping Paper",
+    name: "Laptop Shipping Box",
+    minOrder: 1000,
+    img: "img/cardboard_product_6.png",
+  },
+  {
+    description:
+      "Local Kraft Roll, 30 lbs (Pack of 6) - Quality Paper for Packing, Moving, Shipping, Crafts - 100% Recyclable Natural Kraft Wrapping Paper",
+    name: "Show Box",
+    minOrder: 1000,
+    img: "img/cardboard_product_7.png",
+  },
+  {
+    description:
+      "Local Kraft Roll, 30 lbs (Pack of 6) - Quality Paper for Packing, Moving, Shipping, Crafts - 100% Recyclable Natural Kraft Wrapping Paper",
+    name: "Tray Box",
+    minOrder: 1000,
+    img: "img/cardboard_product_1.png",
+  },
+];
 function ReelsPage() {
   return (
     <>
-      <Card title="Types of Reels" />
+      <section className="products-type">
+        <div className="container">
+          <h1 className="heading">Types of Reels</h1>
+          <div className="row">
+            {Cards.map((card, index) => (
+              <Card card={card} key={index} />
+            ))}
+          </div>
+        </div>
+      </section>
       <BoxInspirations
         title="Reels Usage"
         disc="At the heart of our packaging solutions lies the versatile and

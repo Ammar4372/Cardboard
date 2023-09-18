@@ -1,13 +1,16 @@
 import List from "./Dropdown";
 import { Link } from "react-router-dom";
+import { selectCartItems } from "../../Pages/ShoppingCart/CartSlice";
+import { useSelector } from "react-redux";
 function Nav() {
+  const cart = useSelector(selectCartItems);
   return (
     <>
       <header>
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
             <Link className="navbar-brand" to="/">
-              <img src="img/logo.svg" />
+              <img src="/img/logo.svg" />
             </Link>
             <button
               className="navbar-toggler"
@@ -20,10 +23,7 @@ function Nav() {
             >
               <span className="fa fa-bars"></span>
             </button>
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
+            <div className="collapse navbar-collapse">
               <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li className="nav-item dropdown">
                   <List
@@ -32,9 +32,7 @@ function Nav() {
                       { url: "/Cardboards", title: "CardBoard" },
                       { url: "/Reel", title: "Reels" },
                       { url: "/Roll", title: "Rolls" },
-                      { url: "/ProductDisplay", title: "ProductDisplay" },
                       { url: "/RequestQute", title: "Request-Qute" },
-                      { url: "/ShippingCart", title: "ShippingCart" },
                       { url: "/Checkout", title: "Checkout" },
                     ]}
                   />
@@ -76,9 +74,9 @@ function Nav() {
                   </div>
                 </div>
                 <div className="cart-btn">
-                  <Link to="/Product-Details">
-                    <img src="img/cart.svg" />
-                    <span>1</span>
+                  <Link to="/ShippingCart">
+                    <img src="/img/cart.svg" />
+                    <span>{cart.length}</span>
                   </Link>
                 </div>
                 <div className="sign-in">
