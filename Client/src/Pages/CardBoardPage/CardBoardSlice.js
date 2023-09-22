@@ -11,6 +11,15 @@ export const getProducts = createAsyncThunk(
     return res;
   }
 );
+export const getMaterials = createAsyncThunk(
+  "CardBoard/getMaterials",
+  async (thunkApi) => {
+    const res = await fetch("http://localhost:3001/material-details").then(
+      (data) => data.json()
+    );
+    return res;
+  }
+);
 export const getProductById = createAsyncThunk(
   "CardBoard/getProductById",
   async (id, thunkApi) => {
@@ -27,7 +36,7 @@ const CardBoard = createSlice({
   initialState: {
     Config: {
       item: {},
-      material: "",
+      material: {},
       thickness: "",
       printedSides: "",
       quantity: "",
@@ -39,6 +48,7 @@ const CardBoard = createSlice({
         width: "",
       },
     },
+    Materials: [],
     Products: [],
     Product: {},
   },
@@ -98,6 +108,9 @@ const CardBoard = createSlice({
     builder.addCase(getProductById.fulfilled, (state, action) => {
       state.Product = action.payload;
     });
+    builder.addCase(getMaterials.fulfilled, (state, action) => {
+      state.Materials = action.payload;
+    });
   },
 });
 export const selectConfig = (state) => {
@@ -108,6 +121,9 @@ export const selectProducts = (state) => {
 };
 export const selectProduct = (state) => {
   return state.CardBoardSlice.Product;
+};
+export const selectMaterials = (state) => {
+  return state.CardBoardSlice.Materials;
 };
 
 export const {
@@ -121,6 +137,6 @@ export const {
   setQuantity,
   setProduct,
   setPrice,
-  resetConfig
+  resetConfig,
 } = CardBoard.actions;
 export default CardBoard.reducer;

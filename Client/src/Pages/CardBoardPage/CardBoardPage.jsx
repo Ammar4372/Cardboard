@@ -2,7 +2,7 @@ import Merge from "../../Component/Cardboard/Merge";
 import Card from "../../Component/Card/Card";
 import BoxInspirations from "../../Component/BoxInspirations/BoxInspirations";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts, selectProducts } from "./CardBoardSlice";
+import { getMaterials, getProducts, selectMaterials, selectProducts } from "./CardBoardSlice";
 import { useEffect } from "react";
 
 const images = [
@@ -16,15 +16,18 @@ const images = [
 
 function CardBoardPage() {
   const products = useSelector(selectProducts);
+  const materials = useSelector(selectMaterials);
+  console.log(materials);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProducts());
+    dispatch(getMaterials());
     window.scroll(0,0)
   }, []);
 
   return (
     <>
-      <Merge products={products} />
+      <Merge products={products} materials={materials}/>
       <section className="products-type">
         <div className="container">
           <h1 className="heading">Types of Cardboards</h1>

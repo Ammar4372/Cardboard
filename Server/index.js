@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const ProductModel = require("./Models/CardItems");
 const OrderModel = require("./Models/Orders");
+const MaterialModel = require("./Models/MaterailEntity");
 const app = express();
 app.use(cors()); //sever side to frontend
 app.use(express.json()); //conversion
@@ -48,6 +49,14 @@ app.post("/orderDetails", (req, res) => {
     .catch((error) => res.json(error));
 });
 
+app.get("/material-details", (req, res) => {
+  MaterialModel.find()
+    .then((data) => {
+      console.log(data);
+      res.json(data);
+    })
+    .catch((err) => res.json(err));
+});
 app.get("/orders", (req, res) => {
   OrderModel.find({})
     .then((users) => res.json(users))

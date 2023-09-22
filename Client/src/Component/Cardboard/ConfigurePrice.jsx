@@ -14,7 +14,7 @@ import {
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, setTotalPrice } from "../../Pages/ShoppingCart/CartSlice";
-const ConfigurePrice = ({ products }) => {
+const ConfigurePrice = ({ products, materials }) => {
   const dispatch = useDispatch();
   const config = useSelector(selectConfig);
   const [customSize, setCustomSize] = useState(false);
@@ -39,10 +39,11 @@ const ConfigurePrice = ({ products }) => {
     if (config.dimension.length && config.dimension.width && config.quantity) {
       const pricePerSheet =
         (((config.dimension.length * config.dimension.width * 210) / 15500) *
-          config.item.rate) /
+          config.material.paperRate) /
         100;
       const pricePerRoll =
-        (config.dimension.width * 76) / (2400 / config.dimension.length);
+        (config.dimension.width * config.material.rollRate) /
+        (2400 / config.dimension.length);
       const pricePerPiece = Number.parseFloat(
         (pricePerSheet + pricePerRoll + 14 + 5 + 2).toFixed(0)
       );
@@ -96,16 +97,22 @@ const ConfigurePrice = ({ products }) => {
                 <div className="form-group">
                   <select
                     className="form-select"
-                    onChange={(e) => dispatch(setMaterial(e.target.value))}
-                    value={config.material}
+                    onChange={({ target }) =>
+                      dispatch(
+                        setMaterial(
+                          materials.find((p) => p._id === target.value)
+                        )
+                      )
+                    }
                   >
-                    <option value=" " hidden>
-                      Select A Option
-                    </option>
-
-                    <option value="Dream Coat">Dream Coat</option>
-                    <option value="White Coat">White Coat</option>
-                    <option value="Kraft Coat">Kraft Coat</option>
+                    <option hidden>Select A Option</option>
+                    {materials?.map((material, index) => {
+                      return (
+                        <option key={index} value={material._id}>
+                          {material.materailName}
+                        </option>
+                      );
+                    })}
                   </select>
                 </div>
               </div>

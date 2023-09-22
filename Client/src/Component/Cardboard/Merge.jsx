@@ -1,7 +1,7 @@
 import ConfigurePrice from "./ConfigurePrice";
 import Description from "./Description";
 
-const Merge = ({products}) => {
+const Merge = ({products,materials}) => {
   return (
     <>
       <div className="inner-banner bg-brown">
@@ -11,7 +11,7 @@ const Merge = ({products}) => {
               <Description />
             </div>
             <div className="col-lg-6">
-              <ConfigurePrice products={products}/>
+              <ConfigurePrice products={products} materials={materials}/>
             </div>
           </div>
         </div>
