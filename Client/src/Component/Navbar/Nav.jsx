@@ -33,7 +33,6 @@ function Nav() {
                       { url: "/Reel", title: "Reels" },
                       { url: "/Roll", title: "Rolls" },
                       { url: "/RequestQute", title: "Request-Qute" },
-                      { url: "/Checkout", title: "Checkout" },
                     ]}
                   />
                 </li>

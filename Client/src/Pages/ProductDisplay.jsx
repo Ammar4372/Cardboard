@@ -1,7 +1,7 @@
 import UserDetail from "../Component/Product/UserDetail";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import {  getProductById, selectProduct } from "./CardBoardPage/CardBoardSlice";
+import { getProductById, selectProduct } from "./CardBoardPage/CardBoardSlice";
 import { useEffect } from "react";
 
 const ProductDisplay = () => {
@@ -11,7 +11,7 @@ const ProductDisplay = () => {
 
   useEffect(() => {
     dispatch(getProductById(id));
-    window.scroll(0,0);
+    window.scroll(0, 0);
   }, []);
   return (
     <>

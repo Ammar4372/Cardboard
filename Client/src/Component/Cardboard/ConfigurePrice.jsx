@@ -1,41 +1,55 @@
 import StandardSize from "./StandardSize";
 import CustomeSize from "./CustomSize";
 import {
+  resetConfig,
   selectConfig,
   setMaterial,
+  setPrice,
   setPrintedSides,
   setProduct,
   setQuantity,
   setThickness,
 } from "../../Pages/CardBoardPage/CardBoardSlice";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../Pages/ShoppingCart/CartSlice";
+import { addToCart, setTotalPrice } from "../../Pages/ShoppingCart/CartSlice";
 const ConfigurePrice = ({ products }) => {
   const dispatch = useDispatch();
   const config = useSelector(selectConfig);
   const [customSize, setCustomSize] = useState(false);
   const handleClick = () => {
-    const pricePerSheet =
-      (((config.dimension.length * config.dimension.width * 210) / 15500) *
-        config.item.rate) /
-      100;
-
-    console.log(pricePerSheet);
-    const price = (pricePerSheet * config.quantity * 1.05).toFixed(2);
     const item = {
       id: config.item._id,
+      name: config.item.cardboardname,
       img: config.item.img,
       quantity: config.quantity,
-      price,
+      pricePerPiece: config.pricePerPiece,
+      price: config.totalPrice,
       dimension: config.dimension,
       printedSides: config.printedSides,
       material: config.material,
       thickness: config.thickness,
     };
     dispatch(addToCart(item));
+    dispatch(setTotalPrice());
+    dispatch(resetConfig());
   };
+  useEffect(() => {
+    if (config.dimension.length && config.dimension.width && config.quantity) {
+      const pricePerSheet =
+        (((config.dimension.length * config.dimension.width * 210) / 15500) *
+          config.item.rate) /
+        100;
+      const pricePerRoll =
+        (config.dimension.width * 76) / (2400 / config.dimension.length);
+      const pricePerPiece = Number.parseFloat(
+        (pricePerSheet + pricePerRoll + 14 + 5 + 2).toFixed(0)
+      );
+      const price = pricePerPiece * config.quantity;
+      dispatch(setPrice({ pricePerPiece, price }));
+    }
+  }, [config]);
   return (
     <>
       <div className="configure-price-card">
@@ -63,9 +77,7 @@ const ConfigurePrice = ({ products }) => {
                       )
                     }
                   >
-                    <option value=" " hidden>
-                      Select A Option
-                    </option>
+                    <option hidden>Select A Option</option>
                     {products?.map((product, index) => {
                       return (
                         <option key={index} value={product._id}>
@@ -205,7 +217,8 @@ const ConfigurePrice = ({ products }) => {
               <div className="col-12 col-lg-8">
                 <div className=" final-price">
                   <h5>
-                    $2.5 each <span>Subtotal: $610.40</span>
+                    ${config.pricePerPiece} each{" "}
+                    <span>Subtotal: ${config.totalPrice}</span>
                   </h5>
                 </div>
               </div>

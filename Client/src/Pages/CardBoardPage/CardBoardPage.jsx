@@ -19,11 +19,12 @@ function CardBoardPage() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProducts());
+    window.scroll(0,0)
   }, []);
 
   return (
     <>
-      <Merge  products={products}/>
+      <Merge products={products} />
       <section className="products-type">
         <div className="container">
           <h1 className="heading">Types of Cardboards</h1>

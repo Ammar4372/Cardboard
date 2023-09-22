@@ -1,18 +1,41 @@
 import { useSelector, useDispatch } from "react-redux";
 import {
   selectCheckout,
+  setCardName,
+  setCardNumber,
   setClientCompany,
   setClientEmail,
   setClientName,
+  setExpDate,
   setPhone,
   setShippingAddress,
   setShippingCity,
   setShippingState,
   setZip,
 } from "../../Pages/Checkout/CheckoutSlice";
+import { emptyCart, selectCartItems } from "../../Pages/ShoppingCart/CartSlice";
+
 function Checkout() {
   const dispatch = useDispatch();
   const checkout = useSelector(selectCheckout);
+  const cart = useSelector(selectCartItems);
+  const handleClick = () => {
+    fetch("http://localhost:3001/orderDetails", {
+      method: "Post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        items: cart,
+        client: checkout.client,
+        shipping: checkout.shipping,
+        payment: checkout.payment,
+      }),
+    })
+      .then(async (res) => console.log(await res.json()))
+      .catch((err) => console.log(err.message));
+    dispatch(emptyCart());
+  };
   return (
     <>
       <section className="shipping-cart checkout-page">
@@ -125,7 +148,6 @@ function Checkout() {
                       <input
                         className="form-check-input"
                         type="radio"
-                       
                         checked
                       />
                       <label
@@ -145,6 +167,10 @@ function Checkout() {
                             type="text"
                             className="form-control"
                             placeholder="Card number"
+                            value={checkout.payment.cardNumber}
+                            onChange={(e) =>
+                              dispatch(setCardNumber(e.target.value))
+                            }
                           />
                           <i className="fa-solid fa-lock"></i>
                         </div>
@@ -155,6 +181,10 @@ function Checkout() {
                             type="text"
                             className="form-control"
                             placeholder="Name on card"
+                            value={checkout.payment.cardName}
+                            onChange={(e) =>
+                              dispatch(setCardName(e.target.value))
+                            }
                           />
                         </div>
                       </div>
@@ -164,6 +194,10 @@ function Checkout() {
                             type="text"
                             className="form-control"
                             placeholder="Expiration date (MM / YY)"
+                            value={checkout.payment.expDate}
+                            onChange={(e) =>
+                              dispatch(setExpDate(e.target.value))
+                            }
                           />
                         </div>
                       </div>
@@ -266,7 +300,9 @@ function Checkout() {
                   <a href="#" className="d-inline-block back-home my-4">
                     Return to shipping
                   </a>
-                  <button className="btn-brnad my-4">PAY NOW</button>
+                  <button className="btn-brnad my-4" onClick={handleClick}>
+                    PAY NOW
+                  </button>
                 </div>
               </div>
             </div>

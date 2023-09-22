@@ -27,14 +27,16 @@ const CardBoard = createSlice({
   initialState: {
     Config: {
       item: {},
-      material: " ",
-      thickness: " ",
-      printedSides: " ",
-      quantity: " ",
+      material: "",
+      thickness: "",
+      printedSides: "",
+      quantity: "",
+      pricePerPiece: 0,
+      totalPrice: 0,
       dimension: {
-        length: " ",
-        depth: " ",
-        width: " ",
+        length: "",
+        depth: "",
+        width: "",
       },
     },
     Products: [],
@@ -68,6 +70,26 @@ const CardBoard = createSlice({
     setProduct(state, action) {
       state.Config.item = action.payload;
     },
+    setPrice(state, action) {
+      state.Config.totalPrice = action.payload.price;
+      state.Config.pricePerPiece = action.payload.pricePerPiece;
+    },
+    resetConfig(state, action) {
+      state.Config = {
+        item: {},
+        material: "",
+        thickness: "",
+        printedSides: "",
+        quantity: "",
+        pricePerPiece: 0,
+        totalPrice: 0,
+        dimension: {
+          length: "",
+          depth: "",
+          width: "",
+        },
+      };
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getProducts.fulfilled, (state, action) => {
@@ -97,6 +119,8 @@ export const {
   setPrintedSides,
   setWidth,
   setQuantity,
-  setProduct
+  setProduct,
+  setPrice,
+  resetConfig
 } = CardBoard.actions;
 export default CardBoard.reducer;

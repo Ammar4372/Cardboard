@@ -444,7 +444,7 @@ footer .footer-bottom p {
 }
 
 .inner-banner .nav .nav-link.active {
-  border: 1.15578px solid #15807a;
+  border: 1.15578px double red;
   background: white;
 }
 .inner-banner .nav .nav-item {
