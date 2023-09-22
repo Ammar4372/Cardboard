@@ -57,9 +57,9 @@ const CheckoutSlice = createSlice({
     },
   },
 });
-export const selectCheckout =(state)=>{
-    return state.CheckoutSlice;
-}
+export const selectCheckout = (state) => {
+  return state.CheckoutSlice;
+};
 export const {
   setClientName,
   setClientEmail,
