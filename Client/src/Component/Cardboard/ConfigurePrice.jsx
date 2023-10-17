@@ -10,7 +10,7 @@ import {
   setQuantity,
   setThickness,
 } from "../../Pages/CardBoardPage/CardBoardSlice";
-
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, setTotalPrice } from "../../Pages/ShoppingCart/CartSlice";
@@ -58,37 +58,44 @@ const ConfigurePrice = ({ products, materials }) => {
           <div className="card-header">
             <h5>Configure & Price</h5>
             <a href="#">
-              <img src="img/sahre.svg" /> Share
+              <img src="/img/sahre.svg" /> Share
             </a>
           </div>
 
           <div className="card-body">
             <div className="row align-items-center">
-              <div className="col-lg-4">
-                <h6>Product</h6>
-              </div>
-
-              <div className="col-lg-8">
-                <div className="form-group">
-                  <select
-                    className="form-select"
-                    onChange={({ target }) =>
-                      dispatch(
-                        setProduct(products.find((p) => p._id === target.value))
-                      )
-                    }
-                  >
-                    <option hidden>Select A Option</option>
-                    {products?.map((product, index) => {
-                      return (
-                        <option key={index} value={product._id}>
-                          {product.cardboardname}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
-              </div>
+              {products ? (
+                <>
+                  <div className="col-lg-4">
+                    <h6>Product</h6>
+                  </div>
+                  <div className="col-lg-8">
+                    <div className="form-group">
+                      <select
+                        className="form-select"
+                        onChange={({ target }) =>
+                          dispatch(
+                            setProduct(
+                              products.find((p) => p._id === target.value)
+                            )
+                          )
+                        }
+                      >
+                        <option hidden>Select A Option</option>
+                        {products?.map((product, index) => {
+                          return (
+                            <option key={index} value={product._id}>
+                              {product.cardboardname}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                ""
+              )}
               <div className="col-lg-4">
                 <h6>Material</h6>
               </div>
@@ -235,16 +242,33 @@ const ConfigurePrice = ({ products, materials }) => {
                   <h6>
                     Already using our <a href="#">designing tool?</a>
                   </h6>
-                  <button
-                    className="btn-brnad w-100"
-                    onClick={handleClick}
-                    style={{ translate: "50%" }}
-                  >
-                    Add to Cart
-                  </button>
+                  {products ? (
+                    <button
+                      className="btn-brnad w-100"
+                      onClick={handleClick}
+                      style={{ translate: "50%" }}
+                    >
+                      Add to Cart
+                    </button>
+                  ) : (
+                    <>
+                      <button className="btn-brnad w-100">
+                        <Link to="/Cardboards">PRODUCT PAGE</Link>
+                      </button>
+                    </>
+                  )}
                 </div>
                 <div className="col-lg-6">
                   <h6>Ready to design your box online?</h6>
+                  {products ? (
+                    ""
+                  ) : (
+                    <>
+                      <button className="btn-brnad w-100" onClick={handleClick}>
+                        Add to Cart
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
               <div className="form-footer">

@@ -56,10 +56,9 @@ app.get("/orders", (req, res) => {
 });
 app.get("/orderDetails/:id", (req, res) => {
   const id = req.params.id;
-  console.log(req.params);
+
   OrderModel.findById({ _id: id })
     .then((users) => {
-      console.log(users);
       res.json(users);
     })
     .catch((error) => res.json(error));
@@ -73,10 +72,9 @@ app.get("/cost-Info", (req, res) => {
 
 app.get("/costprice/:id", (req, res) => {
   const id = req.params.id;
-  console.log(req.params);
+
   CostsModel.findById({ _id: id })
     .then((users) => {
-      console.log(users);
       res.json(users);
     })
     .catch((error) => res.json(error));
@@ -99,7 +97,6 @@ app.put("/update-Cost-Price/:id", (req, res) => {
 app.get("/material-details", (req, res) => {
   MaterialModel.find()
     .then((data) => {
-      console.log(data);
       res.json(data);
     })
     .catch((err) => res.json(err));
@@ -107,10 +104,9 @@ app.get("/material-details", (req, res) => {
 
 app.get("/material-Cost-Price/:id", (req, res) => {
   const id = req.params.id;
-  console.log(req.params);
+
   MaterialModel.findById({ _id: id })
     .then((users) => {
-      console.log(users);
       res.json(users);
     })
     .catch((error) => res.json(error));
