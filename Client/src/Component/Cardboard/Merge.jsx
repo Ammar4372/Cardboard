@@ -4,7 +4,7 @@ import Description from "./Description";
 const Merge = ({products,materials}) => {
   return (
     <>
-      <div className="inner-banner bg-brown">
+      <div className="inner-banner bg-brown"> 
         <div className="container">
           <div className="row">
             <div className="col-lg-6">

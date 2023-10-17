@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, setTotalPrice } from "../../Pages/ShoppingCart/CartSlice";
+
 const ConfigurePrice = ({ products, materials }) => {
   const dispatch = useDispatch();
   const config = useSelector(selectConfig);
@@ -23,7 +24,7 @@ const ConfigurePrice = ({ products, materials }) => {
       id: config.item._id,
       name: config.item.cardboardname,
       img: config.item.img,
-      quantity: config.quantity,
+      quantity: config.quantity, 
       pricePerPiece: config.pricePerPiece,
       price: config.totalPrice,
       dimension: config.dimension,
@@ -35,6 +36,7 @@ const ConfigurePrice = ({ products, materials }) => {
     dispatch(setTotalPrice());
     dispatch(resetConfig());
   };
+
   useEffect(() => {
     if (config.dimension.length && config.dimension.width && config.quantity) {
       const pricePerSheet =
@@ -51,6 +53,7 @@ const ConfigurePrice = ({ products, materials }) => {
       dispatch(setPrice({ pricePerPiece, price }));
     }
   }, [config]);
+  
   return (
     <>
       <div className="configure-price-card">
@@ -240,7 +243,7 @@ const ConfigurePrice = ({ products, materials }) => {
               <div className="row design-option">
                 <div className="col-lg-6">
                   <h6>
-                    Already using our <a href="#">designing tool?</a>
+                    Already using our <Link to="/">designing tool?</Link>
                   </h6>
                   {products ? (
                     <button

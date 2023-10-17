@@ -28,26 +28,26 @@ const DetailTable = ({ data }) => {
         </td>
         <td>
           <div className="img-wraper">
-            <img className="img-fluid" src={data.img} />
+            <img className="img-fluid" src={data?.img} />
           </div>
         </td>
         <td>
-          <h6>{data.name}</h6>
-          <p>{data.color}</p>
+          <h6>{data?.name}</h6>
+          <p>{data?.color}</p>
         </td>
         <td>
           <div className="quantity">
             <button
               className="quantity__minus"
               onClick={() => {
-                dispatch(decrementItemQuantity(data.id));
+                dispatch(decrementItemQuantity(data?.id));
                 dispatch(setTotalPrice());
               }}
             >
               <span>-</span>
             </button>
 
-            <div className="quantity__input">{data.quantity}</div>
+            <div className="quantity__input">{data?.quantity}</div>
 
             <button
               className="quantity__plus"
@@ -60,7 +60,7 @@ const DetailTable = ({ data }) => {
             </button>
           </div>
         </td>
-        <td>{data.price}</td>
+        <td>{data?.price}</td>
       </tr>
     </>
   );
