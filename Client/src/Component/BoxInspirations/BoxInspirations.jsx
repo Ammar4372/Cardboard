@@ -5,7 +5,7 @@ const BoxInspirations = ({title,disc,images}) => {
  
   return (
     <>
-      <section className="box-inspirations">
+      <section className="box-inspirations"> 
         <div className="container">
           <div className="row">
             <div className="col-lg-10 mx-auto">
