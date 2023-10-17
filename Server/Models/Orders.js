@@ -13,6 +13,7 @@ const OrderSchema = new mongoose.Schema({
     state: String,
     zip: String,
   },
+  
   payment: {
     cardNumber: Number,
     cardName: String,
