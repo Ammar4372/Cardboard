@@ -1,5 +1,7 @@
 import { useDispatch } from "react-redux";
 import { setDimension } from "../../Pages/CardBoardPage/CardBoardSlice";
+
+
 const StandardSize = ({ item }) => {
   const dispatch = useDispatch();
 
@@ -13,7 +15,7 @@ const StandardSize = ({ item }) => {
           <div className="form-group">
             <select
               className="form-select"
-              aria-label="Default select example"
+              aria-label="Default select example" 
               onChange={(e) => {
                 dispatch(setDimension(e.target.value));
               }}

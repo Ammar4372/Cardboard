@@ -18,11 +18,12 @@ const images = [
   { src: "img/cardboard_inspiration_small_3.png" },
   { src: "img/cardboard_inspiration_small_4.png" },
 ];
-
+ 
 function CardBoardPage() {
   const products = useSelector(selectProducts);
   const materials = useSelector(selectMaterials);
   const dispatch = useDispatch();
+  
   useEffect(() => {
     dispatch(getProducts());
     dispatch(getMaterials());

@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require('path');
+const multer  = require('multer')
 const ProductModel = require("./Models/ProductsItems");
 const OrderModel = require("./Models/Orders");
 const CostsModel = require("./Models/Costs");
@@ -10,7 +12,7 @@ app.use(cors()); //sever side to frontend
 app.use(express.json()); // conversion
 mongoose.connect("mongodb://127.0.0.1:27017/Cardboard");
 
-//Get all data from Data base
+//Get all data from Data base 
 app.get("/", (req, res) => {
   ProductModel.find({})
     .then((users) => res.json(users))
@@ -125,6 +127,25 @@ app.put("/update-material-Cost-Price/:id", (req, res) => {
     .then((users) => res.json(users))
     .catch((error) => res.json(error));
 });
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb){
+      return cb(null, '../Client/public/uploads')
+  },
+  filename: function (req, file, cb){
+      cb(null, `${Date.now()}-canvasCut.png`);
+  }
+});
+
+const upload = multer({ storage })
+
+app.post('/upload', upload.single("imageData"), (req, res) => {
+  console.log(req.file.filename);
+  res.json(req.file.filename);
+});
+
 
 //run server
 app.listen(3001, () => {
