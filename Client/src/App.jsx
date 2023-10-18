@@ -16,8 +16,9 @@ import ProductDisplay from "./Pages/ProductDisplay";
 import RequestQute from "./Pages/RequestQute";
 import ProductDetails from "./Pages/ProductDetails";
 import ShippingCart from "./Pages/ShoppingCart/ShippingCart";
-
 import CheckoutPage from "./Pages/Checkout/Checkout";
+import BoxModel from "./Pages/BoxModelPage";
+
 const appRouter = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
@@ -32,6 +33,7 @@ const appRouter = createBrowserRouter(
       <Route path="/ProductDisplay/:id" element={<ProductDisplay />} />
       <Route path="/RequestQute" element={<RequestQute />} />
       <Route path="/ShippingCart" element={<ShippingCart />} />
+      <Route path="/CardboardManipulation" element={<BoxModel />} />
     </Route>
   )
 );

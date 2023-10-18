@@ -1,8 +1,9 @@
 import headerImg from "/img/header_image.png";
 import brands from "/img/trusted_by 1.svg";
 import Button from "react-bootstrap/Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { Link, NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <div className="home-banner">
@@ -17,17 +18,19 @@ const Header = () => {
                   rolls, reels, boxes and custom packaging that offer full
                   personalization, rapid quoting, and quick turnarounds.
                 </p>
-                <Button
-                  variant="dark"
-                  style={{
-                    backgroundColor: " #F7744F",
-                    borderRadius: "30px",
-                    color: "white",
-                    borderColor: "orange",
-                  }}
-                >
-                  CUSTOMIZE NOW
-                </Button>
+                <Link to="/CardboardManipulation">
+                  <Button
+                    variant="dark"
+                    style={{
+                      backgroundColor: " #F7744F",
+                      borderRadius: "30px",
+                      color: "white",
+                      borderColor: "orange",
+                    }}
+                  >
+                    CUSTOMIZE NOW
+                  </Button>
+                </Link>
                 <Button
                   variant="light"
                   style={{
@@ -46,8 +49,8 @@ const Header = () => {
                       <FontAwesomeIcon
                         icon={faCheck}
                         style={{ color: " #F7744F" }}
-                      />
-                      {" "}<span>FSC</span> Certified
+                      />{" "}
+                      <span>FSC</span> Certified
                     </h6>
                   </div>
                   <div className="col-lg-4 mt-4">
@@ -55,8 +58,8 @@ const Header = () => {
                       <FontAwesomeIcon
                         icon={faCheck}
                         style={{ color: " #F7744F" }}
-                      />
-                      {" "}<span>Verified</span> Suppliers
+                      />{" "}
+                      <span>Verified</span> Suppliers
                     </h6>
                   </div>
                   <div className="col-lg-4 mt-4">
@@ -64,8 +67,8 @@ const Header = () => {
                       <FontAwesomeIcon
                         icon={faCheck}
                         style={{ color: " #F7744F" }}
-                      />
-                      {" "}Delivered in <span>4 Days</span>
+                      />{" "}
+                      Delivered in <span>4 Days</span>
                     </h6>
                   </div>
                 </div>

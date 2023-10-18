@@ -28,7 +28,7 @@ const menuIcons = [
 
 const SideMenu = () => {
   const dispatch = useDispatch();
-  const [activeItem, setActiveItem] = useState('design'); // State to track the active item
+  const [activeItem, setActiveItem] = useState('size'); // State to track the active item
 
   const setSelection = (s) => {
     if (s === 'design') {

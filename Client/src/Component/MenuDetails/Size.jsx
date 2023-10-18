@@ -49,10 +49,10 @@ const Size = ({ products }) => {
                         <BiSolidHelpCircle className=' fs-5' />
                     </div>
                     <ul className="sizeCardList list-group list-group-flush overflow-auto">
-                        {products.map((p) => {
+                        {products.map((p,index) => {
                             if (p.cardboardname === 'Mailer Box') {
                                 return (
-                                    <li key={p.id} className="list-group-item" onClick={() => dimensionsSetter(p.length, p.width, p.depth)}>
+                                    <li key={index} className="list-group-item" onClick={() => dimensionsSetter(p.length, p.width, p.depth)}>
                                         {`${p.length}" x ${p.width}" x ${p.depth}"`}
                                     </li>
                                 )

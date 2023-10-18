@@ -12,7 +12,7 @@ const ItemsTable = () => {
         duplicate them
       </p>
 
-      <div className="table-responsive">
+      <div className="table-responsive" style={{ borderRadius: 10 }}>
         <table className="table">
           <tbody>
             {Cart.map((data, index) => (
