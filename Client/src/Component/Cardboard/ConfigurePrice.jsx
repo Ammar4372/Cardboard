@@ -243,7 +243,8 @@ const ConfigurePrice = ({ products, materials }) => {
               <div className="row design-option">
                 <div className="col-lg-6">
                   <h6>
-                    Already using our <Link to="/">designing tool?</Link>
+                    Already using our{" "}
+                    <Link to="/CardboardManipulation">designing tool?</Link>
                   </h6>
                   {products ? (
                     <button

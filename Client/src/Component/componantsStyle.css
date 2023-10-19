@@ -1,102 +1,120 @@
-body{
-    background-color: #F6F6F6;
-    font-family: 'Asap', sans-serif;
+body {
+  background-color: #f6f6f6;
+  font-family: "Asap", sans-serif;
 }
-ul{
-    text-decoration: none;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+ul {
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-li{
-    text-decoration: none;
+li {
+  text-decoration: none;
 }
 
 /* side menu style code */
 
-.itemSpan{
-    font-size: 0.9rem;
-    font-weight: 600;
+.itemSpan {
+  font-size: 0.9rem;
+  font-weight: 600;
 }
-.menuItem{
-    cursor: pointer;
+.menuItem {
+  cursor: pointer;
 }
-.active{
-    background-color: #FEFBFA;
+.active {
+  background-color: #fefbfa;
 }
-.menuItem :hover{
-    background-color: #FEFBFA;
+.menuItem :hover {
+  background-color: #fefbfa;
 }
 
 /* menu detail section style */
-.sizeCardList{
-    max-height: 35vh;
+.sizeCardList {
+  max-height: 35vh;
 }
-.sizeCardList li{
-    font-weight: 600;
-    cursor: pointer;
-    color: #717171;
+.sizeCardList li {
+  font-weight: 600;
+  cursor: pointer;
+  color: #717171;
 }
-.sizeCardList li:hover{
-    background-color: #FEFBFA;
-    color: #222222;
-    border-left: 2px solid #F1500A; 
+.sizeCardList li:hover {
+  background-color: #fefbfa;
+  color: #222222;
+  border-left: 2px solid #f1500a;
 }
-.sizeCardList::-webkit-scrollbar{
-    display: none;
+.sizeCardList::-webkit-scrollbar {
+  display: none;
 }
-.notePara{
-    padding-top: 1px;
+.notePara {
+  padding-top: 1px;
 }
-.notePara p{
-    font-size: 0.9rem;
-    font-weight: 400;
-    padding: 1px 0 0 0.6rem;
+.notePara p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding: 1px 0 0 0.6rem;
 }
 
-.shadow{
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+.shadow {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 /* material section code */
 
-.materialList p{
-    font-size: 0.8rem;
-    font-weight: 600;
+.materialList p {
+  font-size: 0.8rem;
+  font-weight: 600;
 }
-.materialList li:hover{
-    cursor: pointer;
-    background-color: #FEFBFA;
-    color: #222222;
-    border-left: 2px solid #F1500A;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+.materialList li:hover {
+  cursor: pointer;
+  background-color: #fefbfa;
+  color: #222222;
+  border-left: 2px solid #f1500a;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 /* design section code */
 
-.imgSizeBtn ul{
-    border: 2px solid #D9D9D9;
-    border-radius: 15px;
+.imgSizeBtn ul {
+  border: 2px solid #d9d9d9;
+  border-radius: 15px;
 }
-.imgSizeBtn ul li{
-    padding: 0.4rem 0.8rem 0.4rem 0.8rem;
-    border-right: 2px solid #D9D9D9;
-    cursor: pointer;
+.imgSizeBtn ul li {
+  padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+  border-right: 2px solid #d9d9d9;
+  cursor: pointer;
 }
-.imgSizeBtn ul li:last-child{
-    border: none;
+.imgSizeBtn ul li:last-child {
+  border: none;
 }
 
 /* itemCard style code */
 
-.paraDiv{
-    max-height: 6rem;
-    overflow: hidden;
+.paraDiv {
+  max-height: 6rem;
+  overflow: hidden;
 }
-.paraDiv p{
-    font-size: 0.9rem;
-    line-height: 1.2rem;
-    text-align: justify;
-    font-weight: 400;
+.paraDiv p {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  text-align: justify;
+  font-weight: 400;
+}
+.custom {
+  background-size: 30% !important;
+}
+@media screen and (max-width: 1023px) {
+  .container3dbox::before {
+    display: block;
+    content: "Can't use the design tool on mobile devices.";
+    text-align: center;
+  }
+}
+.container3dbox > .container-fluid {
+  display: none;
+}
+@media screen and (min-width: 1024px) {
+  .container3dbox > .container-fluid {
+    display: flex;
+  }
 }

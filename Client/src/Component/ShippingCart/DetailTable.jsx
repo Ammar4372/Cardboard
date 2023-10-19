@@ -11,10 +11,9 @@ const DetailTable = ({ data }) => {
   const dispatch = useDispatch();
   return (
     <>
-      <tr>
+      <tr >
         <td>
           <a
-            className=""
             onClick={() => {
               dispatch(removeItem(data.id));
               dispatch(setTotalPrice());
@@ -38,6 +37,12 @@ const DetailTable = ({ data }) => {
         <td>
           <div className="quantity">
             <button
+              style={{
+                border: "none",
+                background: "#f7744f",
+                borderRadius: 10,
+                color: "#fff",
+              }}
               className="quantity__minus"
               onClick={() => {
                 dispatch(decrementItemQuantity(data?.id));
@@ -50,6 +55,12 @@ const DetailTable = ({ data }) => {
             <div className="quantity__input">{data?.quantity}</div>
 
             <button
+              style={{
+                border: "none",
+                background: "#f7744f",
+                borderRadius: 10,
+                color: "#fff",
+              }}
               className="quantity__plus"
               onClick={() => {
                 dispatch(incrementItemQuantity(data.id));
