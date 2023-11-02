@@ -71,7 +71,7 @@ const DetailTable = ({ data }) => {
             </button>
           </div>
         </td>
-        <td>{data?.price}</td>
+        <td>Rs {data?.price}</td>
       </tr>
     </>
   );

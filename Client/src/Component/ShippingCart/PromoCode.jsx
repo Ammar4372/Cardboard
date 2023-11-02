@@ -10,7 +10,7 @@ const PromoCode = () => {
         <div className="card-body">
           <div className="flex-info">
             <h6>Subtotal</h6>
-            <h5>${totalPrice}</h5>
+            <h5>RS {totalPrice}</h5>
           </div>
           <div className="text-center">
             <Link to="/Checkout">

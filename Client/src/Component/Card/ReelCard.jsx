@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom";
 
-function Card({ card }) {
+function ReelCard({ card }) {
   return (
     <>
       <div className="col-lg-3 col-container">
         <div className="card">
-          <span className="bage">
-            {card.quantity > 0 ? "In Stock" : "Out of Stock"}
-          </span>
           <div className="card-body">
-            <img className="img-fluid" src={card.img} />
+            <img className="img-fluid" src='/img/reels_product_1.png' alt="reel picture" />
           </div>
           <div className="hover-contant">
             <p>
@@ -17,15 +14,14 @@ function Card({ card }) {
                 ? card.description
                 : card.description.slice(0, 450) + "..."}
             </p>
-            <Link to={`/ProductDisplay/${card._id}`}>
+            {/* <Link to={`/ReelDisplay/${card._id}`}>
               <button className="btn-brnad w-100 py-3">VIEW PRODUCT</button>
-            </Link>
+            </Link> */}
           </div>
         </div>
-        <h5>{card.cardboardname}</h5>
-        <p>Min. {card.minOrder} pieces</p>
+        <h5>{card.Type}</h5>
       </div>
     </>
   );
 }
-export default Card;
+export default ReelCard;

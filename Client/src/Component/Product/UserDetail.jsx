@@ -5,10 +5,10 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setProduct } from "../../Pages/CardBoardPage/CardBoardSlice";
 const UserDetail = ({ Product, materials }) => {
-  const dispatch = useDispatch()
-  useEffect(()=>{
-    dispatch(setProduct(Product))
-  },[])
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setProduct(Product));
+  }, []);
   return (
     <>
       <section className="products-page">
@@ -17,12 +17,12 @@ const UserDetail = ({ Product, materials }) => {
             <div className="col-lg-6">
               <div className="product-slider">
                 <ItemImageSlider img={Product.img} />
+                <p className="mt-4">{Product.description}</p>
               </div>
             </div>
 
             <div className=" col-lg-6">
               <h1 className="heading ">{Product.cardboardname}</h1>
-              <p className="mt-4">{Product.description}</p>
               <div className="inner-banner">
                 <ConfigurePrice products={null} materials={materials} />
               </div>
