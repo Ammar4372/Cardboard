@@ -10,14 +10,16 @@ import Root from "./Component/Root";
 import CardBoardPage from "./Pages/CardBoardPage/CardBoardPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import ReelsPage from "./Pages/ReelsPage";
-import RollsPage from "./Pages/RollsPage";
+import ReelsPage from "./Pages/ReelsPage/ReelsPage";
+import RollsPage from "./Pages/RollsPage/RollsPage";
 import ProductDisplay from "./Pages/ProductDisplay";
 import RequestQute from "./Pages/RequestQute";
 import ProductDetails from "./Pages/ProductDetails";
 import ShippingCart from "./Pages/ShoppingCart/ShippingCart";
 import CheckoutPage from "./Pages/Checkout/Checkout";
 import BoxModel from "./Pages/BoxModelPage";
+import RollDisplay from "./Pages/RollDisplay";
+import ReelDisplay from "./Pages/ReelDisplay";
 
 const appRouter = createBrowserRouter(
   createRoutesFromElements(
@@ -34,6 +36,8 @@ const appRouter = createBrowserRouter(
       <Route path="/RequestQute" element={<RequestQute />} />
       <Route path="/ShippingCart" element={<ShippingCart />} />
       <Route path="/CardboardManipulation" element={<BoxModel />} />
+      <Route path="/RollDisplay/:id" element={<RollDisplay />} />
+      <Route path="/ReelDisplay/:id" element={<ReelDisplay />} />
     </Route>
   )
 );
