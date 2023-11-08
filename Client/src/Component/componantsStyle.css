@@ -22,10 +22,10 @@ li {
   cursor: pointer;
 }
 .active {
-  background-color: #fefbfa;
+  background-color: #D9EAE9;
 }
 .menuItem :hover {
-  background-color: #fefbfa;
+  background-color: #D9EAE9;
 }
 
 /* menu detail section style */
@@ -38,9 +38,9 @@ li {
   color: #717171;
 }
 .sizeCardList li:hover {
-  background-color: #fefbfa;
+  background-color: #D9EAE9;
   color: #222222;
-  border-left: 2px solid #f1500a;
+  border-left: 2px solid #0A403D;
 }
 .sizeCardList::-webkit-scrollbar {
   display: none;
@@ -66,9 +66,9 @@ li {
 }
 .materialList li:hover {
   cursor: pointer;
-  background-color: #fefbfa;
+  background-color: #D9EAE9;
   color: #222222;
-  border-left: 2px solid #f1500a;
+  border-left: 2px solid #0A403D;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -103,18 +103,21 @@ li {
 .custom {
   background-size: 30% !important;
 }
-@media screen and (max-width: 1023px) {
-  .container3dbox::before {
-    display: block;
-    content: "Can't use the design tool on mobile devices.";
-    text-align: center;
-  }
-}
-.container3dbox > .container-fluid {
+
+.container3dbox .manipulator {
   display: none;
 }
-@media screen and (min-width: 1024px) {
-  .container3dbox > .container-fluid {
+.container3dbox .errorBox {
+  display: none;
+}
+
+@media screen and (max-width: 1259px) {
+  .container3dbox .errorBox {
+    display: flex;
+  }
+}
+@media screen and (min-width: 1260px) {
+  .container3dbox .manipulator {
     display: flex;
   }
 }

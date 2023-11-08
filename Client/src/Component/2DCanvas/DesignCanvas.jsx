@@ -337,7 +337,7 @@ const DesignCanvas = () => {
       Promise.all(loadImagePromises)
         .then(() => {
           exportStage.add(exportLayer);
-  
+
           exportStage.toDataURL({
             mimeType: "image/png",
             callback: (dataURL) => {
@@ -355,14 +355,14 @@ const DesignCanvas = () => {
               const blob = new Blob([arrayBuffer], { type: mimeString });
               // Create an object with the data to send to the server
               const dataToSend = new FormData();
-              dataToSend.append("imageData", blob, "image.png");
+              dataToSend.append("imageData", blob, "image.png"); 
   
               // Make a POST request to your server
               fetch("http://127.0.0.1:3001/upload", {
                 method: "POST",
                 body: dataToSend,
               })
-                .then(async (res) => {
+                .then(async (res) => { 
                   const response = await res.json();
                   // Handle the response from the server
                   dispatch(setImageState(response));

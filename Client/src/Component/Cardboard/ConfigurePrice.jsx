@@ -23,6 +23,7 @@ const ConfigurePrice = ({ products, materials }) => {
     if (config.totalPrice) {
       const item = {
         id: config.item._id,
+        ThreeD: false,
         name: config.item.cardboardname,
         img: config.item.img,
         quantity: config.quantity,

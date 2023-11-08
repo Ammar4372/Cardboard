@@ -24,7 +24,7 @@ const CanvasContainer = () => {
 
                     <select className="sideSelection form-select fw-semibold p-2"
                         aria-label="Default select example"
-                        style={{width: 6+"rem", background: '#FEFBFA'}}
+                        style={{width: 6+"rem" }}
                         onChange={(e)=>dispatch(changeSide(e.target.value))}
                     >
                         <option value={false}>Select</option>
@@ -38,7 +38,7 @@ const CanvasContainer = () => {
                 </ul>
             </div>
 
-            <div className=" w-100 mt-2" style={{height: 75+'vh'}}>
+            <div className=" w-100 mt-2" style={{height: 80+'vh'}}>
                 <CameraAdjustment />
             </div>
 

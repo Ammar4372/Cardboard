@@ -44,9 +44,9 @@ const Size = ({ products }) => {
         <>
             <div className="d-flex">
                 <div className="card mt-2" style={{ 'width': '18rem' }}>
-                    <div className="card-header d-flex flex-row justify-content-between align-items-center" style={{ color: '#F7744F' }}>
-                        <h6>Select stock size</h6>
-                        <BiSolidHelpCircle className=' fs-5' />
+                    <div className="card-header d-flex flex-row justify-content-between align-items-center" style={{ background: '#15807a' }}>
+                        <h6 className=' fw-semibold text-white'>Select stock size</h6>
+                        <BiSolidHelpCircle className=' fs-5 text-white' />
                     </div>
                     <ul className="sizeCardList list-group list-group-flush overflow-auto">
                         {products.map((p,index) => {
@@ -66,8 +66,8 @@ const Size = ({ products }) => {
 
             <div className="d-flex">
                 <div className="card mt-2" style={{ 'width': '18rem' }}>
-                    <div className="card-header d-flex flex-row justify-content-between align-items-center" style={{ color: '#F7744F' }}>
-                        <h6>Create custom size</h6>
+                    <div className="card-header d-flex flex-row justify-content-between align-items-center" style={{ background: '#15807a' }}>
+                        <h6 className=' fw-semibold text-white'>Create custom size</h6>
                     </div>
 
                     <div className="d-flex align-items-center flex-column pt-3 ">

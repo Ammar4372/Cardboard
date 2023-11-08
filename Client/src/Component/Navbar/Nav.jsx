@@ -1,7 +1,7 @@
 import List from "./Dropdown";
 import { Link } from "react-router-dom";
 import { selectCartItems } from "../../Pages/ShoppingCart/CartSlice";
-import { useSelector } from "react-redux";
+import { useSelector } from "react-redux"; 
 function Nav() {
   const cart = useSelector(selectCartItems);
   return (

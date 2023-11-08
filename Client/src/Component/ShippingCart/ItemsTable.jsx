@@ -3,7 +3,7 @@ import { selectCartItems } from "../../Pages/ShoppingCart/CartSlice";
 import { useSelector } from "react-redux";
 
 const ItemsTable = () => {
-  const Cart = useSelector(selectCartItems);
+  const Cart = useSelector(selectCartItems); 
   return (
     <>
       <h5>Items in Cart</h5>
