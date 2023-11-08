@@ -1,5 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require('path');
+const multer  = require('multer');
 const cors = require("cors");
 const ProductModel = require("./Models/ProductsItems");
 const OrderModel = require("./Models/Orders");
@@ -18,6 +20,25 @@ app.get("/", (req, res) => {
     .then((users) => res.json(users))
     .catch((error) => res.json(error));
 });
+
+//cardboard design image upload code here
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb){
+      return cb(null, path.join(__dirname,"../Client/public/uploads"))
+  },
+  filename: function (req, file, cb){
+      cb(null, `${Date.now()}-canvasCut.png`);
+  }
+});
+
+const upload = multer({ storage })
+
+app.post('/upload', upload.single("imageData"), (req, res) => {
+  res.json(req.file.filename);
+});
+
+// cardboard design image upload end here
 
 //Get Single Item
 app.get("/cardboard/getItem/:id", (req, res) => {
@@ -367,5 +388,5 @@ app.delete("/delete-reel/:id", async (req, res) => {
 
 //run server
 app.listen(3001, () => {
-  console.log("server is running");
+  console.log("server is running on 3001");
 });

@@ -21,6 +21,8 @@ import deleteCanvasObj from "./Store/slices/deleteCanvasObj";
 import applyDesign from "./Store/slices/applyDesign";
 import imageState from "./Store/slices/imageState";
 import sideMenuSelection from "./Store/slices/sideMenuSelection";
+import boxScaleValue from "./Store/slices/boxScaleValue";
+import alertData from "./Store/slices/alertSlice";
 
 const store = configureStore({
   reducer: {
@@ -46,6 +48,8 @@ const store = configureStore({
     appliedDesign: applyDesign,
     imageStated: imageState,
     sideMenuSelectedItem: sideMenuSelection,
+    boxScaleValue: boxScaleValue,
+    alertData: alertData
   },
 });
 

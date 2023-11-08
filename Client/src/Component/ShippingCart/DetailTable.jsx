@@ -7,8 +7,11 @@ import {
   removeItem,
   setTotalPrice,
 } from "../../Pages/ShoppingCart/CartSlice";
+import BoxThreeD from "./BoxThreeD";
+
 const DetailTable = ({ data }) => {
   const dispatch = useDispatch();
+
   return (
     <>
       <tr >
@@ -27,7 +30,11 @@ const DetailTable = ({ data }) => {
         </td>
         <td>
           <div className="img-wraper">
-            <img className="img-fluid" src={data?.img} />
+            {
+              data?.ThreeD ? 
+                (<BoxThreeD data={data} /> ) :
+                (<img className="img-fluid" src={data?.img} />)
+            }
           </div>
         </td>
         <td>

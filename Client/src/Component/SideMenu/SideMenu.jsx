@@ -7,21 +7,23 @@ import { selectDesign } from '../../Store/slices/designSelection';
 import { setSideMenuSelection } from '../../Store/slices/sideMenuSelection';
 import '../componantsStyle.css';
 
+const iconColor = "#15807a";
+
 const menuIcons = [
   {
-    icon: <MdPhotoSizeSelectSmall />,
+    icon: <MdPhotoSizeSelectSmall style={{color: iconColor}} />,
     name: 'size',
   },
   {
-    icon: <MdOutlineStyle />,
+    icon: <MdOutlineStyle style={{color: iconColor}} />,
     name: 'material',
   },
   {
-    icon: <FaBrush />,
+    icon: <FaBrush style={{color: iconColor}} />,
     name: 'design',
   },
   {
-    icon: <FaCalculator />,
+    icon: <FaCalculator style={{color: iconColor}} />,
     name: 'quantity',
   },
 ];
@@ -59,7 +61,7 @@ const SideMenu = () => {
             >
               <span className=" nav-link p-1 py-3 border-bottom fs-2 rounded-end d-flex justify-content-center align-items-center flex-column" style={{ color: '#F7744F' }}>
                 {item.icon}
-                <span className='itemSpan py-1 text-uppercase' style={{ color: '#FAAB95' }}>
+                <span className='itemSpan py-1 text-uppercase' style={{color: "#aeaeae"}} >
                   {item.name}
                 </span>
               </span>
