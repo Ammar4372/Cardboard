@@ -5,8 +5,15 @@ function RollCard({ card ,to}) {
     <>
       <div className="col-lg-3 col-container">
         <div className="card">
+          <span className="bage">
+            {card.Quantity > 0 ? "In Stock" : "Out of Stock"}
+          </span>
           <div className="card-body">
-            <img className="img-fluid" src='/img/roll_product_1.png' alt="roll picture" />
+            <img
+              className="img-fluid"
+              src="/img/roll_product_1.png"
+              alt="roll picture"
+            />
           </div>
           <div className="hover-contant">
             <p>

@@ -39,6 +39,9 @@ const ReelSchema = new Schema({
       },
     ],
   },
+  Quantity: {
+    type: Number
+  }
 });
 
 module.exports = mongoose.model("Reel", ReelSchema);

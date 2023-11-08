@@ -1,11 +1,14 @@
 import { useEffect } from "react";
 import ItemImageSlider from "../Product/ItemImageSlider";
-
 import { useDispatch } from "react-redux";
+import { setReel } from "../../Pages/ReelsPage/ReelsSlice";
+import ConfigureReel from "../ReelConfig/ConfigureReel";
 
 const ReelDetail = ({ Product }) => {
   const dispatch = useDispatch();
-  useEffect(() => {}, [Product]);
+  useEffect(() => {
+    dispatch(setReel(Product));
+  }, [Product]);
   return (
     <>
       <section className="products-page">
@@ -20,7 +23,9 @@ const ReelDetail = ({ Product }) => {
 
             <div className="col-lg-6">
               <h1 className="heading ">{Product?.type}</h1>
-              <div className="inner-banner"></div>
+              <div className="inner-banner">
+                <ConfigureReel products={null} />
+              </div>
             </div>
           </div>
         </div>

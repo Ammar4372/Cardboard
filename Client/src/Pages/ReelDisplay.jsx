@@ -8,7 +8,7 @@ const ReelDisplay = () => {
   const dispatch = useDispatch();
   const id = useParams().id;
   const product = useSelector(selectReelById);
-
+  console.log(product)
   useEffect(() => {
     dispatch(getReelById(id));
     window.scroll(0, 0);

@@ -90,7 +90,7 @@ export const selectReels = (state) => {
   return state.ReelsSlice.Reels;
 };
 export const selectReelById = (state) => {
-  return state.ReelsSlice.ReelsById;
+  return state.ReelsSlice.ReelById;
 };
 export const {
   setReel,

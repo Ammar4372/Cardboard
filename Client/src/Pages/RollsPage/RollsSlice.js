@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-
 export const getRolls = createAsyncThunk("Rolls/getRolls", async (thunkApi) => {
   const res = await fetch("http://localhost:3001/rolls").then((data) =>
     data.json()
@@ -24,6 +23,7 @@ const RollsSlice = createSlice({
       quantity: "",
       pricePerPiece: 0,
       totalPrice: 0,
+      type: "",
       size: "",
     },
     Rolls: [],
@@ -43,6 +43,9 @@ const RollsSlice = createSlice({
     },
     setSize(state, action) {
       state.Config.size = Number.parseInt(action.payload);
+    },
+    setType(state,action){
+      state.Config.type = action.payload
     },
     setRollPrice(state, action) {
       state.Config.totalPrice = action.payload.price;
@@ -82,5 +85,6 @@ export const {
   resetRollConfig,
   setRollPrice,
   setSize,
+  setType
 } = RollsSlice.actions;
 export default RollsSlice.reducer;

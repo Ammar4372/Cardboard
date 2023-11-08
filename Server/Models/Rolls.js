@@ -29,6 +29,9 @@ const RoolSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  Quantity:{
+    type: Number
+  }
 });
 
 module.exports = mongoose.model("Roll", RoolSchema);
