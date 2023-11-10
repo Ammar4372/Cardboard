@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import CanvasContainer from "./CanvasContainer/CanvasContainer"
 import ItemCard from "./ItemCard/ItemCard"
 import Design from "./MenuDetails/Design"
@@ -6,9 +7,15 @@ import Quantity from "./MenuDetails/Quantity"
 import Size from "./MenuDetails/Size"
 import SideMenu from "./SideMenu/SideMenu"
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectDesign } from "../Store/slices/designSelection"
+import { setSize } from "../Store/slices/sizeSlice"
+import { changeMaterial } from "../Store/slices/materialSlice"
+import { setQuantity } from "../Store/slices/quantitySlice"
+import { imagesCollector } from "../Store/slices/imagesContainerSlice"
 
-const Container3DBox = ({ products, materials }) => { 
+const Container3DBox = ({ products, materials }) => {
+    const dispatch = useDispatch();
     const designOption = useSelector((state) => {
         return state.designSelected
     });
@@ -16,6 +23,27 @@ const Container3DBox = ({ products, materials }) => {
     const sideMenuSelection = useSelector((state) => {
         return state.sideMenuSelectedItem
     });
+
+    useEffect(() => {
+        dispatch(selectDesign(false));
+
+        dispatch(setSize({
+            length: 10,
+            width: 10,
+            depth: 10,
+        }));
+
+        dispatch(changeMaterial('Kraft'));
+        dispatch(setQuantity(500));
+        dispatch(imagesCollector({
+            front: '',
+            left: '',
+            right: '',
+            back:'',
+            bottom:''
+        }))
+    }, [])
+
 
 
     return (
@@ -25,7 +53,7 @@ const Container3DBox = ({ products, materials }) => {
                     <div className="col-1">
                         <SideMenu />
                     </div>
-                    <div className={!designOption ? "col-2 rounded" : "col-4 rounded"} style={{ backgroundColor: "#F3F3F3" }}>
+                    <div className={designOption ? "col-4 rounded" : "col-2 rounded"} style={{ backgroundColor: "#F3F3F3" }}>
                         {sideMenuSelection === 'size' && <Size products={products} />}
                         {sideMenuSelection === 'design' && <Design />}
                         {sideMenuSelection === 'material' && <Material />}

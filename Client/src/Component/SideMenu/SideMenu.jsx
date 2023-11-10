@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // Import useState
+import React, { useEffect, useRef, useState } from 'react'; // Import useState
 import { MdPhotoSizeSelectSmall, MdOutlineStyle } from 'react-icons/md';
 import { FaBrush } from 'react-icons/fa6';
 import { FaCalculator } from 'react-icons/fa';
@@ -11,24 +11,25 @@ const iconColor = "#15807a";
 
 const menuIcons = [
   {
-    icon: <MdPhotoSizeSelectSmall style={{color: iconColor}} />,
+    icon: <MdPhotoSizeSelectSmall style={{ color: iconColor }} />,
     name: 'size',
   },
   {
-    icon: <MdOutlineStyle style={{color: iconColor}} />,
+    icon: <MdOutlineStyle style={{ color: iconColor }} />,
     name: 'material',
   },
   {
-    icon: <FaBrush style={{color: iconColor}} />,
+    icon: <FaBrush style={{ color: iconColor }} />,
     name: 'design',
   },
   {
-    icon: <FaCalculator style={{color: iconColor}} />,
+    icon: <FaCalculator style={{ color: iconColor }} />,
     name: 'quantity',
   },
 ];
 
 const SideMenu = () => {
+  const clickRef = useRef();
   const dispatch = useDispatch();
   const [activeItem, setActiveItem] = useState('size'); // State to track the active item
 
@@ -36,7 +37,7 @@ const SideMenu = () => {
     if (s === 'design') {
       dispatch(selectDesign(true));
     }
-    if (s === 'size' || s === 'material' || s === 'quantity') {
+    else{
       dispatch(selectDesign(false));
     }
   };
@@ -44,8 +45,15 @@ const SideMenu = () => {
   const handleClick = (n) => {
     setSelection(n);
     dispatch(setSideMenuSelection(n));
-    setActiveItem(n); 
+    setActiveItem(n);
   };
+
+  useEffect(() => {
+    handleClick('size');
+  }, [])
+
+  console.log(clickRef);
+
 
   return (
     <>
@@ -53,15 +61,15 @@ const SideMenu = () => {
         <ul className="nav nav-flush flex-column mb-auto text-center vh-100">
           {menuIcons.map((item, index) => (
             <li
-              className={`menuItem nav-item d-flex justify-content-center align-content-center flex-column ${
-                activeItem === item.name ? 'active' : '' 
-              }`}
               key={index}
+              ref={item.name === 'size' ? clickRef : null}
+              className={`menuItem nav-item d-flex justify-content-center align-content-center flex-column ${activeItem === item.name ? 'active' : ''
+                }`}
               onClick={() => handleClick(item.name)}
             >
               <span className=" nav-link p-1 py-3 border-bottom fs-2 rounded-end d-flex justify-content-center align-items-center flex-column" style={{ color: '#F7744F' }}>
                 {item.icon}
-                <span className='itemSpan py-1 text-uppercase' style={{color: "#aeaeae"}} >
+                <span className='itemSpan py-1 text-uppercase' style={{ color: "#aeaeae" }} >
                   {item.name}
                 </span>
               </span>
