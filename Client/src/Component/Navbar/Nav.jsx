@@ -30,8 +30,8 @@ function Nav() {
                     header="Products"
                     items={[
                       { url: "/Cardboards", title: "CardBoard" },
-                      { url: "/Reel", title: "Reels" },
-                      { url: "/Roll", title: "Rolls" },
+                      { url: "/Reels", title: "Reels" },
+                      { url: "/Rolls", title: "Rolls" },
                       { url: "/RequestQute", title: "Request-Qute" },
                     ]}
                   />

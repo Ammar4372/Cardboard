@@ -17,7 +17,7 @@ const RollDetail = ({ Product }) => {
             <div className="col-lg-6">
               <div className="product-slider">
                 <ItemImageSlider img="/img/roll_product_1.png" />
-                <p className="mt-4">{Product?.description}</p>
+                <p className="mt-4 description">{Product?.description}</p>
               </div>
             </div>
 

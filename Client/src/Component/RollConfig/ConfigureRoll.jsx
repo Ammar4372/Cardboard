@@ -96,26 +96,35 @@ const ConfigureRoll = ({ products }) => {
               </div>
               <div className="col-lg-8">
                 <div className="form-group">
-                  <div class="form-check form-check-inline">
+                  <div
+                    className="form-check form-check-inline"
+                    style={{ margin: "0 .5rem" }}
+                  >
                     <input
-                      class="form-check-input"
+                      className="form-check-input"
                       type="radio"
                       name="Type"
                       id="inlineRadio2"
                       onChange={() => dispatch(setType("Thin"))}
                     />
-                    <label class="form-check-label" for="inlineRadio2">
+                    <label className="form-check-label" htmlFor="inlineRadio2">
                       Thin
                     </label>
-                    <div class="form-check form-check-inline">
+                    <div
+                      className="form-check form-check-inline"
+                      style={{ margin: "0 .5rem" }}
+                    >
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         name="Type"
                         id="inlineRadio1"
                         onChange={() => dispatch(setType("Thick"))}
                       />
-                      <label class="form-check-label" for="inlineRadio1">
+                      <label
+                        className="form-check-label"
+                        htmlFor="inlineRadio1"
+                      >
                         Thick
                       </label>
                     </div>
@@ -176,7 +185,7 @@ const ConfigureRoll = ({ products }) => {
                         <option value="51">51</option>
                         <option value="52">52</option>
                       </>
-                    ) : (
+                    ) : config.type === "Thin" ? (
                       <>
                         <option value="17">17</option>
                         <option value="18">18</option>
@@ -207,6 +216,8 @@ const ConfigureRoll = ({ products }) => {
                         <option value="43">43</option>
                         <option value="44">44</option>
                       </>
+                    ) : (
+                      ""
                     )}
                   </select>
                 </div>
@@ -251,7 +262,7 @@ const ConfigureRoll = ({ products }) => {
             </div>
             <div className="form-footer">
               <p>
-                Can’t find what you’re looking for?{" "}
+                Can’t find what you’re looking htmlFor?{" "}
                 <a href="#">Get a Custom Quote</a>
               </p>
             </div>

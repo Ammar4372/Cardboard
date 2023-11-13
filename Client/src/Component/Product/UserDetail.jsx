@@ -14,10 +14,10 @@ const UserDetail = ({ Product, materials }) => {
       <section className="products-page">
         <div className="container">
           <div className="row">
-            <div className="col-lg-6">
+            <div className="col-lg-6" >
               <div className="product-slider">
                 <ItemImageSlider img={Product.img} />
-                <p className="mt-4">{Product.description}</p>
+                <p className="mt-5 description" >{Product.description}</p>
               </div>
             </div>
 

@@ -27,8 +27,8 @@ const appRouter = createBrowserRouter(
       <Route index element={<IndexPage />} />
       <Route path="/Cardboards" element={<CardBoardPage />} />
       <Route path="/Product-Details" element={<ProductDetails />} />
-      <Route path="/Reel" element={<ReelsPage />} />
-      <Route path="/Roll" element={<RollsPage />} />
+      <Route path="/Reels" element={<ReelsPage />} />
+      <Route path="/Rolls" element={<RollsPage />} />
       <Route path="/ProductDisplay" element={<ProductDisplay />} />
       <Route path="/RequestQute" element={<RequestQute />} />
       <Route path="/Checkout" element={<CheckoutPage />} />

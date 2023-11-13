@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const path = require('path');
-const multer  = require('multer');
+const path = require("path");
+const multer = require("multer");
 const cors = require("cors");
 const ProductModel = require("./Models/ProductsItems");
 const OrderModel = require("./Models/Orders");
@@ -56,17 +56,17 @@ app.get("/", (req, res) => {
 //cardboard design image upload code here
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb){
-      return cb(null, path.join(__dirname,"../Client/public/uploads"))
+  destination: function (req, file, cb) {
+    return cb(null, path.join(__dirname, "../Client/public/uploads"));
   },
-  filename: function (req, file, cb){
-      cb(null, `${Date.now()}-canvasCut.png`);
-  }
+  filename: function (req, file, cb) {
+    cb(null, `${Date.now()}-canvasCut.png`);
+  },
 });
 
-const upload = multer({ storage })
+const upload = multer({ storage });
 
-app.post('/upload', upload.single("imageData"), (req, res) => {
+app.post("/upload", upload.single("imageData"), (req, res) => {
   res.json(req.file.filename);
 });
 
@@ -205,9 +205,9 @@ app.get("/singleroll/:typename", (req, res) => {
     });
 });
 //Endpoint#1: Getting Single Roll Data by its ID
-app.get("/singleroll/:id", (req, res) => {
+app.get("/roll/:id", (req, res) => {
   const id = req.params.id;
-  RollsModel.findById({ _id: id })
+  RollsModel.findOne({ _id: id })
     .then((data) => {
       res.json(data);
     })

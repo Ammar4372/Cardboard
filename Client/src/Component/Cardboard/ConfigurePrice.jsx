@@ -220,7 +220,6 @@ const ConfigurePrice = ({ products, materials }) => {
                       onChange={(e) =>
                         dispatch(setPrintedSides(e.target.value))
                       }
-                      value={config.printedSides}
                     >
                       <option value=" " hidden>
                         Select A Option

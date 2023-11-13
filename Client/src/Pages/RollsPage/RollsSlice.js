@@ -9,9 +9,11 @@ export const getRolls = createAsyncThunk("Rolls/getRolls", async (thunkApi) => {
 export const getRollById = createAsyncThunk(
   "Rolls/getRollsByID",
   async (id, thunkApi) => {
-    const res = await fetch(`http://localhost:3001/rolls/${id}`).then((data) =>
-      data.json()
-    );
+    const res = await fetch(`http://localhost:3001/roll/${id}`)
+      .then((data) => data.json())
+      .catch((e) => {
+        console.log(e);
+      });
     return res;
   }
 );
@@ -44,8 +46,8 @@ const RollsSlice = createSlice({
     setSize(state, action) {
       state.Config.size = Number.parseInt(action.payload);
     },
-    setType(state,action){
-      state.Config.type = action.payload
+    setType(state, action) {
+      state.Config.type = action.payload;
     },
     setRollPrice(state, action) {
       state.Config.totalPrice = action.payload.price;
@@ -85,6 +87,6 @@ export const {
   resetRollConfig,
   setRollPrice,
   setSize,
-  setType
+  setType,
 } = RollsSlice.actions;
 export default RollsSlice.reducer;
