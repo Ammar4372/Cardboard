@@ -4,6 +4,7 @@ import CartSlice from "./Pages/ShoppingCart/CartSlice";
 import CheckoutSlice from "./Pages/Checkout/CheckoutSlice";
 import RollsSlice from "./Pages/RollsPage/RollsSlice";
 import ReelsSlice from "./Pages/ReelsPage/ReelsSlice";
+import LoginSlice from "./Pages/LogInPage/LoginSlice";
 
 import materialSlice from "./Store/slices/materialSlice";
 import quantitySlice from "./Store/slices/quantitySlice";
@@ -31,6 +32,7 @@ const store = configureStore({
     CheckoutSlice,
     RollsSlice,
     ReelsSlice,
+    LoginSlice,
     // 3d cardboard slices
     materialChanged: materialSlice,
     quantityChanged: quantitySlice,
@@ -49,7 +51,7 @@ const store = configureStore({
     imageStated: imageState,
     sideMenuSelectedItem: sideMenuSelection,
     boxScaleValue: boxScaleValue,
-    alertData: alertData
+    alertData: alertData,
   },
 });
 

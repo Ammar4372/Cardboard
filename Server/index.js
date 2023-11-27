@@ -9,9 +9,11 @@ const CostsModel = require("./Models/Costs");
 const MaterialModel = require("./Models/MaterailEntity");
 const RollsModel = require("./Models/Rolls");
 const ReelsModel = require("./Models/Reels");
+const loginRouter = require("./loginRouter");
 const app = express();
 app.use(cors()); //sever side to frontend
 app.use(express.json()); // conversion
+app.use("/", loginRouter);
 mongoose.connect("mongodb://127.0.0.1:27017/Cardboard");
 
 const reelQuantity = async (req, res, next) => {

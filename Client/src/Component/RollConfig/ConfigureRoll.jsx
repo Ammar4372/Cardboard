@@ -42,6 +42,9 @@ const ConfigureRoll = ({ products }) => {
       const price = config.quantity * pricePerPiece;
       dispatch(setRollPrice({ pricePerPiece, price }));
     }
+    if (config.quantity == 0) {
+      dispatch(setRollPrice({ pricePerPiece: 0, price: 0 }));
+    }
   }, [config]);
   return (
     <>

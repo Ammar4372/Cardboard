@@ -31,18 +31,20 @@ const Header = () => {
                     CUSTOMIZE NOW
                   </Button>
                 </Link>
-                <Button
-                  variant="light"
-                  style={{
-                    backgroundColor: "white",
-                    borderRadius: "30px",
-                    color: " #F7744F",
-                    borderColor: " #F7744F",
-                    marginLeft: "10px",
-                  }}
-                >
-                  GET A QUOTE
-                </Button>
+                <Link to="/RequestQute">
+                  <Button
+                    variant="light"
+                    style={{
+                      backgroundColor: "white",
+                      borderRadius: "30px",
+                      color: " #F7744F",
+                      borderColor: " #F7744F",
+                      marginLeft: "10px",
+                    }}
+                  >
+                    GET A QUOTE
+                  </Button>
+                </Link>
                 <div className="row">
                   <div className="col-lg-4 mt-4">
                     <h6>

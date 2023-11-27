@@ -41,6 +41,7 @@ const ConfigureReel = ({ products }) => {
     if (config.item.Type && config.size) {
       dispatch(getReelWeights({ type: config.item.Type, size: config.size }));
     }
+    
   }, [config.item, config.size]);
   useEffect(() => {
     if (config.selectedWeight.weight_type && config.quantity) {
@@ -49,6 +50,9 @@ const ConfigureReel = ({ products }) => {
       const price = config.quantity * pricePerPiece;
       
       dispatch(setReelPrice({ pricePerPiece, price }));
+    }
+    if (config.quantity == 0) {
+      dispatch(setReelPrice({ pricePerPiece: 0, price: 0 }));
     }
   }, [config.selectedWeight,config.quantity ]);
 

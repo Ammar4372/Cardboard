@@ -20,6 +20,9 @@ import CheckoutPage from "./Pages/Checkout/Checkout";
 import BoxModel from "./Pages/BoxModelPage";
 import RollDisplay from "./Pages/RollDisplay";
 import ReelDisplay from "./Pages/ReelDisplay";
+import SignIn from "./Pages/SignInPage";
+import LoginPage from "./Pages/LogInPage/LoginPage";
+import ProfilePage from "./Pages/ProfilePage";
 
 const appRouter = createBrowserRouter(
   createRoutesFromElements(
@@ -38,6 +41,9 @@ const appRouter = createBrowserRouter(
       <Route path="/CardboardManipulation" element={<BoxModel />} />
       <Route path="/RollDisplay/:id" element={<RollDisplay />} />
       <Route path="/ReelDisplay/:id" element={<ReelDisplay />} />
+      <Route path="/SignIn" element={<SignIn />} />
+      <Route path="/Login" element={<LoginPage />} />
+      <Route path="/Profile" element={<ProfilePage />} />
     </Route>
   )
 );
