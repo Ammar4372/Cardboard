@@ -30,7 +30,7 @@ const LoginPage = () => {
       body: JSON.stringify(formValue),
     }).then(async (res) => {
       if (res.ok) {
-        dispatch(setLogin(true));
+        dispatch(setLogin(await res.json()));
         navigate("/");
       } else {
         res.json().then((res) => setErr(res));

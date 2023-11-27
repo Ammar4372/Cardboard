@@ -4,17 +4,24 @@ const LoginSlice = createSlice({
   name: "Login",
   initialState: {
     Login: false,
+    Email: "",
   },
   reducers: {
     setLogin(state, action) {
-      console.log(action.payload);
-      state.Login = action.payload;
+      state.Login = action.payload.login;
+      state.Email = action.payload.email;
+    },
+    setEmail(state, action) {
+      state.Email = action.payload.email;
     },
   },
 });
 export const selectLogin = (state) => {
   return state.LoginSlice.Login;
 };
+export const selectEmail = (state) => {
+  return state.LoginSlice.Email;
+};
 
-export const { setLogin } = LoginSlice.actions;
+export const { setLogin, setEmail } = LoginSlice.actions;
 export default LoginSlice.reducer;

@@ -5,15 +5,15 @@ const router = require("express").Router;
 
 const loginRouter = router();
 
-loginRouter.post("/login", async (req, res, next) => {
+loginRouter.post("/login", (req, res, next) => {
   const { email, password } = req.body;
-  await Users.findOne({ Email: email }).then((result) => {
-    if (result) {
+  Users.findOne({ Email: email }).then((user) => {
+    if (user) {
       bcrypt
-        .compare(password, result.Password)
+        .compare(password, user.Password)
         .then((result) => {
           if (result) {
-            res.json({ login: result });
+            res.json({ login: result, email: user.Email });
           } else {
             res.status(400).json({ password: { msg: "Incorrect Password" } });
           }
@@ -29,7 +29,7 @@ loginRouter.post("/login", async (req, res, next) => {
 
 loginRouter.post("/signup", async (req, res, next) => {
   const { name, password, email } = req.body;
-  console.log(password);
+
   try {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -48,6 +48,16 @@ loginRouter.post("/signup", async (req, res, next) => {
   } catch (err) {
     res.status(400).json({ msg: err.message });
   }
+});
+loginRouter.put("/email", (req, res, next) => {
+  const { email, newEmail } = req.body;
+  Users.updateOne({ Email: email }, { Email: newEmail })
+    .then((result) => {
+      res.json({ email: newEmail });
+    })
+    .catch((error) => {
+      res.status(200).json(error);
+    });
 });
 
 module.exports = loginRouter;
