@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'; // Import useState
 import { MdPhotoSizeSelectSmall, MdOutlineStyle } from 'react-icons/md';
 import { FaBrush } from 'react-icons/fa6';
-import { FaCalculator } from 'react-icons/fa';
+import { FaCalculator, FaBoxOpen } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { selectDesign } from '../../Store/slices/designSelection';
 import { setSideMenuSelection } from '../../Store/slices/sideMenuSelection';
@@ -9,7 +9,7 @@ import '../componantsStyle.css';
 
 const iconColor = "#15807a";
 
-const menuIcons = [
+const arrObj1 = [
   {
     icon: <MdPhotoSizeSelectSmall style={{ color: iconColor }} />,
     name: 'size',
@@ -26,12 +26,36 @@ const menuIcons = [
     icon: <FaCalculator style={{ color: iconColor }} />,
     name: 'quantity',
   },
+  {
+    icon: <FaBoxOpen style={{ color: iconColor }} />,
+    name: 'products',
+  },
 ];
 
-const SideMenu = () => {
+const arrObj2 = [
+  {
+    icon: <MdPhotoSizeSelectSmall style={{ color: iconColor }} />,
+    name: 'size',
+  },
+  {
+    icon: <FaBrush style={{ color: iconColor }} />,
+    name: 'design',
+  },
+  {
+    icon: <FaCalculator style={{ color: iconColor }} />,
+    name: 'quantity',
+  },
+  {
+    icon: <FaBoxOpen style={{ color: iconColor }} />,
+    name: 'products',
+  },
+];
+
+const SideMenu = ({boxType}) => {
   const clickRef = useRef();
   const dispatch = useDispatch();
   const [activeItem, setActiveItem] = useState('size'); // State to track the active item
+  const [menuIcons, setMenuIcons] = useState(arrObj1);
 
   const setSelection = (s) => {
     if (s === 'design') {
@@ -50,9 +74,12 @@ const SideMenu = () => {
 
   useEffect(() => {
     handleClick('size');
+    if(boxType === 'Mailer Box'){
+        setMenuIcons(arrObj1)
+    } else{
+      setMenuIcons(arrObj2)
+    }
   }, [])
-
-  console.log(clickRef);
 
 
   return (

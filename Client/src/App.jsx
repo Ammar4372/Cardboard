@@ -18,6 +18,7 @@ import ProductDetails from "./Pages/ProductDetails";
 import ShippingCart from "./Pages/ShoppingCart/ShippingCart";
 import CheckoutPage from "./Pages/Checkout/Checkout";
 import BoxModel from "./Pages/BoxModelPage";
+import NewBoxModel from "./Pages/NewBoxModelPage";
 import RollDisplay from "./Pages/RollDisplay";
 import ReelDisplay from "./Pages/ReelDisplay";
 
@@ -36,6 +37,7 @@ const appRouter = createBrowserRouter(
       <Route path="/RequestQute" element={<RequestQute />} />
       <Route path="/ShippingCart" element={<ShippingCart />} />
       <Route path="/CardboardManipulation" element={<BoxModel />} />
+      <Route path="/CardboardManipulations" element={<NewBoxModel />} />
       <Route path="/RollDisplay/:id" element={<RollDisplay />} />
       <Route path="/ReelDisplay/:id" element={<ReelDisplay />} />
     </Route>

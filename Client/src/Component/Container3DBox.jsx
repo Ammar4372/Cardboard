@@ -6,6 +6,7 @@ import Material from "./MenuDetails/Material"
 import Quantity from "./MenuDetails/Quantity"
 import Size from "./MenuDetails/Size"
 import SideMenu from "./SideMenu/SideMenu"
+import Products from './MenuDetails/Products'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { selectDesign } from "../Store/slices/designSelection"
@@ -51,19 +52,20 @@ const Container3DBox = ({ products, materials }) => {
             <div className=" manipulator container-fluid ps-0">
                 <div className="row">
                     <div className="col-1">
-                        <SideMenu />
+                        <SideMenu boxType={'Mailer Box'} />
                     </div>
                     <div className={designOption ? "col-4 rounded" : "col-2 rounded"} style={{ backgroundColor: "#F3F3F3" }}>
-                        {sideMenuSelection === 'size' && <Size products={products} />}
+                        {sideMenuSelection === 'size' && <Size products={products} boxType={'Mailer Box'} />}
                         {sideMenuSelection === 'design' && <Design />}
                         {sideMenuSelection === 'material' && <Material />}
                         {sideMenuSelection === 'quantity' && <Quantity />}
+                        {sideMenuSelection === 'products' && <Products />}
                     </div>
                     <div className={!designOption ? "col-6" : 'col-4'} >
                         <CanvasContainer />
                     </div>
                     <div className="col-3">
-                        <ItemCard products={products} materials={materials} />
+                        <ItemCard boxType={'Mailer Box'} products={products} materials={materials} />
                     </div>
                 </div>
             </div>

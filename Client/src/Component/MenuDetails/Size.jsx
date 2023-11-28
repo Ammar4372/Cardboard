@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { setSize } from '../../Store/slices/sizeSlice';
 
 
-const Size = ({ products }) => {
+const Size = ({ products, boxType }) => {
 
     const dispatch = useDispatch();
 
@@ -50,7 +50,7 @@ const Size = ({ products }) => {
                     </div>
                     <ul className="sizeCardList list-group list-group-flush overflow-auto">
                         {products.map((p,index) => {
-                            if (p.cardboardname === 'Mailer Box') {
+                            if (p.cardboardname === boxType) {
                                 return (
                                     <li key={index} className="list-group-item" onClick={() => dimensionsSetter(p.length, p.width, p.depth)}>
                                         {`${p.length}" x ${p.width}" x ${p.depth}"`}

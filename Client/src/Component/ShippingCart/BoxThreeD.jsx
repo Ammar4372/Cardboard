@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-// import BoxModel from './BoxModel';
 import { CameraControls, ContactShadows, Environment, Html, OrbitControls, useProgress } from '@react-three/drei';
 import Box3DModel from './Box3DModel';
 

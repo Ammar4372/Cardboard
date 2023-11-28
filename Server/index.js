@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const fs = require('fs');
 const path = require('path');
 const multer  = require('multer');
 const cors = require("cors");
@@ -11,7 +12,7 @@ const RollsModel = require("./Models/Rolls");
 const ReelsModel = require("./Models/Reels");
 const app = express();
 app.use(cors()); //sever side to frontend
-app.use(express.json()); // conversion
+app.use(express.json({limit: '50mb'})); // conversion
 mongoose.connect("mongodb://127.0.0.1:27017/Cardboard");
 
 //Carboard Box APIS
@@ -36,6 +37,25 @@ const upload = multer({ storage })
 
 app.post('/upload', upload.single("imageData"), (req, res) => {
   res.json(req.file.filename);
+});
+
+app.post('/save-image', (req, res) => {
+  const { dataURL, imgName } = req.body;
+
+  // Remove header from base64 encoded image
+  const base64Data = dataURL.replace(/^data:image\/png;base64,/, '');
+
+  // Save the image to a specific folder (create the folder if it doesn't exist)
+  const uploadsFolder = path.join(__dirname,"../Client/public/uploads")
+  const imagePath = `${uploadsFolder}/${imgName}`; // Change this path to your desired folder
+
+  fs.writeFile(imagePath, base64Data, 'base64', (error) => {
+    if (error) {
+      res.status(500).json({ error: 'Failed to save the image' });
+    } else {
+      res.json({ message: 'Image saved successfully' });
+    }
+  });
 });
 
 // cardboard design image upload end here
