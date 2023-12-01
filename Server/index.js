@@ -13,8 +13,19 @@ const ReelsModel = require("./Models/Reels");
 const loginRouter = require("./loginRouter");
 const app = express();
 app.use(cors()); //sever side to frontend
-app.use(express.json({limit: '50mb'})); // conversion
-mongoose.connect("mongodb://127.0.0.1:27017/Cardboard");
+app.use(express.json()); // conversion
+app.use("/", loginRouter);
+mongoose
+  .connect(
+    "mongodb+srv://ammarzafar4372:GYVIHzXkqKB6Z1X4@cluster0.pksbjud.mongodb.net/Cardboard",
+    {
+      serverSelectionTimeoutMS: 5000,
+    }
+  )
+  .then((res) => {
+    console.log("Mongo DB Connected");
+  })
+  .catch((err) => console.log(err));
 
 const reelQuantity = async (req, res, next) => {
   const result = await ReelsModel.aggregate([

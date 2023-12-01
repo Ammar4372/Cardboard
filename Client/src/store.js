@@ -57,14 +57,11 @@ const store = configureStore({
     sideMenuSelectedItem: sideMenuSelection,
     boxScaleValue: boxScaleValue,
     alertData: alertData,
-<<<<<<< HEAD
-=======
 
     canvasAsImg: KonvaCanvasSlice,
     selectedSide: SelectedSide,
     animate: boxState,
     selectedMaterial: selectedMaterial,
->>>>>>> 2ae01cccf591c0d7c732c1c76f7853aeef9c4d08
   },
 });
 
