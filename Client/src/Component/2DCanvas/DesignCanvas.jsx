@@ -1,10 +1,9 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { Stage, Layer, Image, Transformer, Text } from "react-konva";
 import Konva from "konva";
-// import { useImageContext } from "./BoxApi/BoxCustomization";
 
 import { useDispatch, useSelector } from 'react-redux';
-import { setSelectText } from "../../Store/slices/selectText";
+import { setSelectText } from "../../Store/slices/selectText"; 
 import { setCanvasImage } from "../../Store/slices/canvasImage";
 import { setDeletCanvasObj } from "../../Store/slices/deleteCanvasObj";
 import { setApplyDesign } from "../../Store/slices/applyDesign";

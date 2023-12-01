@@ -25,6 +25,11 @@ import sideMenuSelection from "./Store/slices/sideMenuSelection";
 import boxScaleValue from "./Store/slices/boxScaleValue";
 import alertData from "./Store/slices/alertSlice";
 
+import KonvaCanvasSlice from "./Store/slices/KonvaCanvasSlice";
+import SelectedSide from "./Store/slices/SelectedSide";
+import boxState from "./Store/slices/boxState";
+import selectedMaterial from "./Store/slices/selectedMaterial";
+
 const store = configureStore({
   reducer: {
     CardBoardSlice,
@@ -52,6 +57,14 @@ const store = configureStore({
     sideMenuSelectedItem: sideMenuSelection,
     boxScaleValue: boxScaleValue,
     alertData: alertData,
+<<<<<<< HEAD
+=======
+
+    canvasAsImg: KonvaCanvasSlice,
+    selectedSide: SelectedSide,
+    animate: boxState,
+    selectedMaterial: selectedMaterial,
+>>>>>>> 2ae01cccf591c0d7c732c1c76f7853aeef9c4d08
   },
 });
 
