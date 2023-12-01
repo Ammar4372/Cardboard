@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, setTotalPrice } from "../../Pages/ShoppingCart/CartSlice";
 import { setSize } from "../../Store/slices/sizeSlice";
 
-const ItemCard = ({ products, materials }) => {
+const ItemCard = ({ boxType, products, materials }) => {
 
     const dispatch = useDispatch();
 
@@ -24,11 +24,17 @@ const ItemCard = ({ products, materials }) => {
         return state.imagesConainer
     });
 
+    // for new designed boxes
+    const canvasExported = useSelector((state) => { 
+        return state.canvasAsImg;
+      })
+    ////////////////////////////
+
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
         products?.map((p) => {
-            p?.cardboardname === 'Mailer Box' && setProduct(p);
+            p?.cardboardname === boxType && setProduct(p);
         })
     }, [products])
 
@@ -82,7 +88,7 @@ const ItemCard = ({ products, materials }) => {
                 pricePerPiece: price,
                 dimension: dimenstionsValue,
                 price: Number(price * quantityValue),
-                sides_design: sideImages,
+                sides_design: boxType !== "Mailer Box" ? canvasExported : sideImages,
                 printedSides: 4,
                 thickness: 3,
             }

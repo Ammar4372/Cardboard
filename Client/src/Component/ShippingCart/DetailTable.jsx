@@ -8,6 +8,7 @@ import {
   setTotalPrice,
 } from "../../Pages/ShoppingCart/CartSlice";
 import BoxThreeD from "./BoxThreeD";
+import New3DSpace from "./New3DSpace";
 
 const DetailTable = ({ data }) => {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ const DetailTable = ({ data }) => {
           <div className="img-wraper">
             {
               data?.ThreeD ? 
-                (<BoxThreeD data={data} /> ) :
+                (<New3DSpace data={data} />) :
                 (<img className="img-fluid" src={data?.img} />)
             }
           </div>
