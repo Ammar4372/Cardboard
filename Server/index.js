@@ -15,9 +15,10 @@ const app = express();
 app.use(cors()); //sever side to frontend
 app.use(express.json()); // conversion
 app.use("/", loginRouter);
+require(".env").config();
 mongoose
   .connect(
-    "mongodb+srv://ammarzafar4372:GYVIHzXkqKB6Z1X4@cluster0.pksbjud.mongodb.net/Cardboard",
+    process.env.MONGO_URL,
     {
       serverSelectionTimeoutMS: 5000,
     }
