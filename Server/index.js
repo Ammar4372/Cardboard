@@ -14,8 +14,8 @@ const loginRouter = require("./loginRouter");
 const app = express();
 app.use(cors()); //sever side to frontend
 app.use(express.json()); // conversion
+require("dotenv").config();
 app.use("/", loginRouter);
-require(".env").config();
 mongoose
   .connect(
     process.env.MONGO_URL,
