@@ -61,7 +61,7 @@ const rollQuantity = async (req, res, next) => {
 };
 
 //Carboard Box EndpointS
-app.get("/", (req, res) => {
+app.get("/cardboard", (req, res) => {
   ProductModel.find({})
     .then((users) => res.json(users))
     .catch((error) => res.json(error));
