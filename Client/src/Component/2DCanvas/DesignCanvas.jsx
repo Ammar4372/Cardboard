@@ -357,7 +357,7 @@ const DesignCanvas = () => {
               dataToSend.append("imageData", blob, "image.png"); 
   
               // Make a POST request to your server
-              fetch("http://127.0.0.1:3001/upload", {
+              fetch("/upload", {
                 method: "POST",
                 body: dataToSend,
               })
