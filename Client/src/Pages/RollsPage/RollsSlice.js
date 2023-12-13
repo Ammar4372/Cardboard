@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getRolls = createAsyncThunk("Rolls/getRolls", async (thunkApi) => {
-  const res = await fetch("http://localhost:3001/rolls").then((data) =>
+  const res = await fetch("/rolls").then((data) =>
     data.json()
   );
   return res;
@@ -9,7 +9,7 @@ export const getRolls = createAsyncThunk("Rolls/getRolls", async (thunkApi) => {
 export const getRollById = createAsyncThunk(
   "Rolls/getRollsByID",
   async (id, thunkApi) => {
-    const res = await fetch(`http://localhost:3001/roll/${id}`)
+    const res = await fetch(`/roll/${id}`)
       .then((data) => data.json())
       .catch((e) => {
         console.log(e);

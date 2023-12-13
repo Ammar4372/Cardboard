@@ -20,7 +20,7 @@ function Checkout() {
   const checkout = useSelector(selectCheckout);
   const cart = useSelector(selectCartItems);
   const handleClick = () => {
-    fetch("http://localhost:3001/orderDetails", {
+    fetch("/orderDetails", {
       method: "Post",
       headers: {
         "Content-Type": "application/json",

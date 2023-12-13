@@ -17,7 +17,7 @@ const ProfilePage = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3001/email", {
+    fetch("/email", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
