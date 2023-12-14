@@ -193,7 +193,7 @@ const Design = () => {
             const dataURL = stageRef.current.toDataURL();
             const imgName = `image-${Date.now()}.png`;
 
-            fetch('http://localhost:3001/save-image', {
+            fetch('/save-image', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
