@@ -15,9 +15,10 @@ const DetailTable = ({ data }) => {
 
   return (
     <>
-      <tr >
+      <tr className=" d-flex justify-content-between align-items-center flex-row p-2 w-100 ">
         <td>
           <a
+            role="button"
             onClick={() => {
               dispatch(removeItem(data.id));
               dispatch(setTotalPrice());
@@ -25,7 +26,7 @@ const DetailTable = ({ data }) => {
           >
             <FiX />
           </a>
-          <a className="like">
+          <a role="button" className="like">
             <AiFillHeart />
           </a>
         </td>
@@ -34,12 +35,12 @@ const DetailTable = ({ data }) => {
             {
               data?.ThreeD ? 
                 (<New3DSpace data={data} />) :
-                (<img className="img-fluid" src={data?.img} />)
+                (<img className=" h-100 w-100" src={data?.img} />)
             }
           </div>
         </td>
         <td>
-          <h6>{data?.name}</h6>
+          <h6 className=" text-capitalize fw-bold">{data?.name}</h6>
           <p>{data?.color}</p>
         </td>
         <td>
@@ -79,7 +80,7 @@ const DetailTable = ({ data }) => {
             </button>
           </div>
         </td>
-        <td>Rs {data?.price}</td>
+        <td>Rs. {data?.price}</td>
       </tr>
     </>
   );

@@ -9,7 +9,7 @@ const CardItemsSchema = new mongoose.Schema({
   depth: Number,
   rate: Number,
   quantity: Number,
-  img: String,
+  img: Array,
 });
 
 const CardItemsModel = mongoose.model("CardItems", CardItemsSchema);

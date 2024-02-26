@@ -19,10 +19,10 @@ const PromoCode = () => {
           <div className="text-center">
             <Link to="/Checkout">
               <button
-                className="btn-brnad mt-4 w-100 py-3"
-                disabled={Cart.length > 0 ? true : false}
+                className="btn-brnad mt-4 w-100 py-3 fw-bold"
+                disabled={Cart.length > 0 ? false : true}
               >
-                PROCEED TO CHECKOUT
+                CHECKOUT
               </button>
             </Link>
           </div>

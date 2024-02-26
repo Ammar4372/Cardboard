@@ -29,7 +29,7 @@ const StandardSize = ({ item }) => {
                 })}
                 hidden
               >
-                Select A Option
+                Select an option
               </option>
 
               <option
