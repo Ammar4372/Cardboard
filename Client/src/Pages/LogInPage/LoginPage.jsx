@@ -42,6 +42,7 @@ const LoginPage = () => {
       navigate(-1);
     }
   }, [login]);
+  console.log(document.cookie);
   const onChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };

@@ -13,7 +13,19 @@ loginRouter.post("/login", (req, res, next) => {
         .compare(password, user.Password)
         .then((result) => {
           if (result) {
-            res.json({ login: result, email: user.Email });
+            res
+              .cookie("login", result, {
+                maxAge: 30 * 24 * 60 * 60 * 1000,
+                sameSite: "strict",
+                secure: true,
+              })
+              .cookie("user_id", user._id, {
+                maxAge: 30 * 24 * 60 * 60 * 1000,
+                sameSite: "strict",
+                httpOnly: true,
+                secure: true,
+              })
+              .json({ login: result, email: user.Email });
           } else {
             res.status(400).json({ password: { msg: "Incorrect Password" } });
           }

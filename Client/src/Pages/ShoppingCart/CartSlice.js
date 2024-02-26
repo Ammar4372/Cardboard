@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
   name: "Cart",
   initialState: {
-    items: [],
+    items: localStorage.getItem("cart")?JSON.parse(localStorage.getItem('cart')):[],
     totalPrice: 0,
   },
   reducers: {
@@ -38,6 +38,7 @@ const cartSlice = createSlice({
         action.payload.id = Date.now();
         state.items.push(action.payload);
       }
+      localStorage.setItem("cart", JSON.stringify(state.items));
     },
     addRollToCart(state, action) {
       const duplicate = state.items.some(
@@ -65,6 +66,7 @@ const cartSlice = createSlice({
         action.payload.id = Date.now();
         state.items.push(action.payload);
       }
+      localStorage.setItem("cart", JSON.stringify(state.items));
     },
     addReelToCart(state, action) {
       const duplicate = state.items.some(
@@ -94,6 +96,7 @@ const cartSlice = createSlice({
         action.payload.id = Date.now();
         state.items.push(action.payload);
       }
+      localStorage.setItem("cart", JSON.stringify(state.items));
     },
     incrementItemQuantity(state, action) {
       state.items.map((item) => {
