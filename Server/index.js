@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const fs = require('fs');
 const path = require('path');
-const multer  = require('multer');
+const multer = require('multer');
 const cors = require("cors");
 const ProductModel = require("./Models/ProductsItems");
 const OrderModel = require("./Models/Orders");
@@ -10,6 +10,7 @@ const CostsModel = require("./Models/Costs");
 const MaterialModel = require("./Models/MaterailEntity");
 const RollsModel = require("./Models/Rolls");
 const ReelsModel = require("./Models/Reels");
+const ProductsCardModel = require("./Models/Products");
 const loginRouter = require("./loginRouter");
 const app = express();
 app.use(cors()); //sever side to frontend
@@ -91,7 +92,7 @@ app.post('/save-image', (req, res) => {
   const base64Data = dataURL.replace(/^data:image\/png;base64,/, '');
 
   // Save the image to a specific folder (create the folder if it doesn't exist)
-  const uploadsFolder = path.join(__dirname,"../Client/public/uploads")
+  const uploadsFolder = path.join(__dirname, "../Client/public/uploads")
   const imagePath = `${uploadsFolder}/${imgName}`; // Change this path to your desired folder
 
   fs.writeFile(imagePath, base64Data, 'base64', (error) => {
@@ -108,8 +109,10 @@ app.post('/save-image', (req, res) => {
 //Get Single Item
 app.get("/cardboard/getItem/:id", (req, res) => {
   const id = req.params.id;
-  ProductModel.findById({ _id: id })
-    .then((users) => res.json(users))
+  ProductsCardModel.findById({ _id: id })
+    .then((users) => {
+      res.json(users)
+    })
     .catch((error) => res.json(error));
 });
 // Modify/Update the specific data in db
@@ -471,6 +474,25 @@ app.delete(
   },
   reelQuantity
 );
+
+// single product code all here
+
+app.get(
+  "/products-list/:id",
+  async (req, res) => {
+    let id = req.params.id;
+
+    await ProductsCardModel.find(
+      {
+        mainType: id
+      }
+    )
+    .then((data)=>{
+      res.json(data);
+    })
+    .catch((error) => res.json(error));
+  }
+)
 
 //run server
 app.listen(3001, () => {

@@ -2,24 +2,19 @@ import "./App.css";
 import { useState, useRef } from "react";
 import ReactImageMagnify from "@ditus/react-image-magnify";
 
-const ItemImageSlider = (Props) => {
-  const images = [
-    "/img/cardboard_product_1.png",
-    "/img/cardboard_product_2.png",
-    "/img/cardboard_product_3.png",
-    "/img/cardboard_product_4.png",
-    "/img/cardboard_product_5.png",
-  ];
-  const [img, setImg] = useState(images[0]);
+const ItemImageSlider = (props) => {
+  const [img, setImg] = useState(()=>props.img ? props.img[0]:null);
+  
   const hoverHandler = (image, i) => {
     setImg(image);
     refs.current[i].classList.add("active");
-    for (var j = 0; j < images.length; j++) {
+    for (var j = 0; j < props?.img?.length; j++) {
       if (i !== j) {
         refs.current[j].classList.remove("active");
       }
     }
   };
+
   const refs = useRef([]);
   refs.current = [];
   const addRefs = (el) => {
@@ -30,25 +25,25 @@ const ItemImageSlider = (Props) => {
 
   return (
     <>
-      <div className="container">
+     
         <div className="left">
           <div className="left_1">
-            {images.map((image, i) => (
+            {props.img?.map((image, i) => (
               <div
                 className={i == 0 ? "img_wrap active" : "img_wrap"}
                 key={i}
-                onMouseOver={() => hoverHandler(image, i)}
+                onClick={() => hoverHandler(image, i)}
                 ref={addRefs}
               >
-                <img src={image} alt="" />
+                <img src={image} alt="sliderImg" />
               </div>
             ))}
           </div>
-          <div className="left_2">
-            <ReactImageMagnify
+          <div className=" left_2 px-2 h-100 w-100 ">
+            {/* <ReactImageMagnify
               {...{
                 smallImage: {
-                  alt: "Wristwatch by Ted Baker London",
+                  alt: "sliderImage",
                   isFluidWidth: true,
                   src: img,
                 },
@@ -59,14 +54,18 @@ const ItemImageSlider = (Props) => {
                 },
                 enlargedImageContainerDimensions: {
                   width: "150%",
-                  height: "150%",
+                  height: "100%",
                 },
               }}
+            /> */}
+            <img 
+              src={img}
+              alt="sliderImg"
             />
           </div>
         </div>
         <div className="right"></div>
-      </div>
+      
     </>
   );
 };

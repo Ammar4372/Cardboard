@@ -24,6 +24,7 @@ import ReelDisplay from "./Pages/ReelDisplay";
 import SignIn from "./Pages/SignInPage";
 import LoginPage from "./Pages/LogInPage/LoginPage";
 import ProfilePage from "./Pages/ProfilePage";
+import ProductList from "./Pages/ProductList";
 
 const appRouter = createBrowserRouter(
   createRoutesFromElements(
@@ -46,6 +47,8 @@ const appRouter = createBrowserRouter(
       <Route path="/SignIn" element={<SignIn />} />
       <Route path="/Login" element={<LoginPage />} />
       <Route path="/Profile" element={<ProfilePage />} />
+      <Route path="/products-list/:id" element={<ProductList />} />
+      {/* <Route path="/magnifier-test" element={<MagnifierTest />} /> */}
     </Route>
   )
 );

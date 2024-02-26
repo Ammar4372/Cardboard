@@ -1,7 +1,7 @@
-import ConfigurePrice from "./ConfigurePrice";
-import Description from "./Description";
+import Description from "../Cardboard/Description";
+import CustomOrderForm from "./CustomOrderForm";
 
-const Merge = ({ products, materials }) => {
+const CustomOrderMain = ({ products, materials }) => {
   return (
     <>
       <div className="inner-banner bg-brown">
@@ -18,7 +18,7 @@ const Merge = ({ products, materials }) => {
               src="/img/cardboard_header_image.png"
             />
             <div className="col-lg-6">
-              <ConfigurePrice products={products} materials={materials} />
+              <CustomOrderForm products={products} materials={materials} />
             </div>
           </div>
         </div>
@@ -26,4 +26,4 @@ const Merge = ({ products, materials }) => {
     </>
   );
 };
-export default Merge;
+export default CustomOrderMain;

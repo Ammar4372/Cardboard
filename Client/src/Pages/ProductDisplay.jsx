@@ -14,11 +14,13 @@ const ProductDisplay = () => {
   const id = useParams().id;
   const product = useSelector(selectProduct);
   const materials = useSelector(selectMaterials);
+
   useEffect(() => {
     dispatch(getProductById(id));
     dispatch(getMaterials());
     window.scroll(0, 0);
   }, []);
+  
   return (
     <>
       <UserDetail Product={product} materials={materials} />

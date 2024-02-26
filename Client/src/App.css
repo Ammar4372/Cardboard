@@ -409,6 +409,7 @@ footer .footer-bottom p {
   border-radius: 17.3367px;
   overflow: hidden;
   padding: 1rem;
+  
 }
 
 .inner-banner .configure-price-card .card-body {
@@ -776,6 +777,7 @@ footer .footer-bottom p {
 
 .product-slider img {
   width: 100%;
+  height: 500px;
 }
 
 .lSSlideOuter .lSPager.lSGallery li img {
@@ -1222,4 +1224,10 @@ button[aria-expanded="true"] ~ ul {
   .checkout-page .box-head img {
     margin-top: 10px;
   }
+}
+
+/* single product card  */
+
+.card {
+  width: 280px;
 }
