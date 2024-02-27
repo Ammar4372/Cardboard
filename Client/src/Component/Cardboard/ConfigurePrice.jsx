@@ -1,13 +1,17 @@
 import StandardSize from "./StandardSize";
 import CustomeSize from "./CustomSize";
 import {
+  getProductsListById,
   resetConfig,
   selectConfig,
+  selectProduct,
+  selectSubProducts,
   setMaterial,
   setPrice,
   setPrintedSides,
   setProduct,
   setQuantity,
+  setSubProduct,
   setThickness,
 } from "../../Pages/CardBoardPage/CardBoardSlice";
 import { Link } from "react-router-dom";
@@ -18,8 +22,8 @@ import { addToCart, setTotalPrice } from "../../Pages/ShoppingCart/CartSlice";
 const ConfigurePrice = ({ products, materials }) => {
   const dispatch = useDispatch();
   const config = useSelector(selectConfig);
+  const subProducts = useSelector(selectSubProducts);
   const [customSize, setCustomSize] = useState(false);
-
   const handleClick = () => {
     if (config.totalPrice) {
       const item = {
@@ -44,7 +48,6 @@ const ConfigurePrice = ({ products, materials }) => {
   };
 
   useEffect(() => {
-    console.log(config)
     if (config.dimension.length && config.dimension.width && config.quantity) {
       const pricePerSheet =
         (((config.dimension.length * config.dimension.width * 210) / 15500) *
@@ -63,6 +66,11 @@ const ConfigurePrice = ({ products, materials }) => {
       dispatch(setPrice({ pricePerPiece: 0, price: 0 }));
     }
   }, [config]);
+  useEffect(() => {
+    if (config.item.cardboardname) {
+      dispatch(getProductsListById(config.item._id));
+    }
+  }, [config.item]);
 
   return (
     <>
@@ -87,9 +95,7 @@ const ConfigurePrice = ({ products, materials }) => {
                       <select
                         className="form-select text-capitalize "
                         value={
-                          config.item
-                            ? config.item.cardboardname
-                            : config.item
+                          config.item ? config.item.cardboardname : config.item
                         }
                         onChange={({ target }) => {
                           dispatch(
@@ -98,16 +104,19 @@ const ConfigurePrice = ({ products, materials }) => {
                                 (p) => p.cardboardname === target.value
                               )
                             )
-                          )
-                        }
-                        }
+                          );
+                        }}
                       >
                         <option value="" hidden>
                           Select an option
                         </option>
                         {products?.map((product, index) => {
                           return (
-                            <option key={index} value={product.cardboardname} className=" text-capitalize">
+                            <option
+                              key={index}
+                              value={product.cardboardname}
+                              className=" text-capitalize"
+                            >
                               {product.cardboardname}
                             </option>
                           );
@@ -119,6 +128,41 @@ const ConfigurePrice = ({ products, materials }) => {
               ) : (
                 ""
               )}
+              <div className="col-lg-4">
+                <h6>Sub Product</h6>
+              </div>
+              <div className="col-lg-8">
+                <div className="form-group">
+                  <select
+                    className="form-select text-capitalize"
+                    value={
+                      config.subItem ? config.subItem.cardboardname : config.subItem
+                    }
+                    onChange={({ target }) => {
+                      dispatch(
+                        setSubProduct(
+                          subProducts.find((p) => p.cardboardname === target.value)
+                        )
+                      );
+                    }}
+                  >
+                    <option value="" hidden>
+                      Select an option
+                    </option>
+                    {subProducts?.map((product, index) => {
+                      return (
+                        <option
+                          key={index}
+                          value={product.cardboardname}
+                          className=" text-capitalize"
+                        >
+                          {product.cardboardname}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+              </div>
               <div className="col-lg-4">
                 <h6>Material</h6>
               </div>
@@ -135,9 +179,7 @@ const ConfigurePrice = ({ products, materials }) => {
                     onChange={({ target }) =>
                       dispatch(
                         setMaterial(
-                          materials.find(
-                            (p) => p.materailName === target.value
-                          )
+                          materials.find((p) => p.materailName === target.value)
                         )
                       )
                     }
@@ -204,11 +246,7 @@ const ConfigurePrice = ({ products, materials }) => {
               </div>
             </div>
 
-            {customSize ? (
-              <CustomeSize />
-            ) : (
-              <StandardSize item={config.item} />
-            )}
+            {customSize ? <CustomeSize /> : <StandardSize item={config.subItem} />}
             <div className="row">
               <div className="col-lg-4">
                 <h6>Printed Sides:</h6>
@@ -217,11 +255,8 @@ const ConfigurePrice = ({ products, materials }) => {
                 <div className="form-group">
                   <select
                     className="form-select"
-                    onChange={(e) =>
-                      dispatch(setPrintedSides(e.target.value))
-                    }
+                    onChange={(e) => dispatch(setPrintedSides(e.target.value))}
                   >
-
                     <option selected>Select printed sides</option>
                     <option value="4">Outside (4 Sides)</option>
                     <option value="4">Inside (4 Sides)</option>
@@ -294,10 +329,7 @@ const ConfigurePrice = ({ products, materials }) => {
                     ""
                   ) : (
                     <>
-                      <button
-                        className="btn-brnad w-100"
-                        onClick={handleClick}
-                      >
+                      <button className="btn-brnad w-100" onClick={handleClick}>
                         Add to Cart
                       </button>
                     </>
@@ -314,7 +346,6 @@ const ConfigurePrice = ({ products, materials }) => {
           </div>
         </div>
       </div>
-
     </>
   );
 };

@@ -1,8 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const fs = require('fs');
-const path = require('path');
-const multer = require('multer');
+const fs = require("fs");
+const path = require("path");
+const multer = require("multer");
 const cors = require("cors");
 const ProductModel = require("./Models/ProductsItems");
 const OrderModel = require("./Models/Orders");
@@ -18,12 +18,9 @@ app.use(express.json()); // conversion
 require("dotenv").config();
 app.use("/", loginRouter);
 mongoose
-  .connect(
-    process.env.MONGO_URL,
-    {
-      serverSelectionTimeoutMS: 5000,
-    }
-  )
+  .connect(process.env.MONGO_URL, {
+    serverSelectionTimeoutMS: 5000,
+  })
   .then((res) => {
     console.log("Mongo DB Connected");
   })
@@ -85,21 +82,21 @@ app.post("/upload", upload.single("imageData"), (req, res) => {
   res.json(req.file.filename);
 });
 
-app.post('/save-image', (req, res) => {
+app.post("/save-image", (req, res) => {
   const { dataURL, imgName } = req.body;
 
   // Remove header from base64 encoded image
-  const base64Data = dataURL.replace(/^data:image\/png;base64,/, '');
+  const base64Data = dataURL.replace(/^data:image\/png;base64,/, "");
 
   // Save the image to a specific folder (create the folder if it doesn't exist)
-  const uploadsFolder = path.join(__dirname, "../Client/public/uploads")
+  const uploadsFolder = path.join(__dirname, "../Client/public/uploads");
   const imagePath = `${uploadsFolder}/${imgName}`; // Change this path to your desired folder
 
-  fs.writeFile(imagePath, base64Data, 'base64', (error) => {
+  fs.writeFile(imagePath, base64Data, "base64", (error) => {
     if (error) {
-      res.status(500).json({ error: 'Failed to save the image' });
+      res.status(500).json({ error: "Failed to save the image" });
     } else {
-      res.json({ message: 'Image saved successfully' });
+      res.json({ message: "Image saved successfully" });
     }
   });
 });
@@ -111,7 +108,7 @@ app.get("/cardboard/getItem/:id", (req, res) => {
   const id = req.params.id;
   ProductsCardModel.findById({ _id: id })
     .then((users) => {
-      res.json(users)
+      res.json(users);
     })
     .catch((error) => res.json(error));
 });
@@ -477,22 +474,17 @@ app.delete(
 
 // single product code all here
 
-app.get(
-  "/products-list/:id",
-  async (req, res) => {
-    let id = req.params.id;
+app.get("/products-list/:id", async (req, res) => {
+  let id = req.params.id;
 
-    await ProductsCardModel.find(
-      {
-        mainType: id
-      }
-    )
-    .then((data)=>{
+  await ProductsCardModel.find({
+    mainType: id,
+  })
+    .then((data) => {
       res.json(data);
     })
     .catch((error) => res.json(error));
-  }
-)
+});
 
 //run server
 app.listen(3001, () => {

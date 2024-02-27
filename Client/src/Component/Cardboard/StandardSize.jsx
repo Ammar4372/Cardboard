@@ -1,9 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectConfig, setDimension } from "../../Pages/CardBoardPage/CardBoardSlice";
-
+import {
+  selectConfig,
+  setDimension,
+} from "../../Pages/CardBoardPage/CardBoardSlice";
 
 const StandardSize = ({ item }) => {
   const dispatch = useDispatch();
+  console.log(item);
   const config = useSelector(selectConfig);
   return (
     <>
@@ -15,7 +18,6 @@ const StandardSize = ({ item }) => {
           <div className="form-group">
             <select
               className="form-select"
-            
               value={JSON.stringify(config.dimension)}
               onChange={(e) => {
                 dispatch(setDimension(e.target.value));
@@ -23,9 +25,9 @@ const StandardSize = ({ item }) => {
             >
               <option
                 value={JSON.stringify({
-                  length: '',
-                  width: '',
-                  depth: ''
+                  length: "",
+                  width: "",
+                  depth: "",
                 })}
                 hidden
               >
@@ -39,8 +41,8 @@ const StandardSize = ({ item }) => {
                   depth: item.depth,
                 })}
               >
-                {item.length
-                  ? `${item.length}’’ x${item.width}’’x${item.depth}’’`
+                {item
+                  ? `${item.dimensions.length}’’ x${item.dimensions.width}’’x${item.dimensions.depth}’’`
                   : ""}
               </option>
             </select>

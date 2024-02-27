@@ -3,7 +3,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const getProducts = createAsyncThunk(
   "CardBoard/getProducts",
   async (thunkApi) => {
-    const res = await fetch("http://localhost:3001/cardboard").then((data) => data.json());
+    const res = await fetch("http://localhost:3001/cardboard").then((data) =>
+      data.json()
+    );
 
     return res;
   }
@@ -11,16 +13,18 @@ export const getProducts = createAsyncThunk(
 export const getMaterials = createAsyncThunk(
   "CardBoard/getMaterials",
   async (thunkApi) => {
-    const res = await fetch("http://localhost:3001/material-details").then((data) => data.json());
+    const res = await fetch("http://localhost:3001/material-details").then(
+      (data) => data.json()
+    );
     return res;
   }
 );
 export const getProductById = createAsyncThunk(
   "CardBoard/getProductById",
   async (id, thunkApi) => {
-    const res = await fetch(`http://localhost:3001/cardboard/getItem/${id}`).then((data) =>
-      data.json()
-    );
+    const res = await fetch(
+      `http://localhost:3001/cardboard/getItem/${id}`
+    ).then((data) => data.json());
 
     return res;
   }
@@ -29,8 +33,8 @@ export const getProductById = createAsyncThunk(
 export const getProductsListById = createAsyncThunk(
   "CardBoard/getProductsListById",
   async (id, thunkApi) => {
-    const res = await fetch(`http://localhost:3001/products-list/${id}`).then((data) =>
-      data.json()
+    const res = await fetch(`http://localhost:3001/products-list/${id}`).then(
+      (data) => data.json()
     );
 
     return res;
@@ -42,6 +46,7 @@ const CardBoard = createSlice({
   initialState: {
     Config: {
       item: {},
+      subItem: {},
       material: {},
       thickness: "",
       printedSides: "",
@@ -57,6 +62,8 @@ const CardBoard = createSlice({
     Materials: [],
     Products: [],
     Product: {},
+
+    SubProducts: [],
   },
   reducers: {
     setMaterial(state, action) {
@@ -90,6 +97,9 @@ const CardBoard = createSlice({
     setProduct(state, action) {
       state.Config.item = action.payload;
     },
+    setSubProduct(state, action) {
+      state.Config.subItem = action.payload;
+    },
     setPrice(state, action) {
       state.Config.totalPrice = action.payload.price;
       state.Config.pricePerPiece = action.payload.pricePerPiece;
@@ -112,6 +122,9 @@ const CardBoard = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(getProductsListById.fulfilled, (state, action) => {
+      state.SubProducts = action.payload;
+    });
     builder.addCase(getProducts.fulfilled, (state, action) => {
       state.Products = action.payload;
     });
@@ -136,7 +149,9 @@ export const selectProduct = (state) => {
 export const selectMaterials = (state) => {
   return state.CardBoardSlice.Materials;
 };
-
+export const selectSubProducts = (state) => {
+  return state.CardBoardSlice.SubProducts;
+};
 export const {
   setMaterial,
   setDepth,
@@ -149,5 +164,6 @@ export const {
   setProduct,
   setPrice,
   resetConfig,
+  setSubProduct
 } = CardBoard.actions;
 export default CardBoard.reducer;
