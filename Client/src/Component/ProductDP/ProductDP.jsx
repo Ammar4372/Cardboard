@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../Pages/ShoppingCart/CartSlice';
+import { addToCart, setTotalPrice } from '../../Pages/ShoppingCart/CartSlice';
 
 const ProductDP = ({ Product, materials }) => {
     const [selectedMaterial, setSelectedMaterial] = useState('White');
     const [quantity, setQuantity] = useState(500);
     const [pricePerPiece, setPricePerPiece] = useState(0);
-    const [totalPrice, setTotalPrice] = useState(0);
+    const [price, setPrice] = useState(0);
     const [materialDetails, setMaterialDetails] = useState({})
 
     const dispatch = useDispatch();
@@ -45,12 +45,12 @@ const ProductDP = ({ Product, materials }) => {
             setPricePerPiece(pricePerPiece);
 
             const price = pricePerPiece * quantity;
-            setTotalPrice(price)
+            setPrice(price)
         }
-    }, [selectedMaterial, quantity]);
+    }, [Product, materials, selectedMaterial, quantity]);
 
     const handleClick = () => {
-        if (totalPrice) {
+        if (price) {
             const item = {
                 id: Product?._id,
                 ThreeD: false,
@@ -58,13 +58,15 @@ const ProductDP = ({ Product, materials }) => {
                 img: Product?.images[0],
                 quantity: quantity,
                 pricePerPiece: pricePerPiece,
-                price: totalPrice,
+                price: price,
                 dimension: Product.dimension,
                 printedSides: 4,
                 material: materialDetails?.materailName,
                 thickness: 3,
             };
             dispatch(addToCart(item));
+            dispatch(setTotalPrice());
+            window.scroll(0,0);
         } else {
             alert("Please Select All Required Fields");
         }
@@ -147,7 +149,7 @@ const ProductDP = ({ Product, materials }) => {
                     </li>
                     <li className=' d-flex justify-content-between align-items-center flex-row mb-2'>
                         <span className=' fw-semibold text-dark'>Total Price</span>
-                        <span>Rs. {totalPrice}</span>
+                        <span>Rs. {price}</span>
                     </li>
                     <li className=' d-flex justify-content-between align-items-center flex-column mt-4 w-100'>
                         <button

@@ -49,7 +49,7 @@ const ConfigureRoll = ({ products }) => {
   return (
     <>
       <div className="configure-price-card">
-        <div className="card">
+        <div className="card" style={{width:"100%"}}>
           <div className="card-header">
             <h5>Configure & Price</h5>
             <a href="#">
@@ -147,7 +147,7 @@ const ConfigureRoll = ({ products }) => {
                     }}
                   >
                     <option value="" hidden>
-                      Select A Option
+                      Select an option
                     </option>
                     {config.type === "Thick" ? (
                       <>
@@ -231,9 +231,11 @@ const ConfigureRoll = ({ products }) => {
               <div className="col-lg-8">
                 <div className="form-group">
                   <input
-                    list="quantity"
+                    className="form-control border-0"
+                    type="number"
+                    min={500}
+                    step={500}
                     name="quantity"
-                    className="form-control"
                     placeholder="Enter Quantity"
                     onChange={(e) => dispatch(setRollQuantity(e.target.value))}
                     value={config.quantity}
