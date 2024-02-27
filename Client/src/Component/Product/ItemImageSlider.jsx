@@ -1,9 +1,13 @@
 import "./App.css";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ReactImageMagnify from "@ditus/react-image-magnify";
 
 const ItemImageSlider = (props) => {
-  const [img, setImg] = useState(()=>props.img ? props.img[0]:null);
+  const [img, setImg] = useState(null);
+  
+  useEffect(() => {
+    setImg(()=>props.img ? props.img[0]:null)
+  },[props])
   
   const hoverHandler = (image, i) => {
     setImg(image);

@@ -1,6 +1,4 @@
 import ItemImageSlider from "./ItemImageSlider";
-
-import ConfigurePrice from "../Cardboard/ConfigurePrice";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setProduct } from "../../Pages/CardBoardPage/CardBoardSlice";

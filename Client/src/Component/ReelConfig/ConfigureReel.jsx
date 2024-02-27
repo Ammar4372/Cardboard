@@ -59,7 +59,7 @@ const ConfigureReel = ({ products }) => {
   return (
     <>
       <div className="configure-price-card">
-        <div className="card">
+        <div className="card" style={{width: "100%"}}>
           <div className="card-header">
             <h5>Configure & Price</h5>
             <a href="#">
@@ -87,7 +87,7 @@ const ConfigureReel = ({ products }) => {
                         }
                       >
                         <option value="" hidden>
-                          Select A Option
+                          Select an option
                         </option>
                         {products.map((product, index) => {
                           return (
@@ -117,7 +117,7 @@ const ConfigureReel = ({ products }) => {
                     }}
                   >
                     <option value="" hidden>
-                      Select A Option
+                      Select an option
                     </option>
                     {config.item?.Sizes?.map((item) => {
                       return (
@@ -152,7 +152,7 @@ const ConfigureReel = ({ products }) => {
                     }
                   >
                     <option value="" hidden>
-                      Select A Option
+                      Select an option
                     </option>
                     {config.weights?.map((weight) => {
                       return (
@@ -172,9 +172,10 @@ const ConfigureReel = ({ products }) => {
               <div className="col-lg-8">
                 <div className="form-group">
                   <input
-                    className="form-control"
+                    className="form-control border-0"
                     type="number"
-                    min="0"
+                    min={500}
+                    step={500}
                     value={config.quantity}
                     onChange={({ target }) => {
                       dispatch(setReelQuantity(target.value));
