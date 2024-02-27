@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const LoginSlice = createSlice({
   name: "Login",
   initialState: {
-    Login: false,
+    Login: document.cookie.includes("login=true") ? true : false,
     Email: "",
   },
   reducers: {
