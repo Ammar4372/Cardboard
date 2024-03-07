@@ -48,6 +48,7 @@ const ConfigurePrice = ({ products, materials }) => {
   };
 
   useEffect(() => {
+    console.log(config)
     if (config.dimension.length && config.dimension.width && config.quantity) {
       const pricePerSheet =
         (((config.dimension.length * config.dimension.width * 210) / 15500) *

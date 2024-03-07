@@ -19,11 +19,10 @@ const ProductList = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    getProductsListById(id);
+    dispatch(getProductsListById(id))
     dispatch(getMaterials());
     mainDivRef.current.scrollIntoView();
   }, []);
-  console.log(productList);
   return (
     <>
       <div ref={mainDivRef}>

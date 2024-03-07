@@ -17,7 +17,7 @@ function ReelsPage() {
   const dispatch = useDispatch();
   const products = useSelector(selectReels);
   useEffect(() => {
-    dispatch(getReels());
+    dispatch(getReels()); 
     window.scroll(0, 0);
   }, []);
   return (
@@ -28,7 +28,7 @@ function ReelsPage() {
           <h1 className="heading">Types of Reels</h1>
           <div className="row">
             {products.map((card, index) => (
-              <Card card={card} key={index} to={`/ReelDisplay/${card._id}`} />
+              <Card card={card} key={index} to={`/reels-list/1`} />
             ))}
           </div>
         </div>

@@ -6,7 +6,6 @@ import {
 
 const StandardSize = ({ item }) => {
   const dispatch = useDispatch();
-  console.log(item);
   const config = useSelector(selectConfig);
   return (
     <>
@@ -36,13 +35,13 @@ const StandardSize = ({ item }) => {
 
               <option
                 value={JSON.stringify({
-                  length: item.length,
-                  width: item.width,
-                  depth: item.depth,
+                  length: item?.dimensions?.length,
+                  width: item?.dimensions?.width,
+                  depth: item?.dimensions?.depth,
                 })}
               >
                 {item
-                  ? `${item.dimensions.length}’’ x${item.dimensions.width}’’x${item.dimensions.depth}’’`
+                  ? `${item?.dimensions?.length}’’ x${item?.dimensions?.width}’’x${item?.dimensions?.depth}’’`
                   : ""}
               </option>
             </select>

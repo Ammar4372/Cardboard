@@ -26,9 +26,9 @@ function RollsPage() {
       <section className="products-type">
         <div className="container">
           <h1 className="heading">Types of Rolls</h1>
-          <div className="row">
+          <div className="row"> 
             {products?.map((card, index) => (
-              <Card card={card} key={index} to={`/RollDisplay/${card._id}`} />
+              <Card card={card} key={index} to={`/roles-list/1`} />
             ))}
           </div>
         </div>

@@ -24,7 +24,7 @@ const SignIn = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    fetch("/signup", {
+    fetch("http://localhost:3001/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +52,7 @@ const SignIn = () => {
     <MDBContainer className="p-4 overflow-hidden">
       <MDBRow center>
         <MDBCol md="6" className="position-relative">
-          <MDBCard className="my-5 bg-glass">
+          <MDBCard className=" w-100 my-5 bg-glass">
             <MDBCardBody className="p-5">
               <h4
                 className="text-center display-3 fw-bold ls-tight "
@@ -105,7 +105,7 @@ const SignIn = () => {
                 />
                 <input
                   type="submit"
-                  className="btn btn-primary w-100 mt-4"
+                  className="btn w-100 mt-4 text-white mb-2"
                   value="Sign Up"
                   style={{ backgroundColor: "#f7744f" }}
                 />
@@ -114,7 +114,7 @@ const SignIn = () => {
                 to="/Login"
                 className="text-center d-block text-decoration-none "
               >
-                Already Registered?
+                Already registered?
               </Link>
             </MDBCardBody>
           </MDBCard>

@@ -22,7 +22,7 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const handleClick = (e) => {
     e.preventDefault();
-    fetch("/login", {
+    fetch("http://localhost:3001/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const LoginPage = () => {
     <MDBContainer className="p-4 overflow-hidden">
       <MDBRow center>
         <MDBCol md="6" className="position-relative">
-          <MDBCard className="my-5 bg-glass">
+          <MDBCard className=" w-100 my-5 bg-glass">
             <MDBCardBody className="p-5">
               <h4
                 className="text-center display-3 fw-bold ls-tight "
@@ -99,7 +99,7 @@ const LoginPage = () => {
                 )}
                 <input
                   type="submit"
-                  className="btn btn-primary w-100 mt-4"
+                  className="btn w-100 mt-4 text-white mb-2 "
                   value="Login"
                   style={{ backgroundColor: "#f7744f" }}
                 />
@@ -108,7 +108,7 @@ const LoginPage = () => {
                 to="/SignIn"
                 className="text-center d-block text-decoration-none "
               >
-                Don't Have A Account
+                Don't have an account?
               </Link>
             </MDBCardBody>
           </MDBCard>

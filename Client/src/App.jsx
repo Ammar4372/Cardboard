@@ -25,6 +25,9 @@ import SignIn from "./Pages/SignInPage";
 import LoginPage from "./Pages/LogInPage/LoginPage";
 import ProfilePage from "./Pages/ProfilePage";
 import ProductList from "./Pages/ProductList";
+import ReelsList from "./Pages/ReelsPage/ReelsList";
+import SinglePage from "./Pages/RoleReelDisplay/SinglePage";
+import RolesList from "./Pages/RollsPage/RolesList";
 
 const appRouter = createBrowserRouter(
   createRoutesFromElements(
@@ -48,7 +51,9 @@ const appRouter = createBrowserRouter(
       <Route path="/Login" element={<LoginPage />} />
       <Route path="/Profile" element={<ProfilePage />} />
       <Route path="/products-list/:id" element={<ProductList />} />
-      {/* <Route path="/magnifier-test" element={<MagnifierTest />} /> */}
+      <Route path="/reels-list/:id" element={<ReelsList />} />
+      <Route path="/display-pannal/:id" element={<SinglePage />} />
+      <Route path="/roles-list/:id" element={<RolesList />} />
     </Route>
   )
 );
