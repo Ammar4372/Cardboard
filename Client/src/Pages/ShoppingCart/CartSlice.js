@@ -7,7 +7,7 @@ const cartSlice = createSlice({
       ? JSON.parse(localStorage.getItem("cart"))
       : [],
     totalPrice: localStorage.getItem("totalPrice")
-      ? localStorage.getItem("totalPrice")
+      ? Number(localStorage.getItem("totalPrice"))
       : 0,
   },
   reducers: {
@@ -42,7 +42,6 @@ const cartSlice = createSlice({
         action.payload.id = Date.now();
         state.items.push(action.payload);
       }
-      localStorage.setItem("totalPrice", state.totalPrice);
       localStorage.setItem("cart", JSON.stringify(state.items));
     },
     addRollToCart(state, action) {
@@ -71,7 +70,6 @@ const cartSlice = createSlice({
         action.payload.id = Date.now();
         state.items.push(action.payload);
       }
-      localStorage.setItem("totalPrice", state.totalPrice);
       localStorage.setItem("cart", JSON.stringify(state.items));
     },
     addReelToCart(state, action) {
@@ -103,7 +101,6 @@ const cartSlice = createSlice({
         state.items.push(action.payload);
       }
       localStorage.setItem("cart", JSON.stringify(state.items));
-      localStorage.setItem("totalPrice", state.totalPrice);
     },
     incrementItemQuantity(state, action) {
       state.items.map((item) => {
@@ -131,15 +128,18 @@ const cartSlice = createSlice({
     },
     removeItem(state, action) {
       state.items = state.items.filter((item) => item.id !== action.payload);
+      localStorage.setItem("cart", JSON.stringify(state.items));
     },
     emptyCart(state, action) {
       state.items = [];
+      localStorage.removeItem("totalPrice");
+      localStorage.removeItem("cart");
     },
     setTotalPrice(state, action) {
       let price = 0;
       state.items.forEach((item) => (price += item.price));
       state.totalPrice = price;
-      localStorage.setItem("cart", JSON.stringify(state.items));
+      localStorage.setItem("totalPrice", state.totalPrice);
     },
   },
 });
