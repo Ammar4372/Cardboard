@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState, useRef, useEffect } from "react";
 import ReactImageMagnify from "@ditus/react-image-magnify";
+import Magnifier from "../Magnifier/Magnifier";
 
 const ItemImageSlider = (props) => {
   const [img, setImg] = useState(null);
@@ -44,28 +45,11 @@ const ItemImageSlider = (props) => {
             ))}
           </div>
           <div className=" left_2 px-2 h-100 w-100 ">
-            {/* <ReactImageMagnify
-              {...{
-                smallImage: {
-                  alt: "sliderImage",
-                  isFluidWidth: true,
-                  src: img,
-                },
-                largeImage: {
-                  src: img,
-                  width: 1200,
-                  height: 1800,
-                },
-                enlargedImageContainerDimensions: {
-                  width: "150%",
-                  height: "100%",
-                },
-              }}
-            /> */}
-            <img 
+            <Magnifier smallImageSrc={img} largeImageSrc={img} alt='img' />
+            {/* <img 
               src={img}
               alt="sliderImg"
-            />
+            /> */}
           </div>
         </div>
         <div className="right"></div>

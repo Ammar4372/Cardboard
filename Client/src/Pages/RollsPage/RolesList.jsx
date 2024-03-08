@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectRolls } from "./RollsSlice";
-import Banner from "../../Component/ReelConfig/Banner";
+import Banner from "../../Component/RollConfig/Banner";
 import SingleReelCard from "../ReelsPage/SingleReelCard";
 
 const RolesList = () => {

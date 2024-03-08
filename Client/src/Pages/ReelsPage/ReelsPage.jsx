@@ -27,8 +27,8 @@ function ReelsPage() {
         <div className="container">
           <h1 className="heading">Types of Reels</h1>
           <div className="row">
-            {products.map((card, index) => (
-              <Card card={card} key={index} to={`/reels-list/1`} />
+            {products?.map((card, index) => (
+              <Card card={card} key={index} to={`/reels-list/${card._id}`} />
             ))}
           </div>
         </div>

@@ -9,6 +9,7 @@ export const getReels = createAsyncThunk(
     return res;
   }
 );
+
 export const getReelById = createAsyncThunk(
   "Reels/getProductById",
   async (id, thunkapi) => {
@@ -18,6 +19,7 @@ export const getReelById = createAsyncThunk(
     return res;
   }
 );
+
 export const getReelWeights = createAsyncThunk(
   "Reels/getWeightsBySize",
   async (detail, thunkapi) => {

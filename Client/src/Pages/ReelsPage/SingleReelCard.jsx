@@ -18,12 +18,12 @@ const SingleReelCard = (props) => {
                     <div className="stats mt-2">
                         <div className="d-flex justify-content-between">
                             <span className=" fw-bold ">Size</span>
-                            <span className=" fw-bold text-black-50 ">{props.prodSize}</span>
+                            <span className=" fw-bold text-black-50 ">{props.prodSize} inch</span>
                         </div>
-                        <div className="d-flex justify-content-between mt-2 ">
+                        {/* <div className="d-flex justify-content-between mt-2 ">
                             <span className=" fw-bold ">Weight</span>
                             <span className=" fw-bold text-black-50 ">{props.prodWeight}Kg</span>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="d-grid gap-2">
                         <Link
