@@ -15,7 +15,7 @@ const images = [
 
 function RollsPage() {
   const dispatch = useDispatch();
-  const products = useSelector(selectRolls);
+  const products = useSelector(selectRolls); 
   useEffect(() => {
     dispatch(getRolls());
     window.scroll(0, 0);
@@ -28,7 +28,7 @@ function RollsPage() {
           <h1 className="heading">Types of Rolls</h1>
           <div className="row"> 
             {products?.map((card, index) => (
-              <Card card={card} key={index} to={`/roles-list/1`} />
+              <Card card={card} key={index} to={`/roles-list/${card?._id}`} />
             ))}
           </div>
         </div>
