@@ -14,7 +14,7 @@ const ProductsCardModel = require("./Models/Products");
 const loginRouter = require("./loginRouter");
 const app = express();
 app.use(cors()); //sever side to frontend
-app.use(express.json()); // conversion
+app.use(express.json({limit: "50mb"})); // conversion
 require("dotenv").config();
 app.use("/", loginRouter);
 mongoose
@@ -69,7 +69,7 @@ app.get("/cardboard", (req, res) => {
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    return cb(null, path.join(__dirname, "../Client/public/uploads"));
+    return cb(null, path.join(__dirname, "/uploads"));
   },
   filename: function (req, file, cb) {
     cb(null, `${Date.now()}-canvasCut.png`);
@@ -89,7 +89,7 @@ app.post("/save-image", (req, res) => {
   const base64Data = dataURL.replace(/^data:image\/png;base64,/, "");
 
   // Save the image to a specific folder (create the folder if it doesn't exist)
-  const uploadsFolder = path.join(__dirname, "../Client/public/uploads");
+  const uploadsFolder = path.join(__dirname, "/uploads");
   const imagePath = `${uploadsFolder}/${imgName}`; // Change this path to your desired folder
 
   fs.writeFile(imagePath, base64Data, "base64", (error) => {
