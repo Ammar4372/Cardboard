@@ -5,10 +5,10 @@ import {
   Route,
 } from "react-router-dom";
 
+import "bootstrap/dist/css/bootstrap.min.css";
 import IndexPage from "./Pages/IndexPage";
 import Root from "./Component/Root";
 import CardBoardPage from "./Pages/CardBoardPage/CardBoardPage";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import ReelsPage from "./Pages/ReelsPage/ReelsPage";
 import RollsPage from "./Pages/RollsPage/RollsPage";
@@ -25,9 +25,8 @@ import SignIn from "./Pages/SignInPage";
 import LoginPage from "./Pages/LogInPage/LoginPage";
 import ProfilePage from "./Pages/ProfilePage";
 import ProductList from "./Pages/ProductList";
-import ReelsList from "./Pages/ReelsPage/ReelsList";
 import SinglePage from "./Pages/RoleReelDisplay/SinglePage";
-import RolesList from "./Pages/RollsPage/RolesList";
+import RollSinglePage from "./Pages/RollDisplay/SinglePage";
 
 const appRouter = createBrowserRouter(
   createRoutesFromElements(
@@ -51,9 +50,8 @@ const appRouter = createBrowserRouter(
       <Route path="/Login" element={<LoginPage />} />
       <Route path="/Profile" element={<ProfilePage />} />
       <Route path="/products-list/:id" element={<ProductList />} />
-      <Route path="/reels-list/:id" element={<ReelsList />} />
       <Route path="/display-pannal/:id" element={<SinglePage />} />
-      <Route path="/roles-list/:id" element={<RolesList />} />
+      <Route path="/roll-display/:id" element={<RollSinglePage />} />
     </Route>
   )
 );

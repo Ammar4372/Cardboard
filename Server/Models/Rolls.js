@@ -11,18 +11,7 @@ const RoolSchema = new mongoose.Schema({
     required: true,
   },
   Sizes: {
-    type: [
-      {
-        Size: {
-          type: Number,
-          required: true,
-        },
-        Quantity: {
-          type: Number,
-          required: true,
-        },
-      },
-    ],
+    type: Object
   },
   description: {
     type: String,
@@ -31,7 +20,10 @@ const RoolSchema = new mongoose.Schema({
   },
   Quantity:{
     type: Number
-  }
+  },
+  images:{
+    type: Array
+  },
 });
 
 module.exports = mongoose.model("Roll", RoolSchema);

@@ -67,8 +67,6 @@ const ProductDP = ({ Product, materials }) => {
             dispatch(addToCart(item));
             dispatch(setTotalPrice());
             window.scroll(0,0);
-        } else {
-            alert("Please Select All Required Fields");
         }
     };
 

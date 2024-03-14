@@ -1,11 +1,7 @@
 import ItemImageSlider from "../../Component/Product/ItemImageSlider";
-import MainDp from "./MainDp";
-import { selectImages } from '../ReelsPage/ReelsSlice';
-import { useSelector } from "react-redux";
+import MainDP from "./MainDP";
 
-const MainDisplay = () => {
-
-  const imgArr = useSelector(selectImages);
+const MainDisplay = ({Product}) => {
 
   return (
     <>
@@ -14,13 +10,13 @@ const MainDisplay = () => {
           <div className="row">
             <div className="col-lg-6" >
               <div className="product-slider">
-                <ItemImageSlider img={imgArr} />
+                <ItemImageSlider img={Product?.images} />
               </div>
             </div>
 
             <div className=" col-lg-6">
               <div className="inner-banner">
-                <MainDp />
+                <MainDP Product={Product} />
               </div>
             </div>
           </div>

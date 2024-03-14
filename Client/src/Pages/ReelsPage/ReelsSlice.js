@@ -44,7 +44,9 @@ const ReelsSlice = createSlice({
     },
     Reels: [],
     ReelById: {},
+    Images: [], // Adding Images state here
   },
+
   reducers: {
     setReel(state, action) {
       state.Config.item = action.payload;
@@ -72,6 +74,9 @@ const ReelsSlice = createSlice({
         quantity: 0,
       };
     },
+    setImages(state, action) {
+      state.Images = action.payload; // Action to update Images state
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(getReels.fulfilled, (state, action) => {
@@ -85,6 +90,7 @@ const ReelsSlice = createSlice({
     });
   },
 });
+
 export const selectReelConfig = (state) => {
   return state.ReelsSlice.Config;
 };
@@ -94,12 +100,17 @@ export const selectReels = (state) => {
 export const selectReelById = (state) => {
   return state.ReelsSlice.ReelById;
 };
+export const selectImages = (state) => { // Selector for Images state
+  return state.ReelsSlice.Images;
+};
+
 export const {
   setReel,
   setReelSize,
   setWeight,
   setReelPrice,
   resetReelConfig,
-  setReelQuantity
+  setReelQuantity,
+  setImages, // Expose setImages action
 } = ReelsSlice.actions;
 export default ReelsSlice.reducer;

@@ -16,8 +16,10 @@ import {
 } from "../../Pages/ShoppingCart/CartSlice";
 
 const ConfigureReel = ({ products }) => {
+
   const dispatch = useDispatch();
   const config = useSelector(selectReelConfig);
+
   const handleClick = () => {
     if (config.totalPrice) {
       const item = {
@@ -37,12 +39,14 @@ const ConfigureReel = ({ products }) => {
       alert("Please select all the Required field.");
     }
   };
+  
   useEffect(() => {
     if (config.item.Type && config.size) {
       dispatch(getReelWeights({ type: config.item.Type, size: config.size }));
     }
     
   }, [config.item, config.size]);
+
   useEffect(() => {
     if (config.selectedWeight.weight_type && config.quantity) {
       const pricePerPiece =
