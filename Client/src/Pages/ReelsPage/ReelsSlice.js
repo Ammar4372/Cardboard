@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const getReels = createAsyncThunk(
   "Reels/getProducts",
   async (thunkapi) => {
-    const res = await fetch("http://localhost:3001/reels").then((res) =>
+    const res = await fetch("/reels").then((res) =>
       res.json()
     );
     return res;
@@ -13,7 +13,7 @@ export const getReels = createAsyncThunk(
 export const getReelById = createAsyncThunk(
   "Reels/getProductById",
   async (id, thunkapi) => {
-    const res = await fetch(`http://localhost:3001/reels/${id}`).then((res) =>
+    const res = await fetch(`/reels/${id}`).then((res) =>
       res.json()
     );
     return res;
@@ -24,7 +24,7 @@ export const getReelWeights = createAsyncThunk(
   "Reels/getWeightsBySize",
   async (detail, thunkapi) => {
     const res = await fetch(
-      `http://localhost:3001/details-reels-data/${detail.type}/${detail.size}`
+      `/details-reels-data/${detail.type}/${detail.size}`
     ).then((res) => res.json());
     return res.weight;
   }

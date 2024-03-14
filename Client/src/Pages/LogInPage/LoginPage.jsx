@@ -22,7 +22,7 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const handleClick = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3001/login", {
+    fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

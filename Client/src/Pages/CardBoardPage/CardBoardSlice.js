@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const getProducts = createAsyncThunk(
   "CardBoard/getProducts",
   async (thunkApi) => {
-    const res = await fetch("http://localhost:3001/cardboard").then((data) =>
+    const res = await fetch("/cardboard").then((data) =>
       data.json()
     );
 
@@ -13,7 +13,7 @@ export const getProducts = createAsyncThunk(
 export const getMaterials = createAsyncThunk(
   "CardBoard/getMaterials",
   async (thunkApi) => {
-    const res = await fetch("http://localhost:3001/material-details").then(
+    const res = await fetch("/material-details").then(
       (data) => data.json()
     );
     return res;
@@ -23,7 +23,7 @@ export const getProductById = createAsyncThunk(
   "CardBoard/getProductById",
   async (id, thunkApi) => {
     const res = await fetch(
-      `http://localhost:3001/cardboard/getItem/${id}`
+      `/cardboard/getItem/${id}`
     ).then((data) => data.json());
 
     return res;
@@ -33,7 +33,7 @@ export const getProductById = createAsyncThunk(
 export const getProductsListById = createAsyncThunk(
   "CardBoard/getProductsListById",
   async (id, thunkApi) => {
-    const res = await fetch(`http://localhost:3001/products-list/${id}`).then(
+    const res = await fetch(`/products-list/${id}`).then(
       (data) => data.json()
     );
 
