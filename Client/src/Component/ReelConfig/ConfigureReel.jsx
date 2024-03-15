@@ -25,10 +25,10 @@ const ConfigureReel = ({ products }) => {
       const item = {
         id: config.item._id,
         name: config.item.Type,
-        img: "/img/reels_product_1.png",
+        img: config.selectedWeight.images[0],
         size: config.size,
         weight: config.selectedWeight,
-        quantity: config.quantity,
+        quantity: 1,
         pricePerPiece: config.pricePerPiece,
         price: config.totalPrice,
       };
@@ -39,31 +39,28 @@ const ConfigureReel = ({ products }) => {
       alert("Please select all the Required field.");
     }
   };
-  
+
   useEffect(() => {
     if (config.item.Type && config.size) {
       dispatch(getReelWeights({ type: config.item.Type, size: config.size }));
     }
-    
+
   }, [config.item, config.size]);
 
   useEffect(() => {
-    if (config.selectedWeight.weight_type && config.quantity) {
+    if (config.selectedWeight.weight_type) {
       const pricePerPiece =
         config.selectedWeight.weight_type * config.selectedWeight.Rate;
-      const price = config.quantity * pricePerPiece;
-      
+      const price = 1 * pricePerPiece;
+
       dispatch(setReelPrice({ pricePerPiece, price }));
     }
-    if (config.quantity == 0) {
-      dispatch(setReelPrice({ pricePerPiece: 0, price: 0 }));
-    }
-  }, [config.selectedWeight,config.quantity ]);
+  }, [config.selectedWeight]);
 
   return (
     <>
       <div className="configure-price-card">
-        <div className="card" style={{width: "100%"}}>
+        <div className="card" style={{ width: "100%" }}>
           <div className="card-header">
             <h5>Configure & Price</h5>
             <a href="#">
@@ -168,23 +165,6 @@ const ConfigureReel = ({ products }) => {
                       );
                     })}
                   </select>
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <h6>Quantity:</h6>
-              </div>
-              <div className="col-lg-8">
-                <div className="form-group">
-                  <input
-                    className="form-control border-0"
-                    type="number"
-                    min={500}
-                    step={500}
-                    value={config.quantity}
-                    onChange={({ target }) => {
-                      dispatch(setReelQuantity(target.value));
-                    }}
-                  />
                 </div>
               </div>
 
